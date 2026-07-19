@@ -203,17 +203,27 @@ export default function Home() {
                     href={personalInfo.venture.url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="block rounded-xl border border-border bg-background p-6 sm:p-7 shadow-sm transition-colors hover:border-primary/40"
+                    className="flex items-center gap-4 rounded-xl border border-border bg-background p-6 sm:p-7 shadow-sm transition-colors hover:border-primary/40"
                   >
-                    <p className="text-xs uppercase tracking-[0.22em] text-muted-foreground mb-3">
-                      {personalInfo.venture.platformLabel}
-                    </p>
-                    <h3 className="text-xl sm:text-2xl font-display font-bold text-foreground mb-2">
-                      {personalInfo.venture.platformTitle}
-                    </h3>
-                    <p className="text-sm text-muted-foreground">
-                      {personalInfo.venture.platformTagline}
-                    </p>
+                    <div className="min-w-0 flex-1">
+                      <p className="text-xs uppercase tracking-[0.22em] text-muted-foreground mb-3">
+                        {personalInfo.venture.platformLabel}
+                      </p>
+                      <h3 className="text-xl sm:text-2xl font-display font-bold text-foreground mb-2">
+                        {personalInfo.venture.platformTitle}
+                      </h3>
+                      <p className="text-sm text-muted-foreground">
+                        {personalInfo.venture.platformTagline}
+                      </p>
+                    </div>
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img
+                      src="/cyber-tools-logo.png"
+                      alt="Cyber Tools logo"
+                      width={72}
+                      height={72}
+                      className="h-16 w-16 sm:h-[72px] sm:w-[72px] shrink-0 rounded-xl object-contain"
+                    />
                   </a>
                 </div>
               </div>
