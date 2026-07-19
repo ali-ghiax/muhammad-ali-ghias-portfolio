@@ -7,7 +7,7 @@ type ProfileAvatarProps = {
   priority?: boolean;
 };
 
-/** MAG logo in a rounded professional frame — replaces portrait photos. */
+/** Profile photo in a rounded professional frame. */
 export function ProfileAvatar({
   className,
   size = 160,
@@ -24,7 +24,7 @@ export function ProfileAvatar({
     >
       <Image
         src="/avatar-mag.png"
-        alt="MAG — Muhammad Ali Ghias"
+        alt="Muhammad Ali Ghias"
         width={size}
         height={size}
         priority={priority}
