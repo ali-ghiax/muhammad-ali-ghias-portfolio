@@ -211,13 +211,9 @@ export default function Home() {
                     <h3 className="text-xl sm:text-2xl font-display font-bold text-foreground mb-2">
                       {personalInfo.venture.platformTitle}
                     </h3>
-                    <p className="text-sm text-muted-foreground mb-5">
+                    <p className="text-sm text-muted-foreground">
                       {personalInfo.venture.platformTagline}
                     </p>
-                    <span className="inline-flex items-center gap-1.5 text-sm font-medium text-foreground">
-                      {personalInfo.venture.platformLinkLabel}
-                      <ArrowRight className="w-3.5 h-3.5" />
-                    </span>
                   </a>
                 </div>
               </div>
