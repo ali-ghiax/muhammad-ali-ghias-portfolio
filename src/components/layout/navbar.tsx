@@ -57,6 +57,38 @@ export function Navbar() {
     }
   }, [darkMode]);
 
+  React.useEffect(() => {
+    if (!isOpen) return;
+
+    const scrollY = window.scrollY;
+    const { style } = document.body;
+    const previous = {
+      overflow: style.overflow,
+      position: style.position,
+      top: style.top,
+      width: style.width,
+    };
+
+    style.overflow = "hidden";
+    style.position = "fixed";
+    style.top = `-${scrollY}px`;
+    style.width = "100%";
+    document.documentElement.style.overflow = "hidden";
+
+    return () => {
+      style.overflow = previous.overflow;
+      style.position = previous.position;
+      style.top = previous.top;
+      style.width = previous.width;
+      document.documentElement.style.overflow = "";
+      window.scrollTo(0, scrollY);
+    };
+  }, [isOpen]);
+
+  React.useEffect(() => {
+    setIsOpen(false);
+  }, [pathname]);
+
   return (
     <>
       <motion.header
@@ -150,12 +182,14 @@ export function Navbar() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 z-50 bg-background/95 backdrop-blur-xl"
+            className="fixed inset-0 z-[100] h-dvh w-screen overflow-hidden bg-background/95 backdrop-blur-xl md:hidden"
+            style={{ position: "fixed", top: 0, left: 0, right: 0, bottom: 0 }}
           >
-            <div className="flex flex-col items-center justify-center h-full gap-8">
+            <div className="flex h-full max-h-dvh flex-col items-center justify-center gap-8 overflow-y-auto overscroll-none px-6 py-20">
               <button
                 onClick={() => setIsOpen(false)}
-                className="absolute top-6 right-6 p-2 text-foreground"
+                className="absolute top-6 right-6 z-[101] p-2 text-foreground"
+                aria-label="Close menu"
               >
                 <X className="w-8 h-8" />
               </button>
@@ -184,6 +218,7 @@ export function Navbar() {
                 <button
                   onClick={() => setDarkMode(!darkMode)}
                   className="p-2 text-muted-foreground hover:text-foreground"
+                  aria-label="Toggle theme"
                 >
                   {darkMode ? <Sun className="w-6 h-6" /> : <Moon className="w-6 h-6" />}
                 </button>
