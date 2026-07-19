@@ -1,0 +1,198 @@
+@import "tailwindcss";
+
+:root {
+  --background: 40 33% 98%;
+  --foreground: 210 40% 8%;
+  --card: 0 0% 100%;
+  --card-foreground: 210 40% 8%;
+  --primary: 173 80% 28%;
+  --primary-foreground: 0 0% 100%;
+  --secondary: 199 89% 32%;
+  --secondary-foreground: 0 0% 100%;
+  --accent: 32 95% 44%;
+  --accent-foreground: 0 0% 100%;
+  --muted: 40 20% 94%;
+  --muted-foreground: 215 16% 40%;
+  --border: 210 20% 88%;
+  --input: 210 20% 88%;
+  --ring: 173 80% 28%;
+  --radius: 0.5rem;
+}
+
+.dark {
+  --background: 215 35% 7%;
+  --foreground: 40 20% 96%;
+  --card: 215 32% 10%;
+  --card-foreground: 40 20% 96%;
+  --primary: 173 70% 42%;
+  --primary-foreground: 215 35% 7%;
+  --secondary: 199 80% 48%;
+  --secondary-foreground: 215 35% 7%;
+  --accent: 32 90% 52%;
+  --accent-foreground: 215 35% 7%;
+  --muted: 215 25% 14%;
+  --muted-foreground: 215 15% 65%;
+  --border: 215 25% 18%;
+  --input: 215 25% 18%;
+  --ring: 173 70% 42%;
+}
+
+@layer base {
+  * {
+    border-color: hsl(var(--border));
+  }
+  body {
+    background-color: hsl(var(--background));
+    background-image:
+      radial-gradient(ellipse 80% 50% at 10% -10%, rgba(13, 148, 136, 0.12), transparent 55%),
+      radial-gradient(ellipse 60% 40% at 90% 0%, rgba(3, 105, 161, 0.1), transparent 50%),
+      linear-gradient(180deg, hsl(var(--background)) 0%, hsl(40 25% 96%) 100%);
+    color: hsl(var(--foreground));
+    font-family: var(--font-sans), "Segoe UI", sans-serif;
+    overflow-x: hidden;
+  }
+  .dark body {
+    background-image:
+      radial-gradient(ellipse 70% 45% at 15% -5%, rgba(45, 212, 191, 0.08), transparent 55%),
+      radial-gradient(ellipse 50% 35% at 90% 5%, rgba(56, 189, 248, 0.06), transparent 50%),
+      linear-gradient(180deg, #0a1220 0%, #0d1524 50%, #0a1220 100%);
+  }
+  html {
+    scroll-behavior: smooth;
+  }
+  h1, h2, h3, h4, .font-display {
+    font-family: var(--font-display), Georgia, serif;
+    letter-spacing: -0.02em;
+  }
+}
+
+@layer utilities {
+  .glow-primary {
+    box-shadow: 0 8px 28px rgba(13, 148, 136, 0.25);
+  }
+  .glow-secondary {
+    box-shadow: 0 8px 28px rgba(3, 105, 161, 0.22);
+  }
+  .glow-accent {
+    box-shadow: 0 8px 28px rgba(217, 119, 6, 0.22);
+  }
+  .glass {
+    background: rgba(255, 255, 255, 0.78);
+    backdrop-filter: blur(16px);
+    border: 1px solid rgba(15, 23, 42, 0.08);
+  }
+  .dark .glass {
+    background: rgba(15, 23, 42, 0.72);
+    border: 1px solid rgba(148, 163, 184, 0.12);
+  }
+  .glass-card {
+    background: linear-gradient(160deg, rgba(255, 255, 255, 0.92) 0%, rgba(248, 250, 252, 0.85) 100%);
+    backdrop-filter: blur(16px);
+    border: 1px solid rgba(15, 23, 42, 0.08);
+  }
+  .dark .glass-card {
+    background: linear-gradient(160deg, rgba(20, 30, 48, 0.9) 0%, rgba(12, 20, 34, 0.8) 100%);
+    border: 1px solid rgba(148, 163, 184, 0.1);
+  }
+  .text-gradient {
+    background: linear-gradient(120deg, #0f766e 0%, #0369a1 55%, #b45309 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .dark .text-gradient {
+    background: linear-gradient(120deg, #2dd4bf 0%, #38bdf8 55%, #fbbf24 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .bg-grid {
+    background-image:
+      linear-gradient(rgba(15, 118, 110, 0.07) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(15, 118, 110, 0.07) 1px, transparent 1px);
+    background-size: 48px 48px;
+  }
+  .dark .bg-grid {
+    background-image:
+      linear-gradient(rgba(45, 212, 191, 0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(45, 212, 191, 0.04) 1px, transparent 1px);
+  }
+  .bg-radial {
+    background: radial-gradient(ellipse at 30% 20%, rgba(13, 148, 136, 0.14) 0%, transparent 55%);
+  }
+  .hero-mesh {
+    background:
+      radial-gradient(circle at 20% 30%, rgba(13, 148, 136, 0.18), transparent 35%),
+      radial-gradient(circle at 80% 20%, rgba(3, 105, 161, 0.14), transparent 30%),
+      radial-gradient(circle at 60% 80%, rgba(180, 83, 9, 0.1), transparent 35%);
+  }
+  .dark .hero-mesh {
+    background:
+      radial-gradient(circle at 20% 30%, rgba(45, 212, 191, 0.12), transparent 35%),
+      radial-gradient(circle at 80% 20%, rgba(56, 189, 248, 0.1), transparent 30%),
+      radial-gradient(circle at 60% 80%, rgba(251, 191, 36, 0.08), transparent 35%);
+  }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+@keyframes pulse-glow {
+  0%, 100% { opacity: 0.5; }
+  50% { opacity: 1; }
+}
+@keyframes slide-up {
+  0% { opacity: 0; transform: translateY(30px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+@keyframes fade-in {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+@keyframes scale-in {
+  0% { opacity: 0; transform: scale(0.96); }
+  100% { opacity: 1; transform: scale(1); }
+}
+@keyframes line-draw {
+  0% { transform: scaleX(0); }
+  100% { transform: scaleX(1); }
+}
+
+.animate-float {
+  animation: float 7s ease-in-out infinite;
+}
+.animate-pulse-glow {
+  animation: pulse-glow 2.4s ease-in-out infinite;
+}
+.animate-slide-up {
+  animation: slide-up 0.6s ease-out forwards;
+}
+.animate-fade-in {
+  animation: fade-in 0.5s ease-out forwards;
+}
+.animate-scale-in {
+  animation: scale-in 0.5s ease-out forwards;
+}
+.animate-line-draw {
+  transform-origin: left;
+  animation: line-draw 0.8s ease-out forwards;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #f1f5f9;
+}
+.dark ::-webkit-scrollbar-track {
+  background: #0a1220;
+}
+::-webkit-scrollbar-thumb {
+  background: #0d9488;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #0f766e;
+}

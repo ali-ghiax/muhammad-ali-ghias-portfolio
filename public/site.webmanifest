@@ -1,0 +1,19 @@
+{
+  "name": "Muhammad Ali Ghias",
+  "short_name": "MAG",
+  "description": "Portfolio of Muhammad Ali Ghias (MAG) — Ali Ghias / Ghias. Junior Software Engineer & Graphic Designer.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#f8f7f4",
+  "theme_color": "#0f766e",
+  "lang": "en",
+  "categories": ["portfolio", "developer", "design"],
+  "icons": [
+    {
+      "src": "https://github.com/ali-ghiax.png",
+      "sizes": "460x460",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ]
+}

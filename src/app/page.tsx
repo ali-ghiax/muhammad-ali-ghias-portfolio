@@ -1,0 +1,328 @@
+"use client";
+
+import { motion } from "framer-motion";
+import Link from "next/link";
+import {
+  ArrowRight,
+  Code2,
+  Mail,
+  MapPin,
+  Rocket,
+  Monitor,
+  Database,
+  Server,
+  Boxes,
+  CheckCircle,
+} from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Card } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
+import { personalInfo, projects, skills, services } from "@/data/portfolio";
+import { AnimatedSection } from "@/components/layout/animations";
+
+const featuredProjects = projects.filter((p) => p.featured).slice(0, 3);
+
+export default function Home() {
+  return (
+    <div className="relative">
+      {/* Hero — brand-first, one composition */}
+      <section className="relative min-h-screen flex items-end md:items-center pt-24 pb-16 overflow-hidden">
+        <div className="absolute inset-0 hero-mesh" />
+        <div className="absolute inset-0 bg-grid opacity-40" />
+        <div className="absolute inset-y-0 right-0 w-full md:w-1/2 opacity-30 md:opacity-50 pointer-events-none">
+          <div className="absolute inset-0 bg-gradient-to-l from-transparent via-transparent to-background" />
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 1.2 }}
+            className="absolute top-1/4 right-[8%] w-64 h-64 md:w-96 md:h-96 rounded-full border border-primary/20"
+          />
+          <motion.div
+            initial={{ scale: 0.9, opacity: 0 }}
+            animate={{ scale: 1, opacity: 1 }}
+            transition={{ duration: 1, delay: 0.2 }}
+            className="absolute top-[28%] right-[12%] w-48 h-48 md:w-72 md:h-72 rounded-full bg-primary/10 blur-2xl animate-float"
+          />
+        </div>
+
+        <div className="max-w-7xl mx-auto px-6 relative z-10 w-full">
+          <motion.p
+            initial={{ opacity: 0, y: 12 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+            className="font-display text-5xl sm:text-6xl md:text-8xl lg:text-9xl font-bold tracking-tight mb-2 md:mb-3"
+          >
+            <span className="text-gradient">Muhammad</span>
+            <br />
+            <span className="text-foreground">Ali Ghias</span>
+          </motion.p>
+
+          <motion.div
+            initial={{ scaleX: 0 }}
+            animate={{ scaleX: 1 }}
+            transition={{ duration: 0.7, delay: 0.25 }}
+            className="h-1 w-24 md:w-32 bg-primary mb-3 md:mb-4 origin-left"
+          />
+
+          <motion.h1
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.3 }}
+            className="text-xl md:text-3xl font-display font-semibold text-foreground/90 mb-4 max-w-2xl"
+          >
+            {personalInfo.role}
+          </motion.h1>
+
+          <motion.p
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.4 }}
+            className="text-base md:text-lg text-muted-foreground mb-8 max-w-xl"
+          >
+            {personalInfo.tagline}. Web development, Microsoft technologies, and creative design.
+          </motion.p>
+
+          <motion.div
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.5 }}
+            className="flex flex-col sm:flex-row gap-3 mb-10"
+          >
+            <Link href="/projects">
+              <Button size="lg" className="group glow-primary">
+                View projects
+                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+              </Button>
+            </Link>
+            <Link href="/contact">
+              <Button size="lg" variant="outline">
+                Get in touch
+              </Button>
+            </Link>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.7 }}
+            className="flex flex-wrap items-center gap-x-6 gap-y-2 text-sm text-muted-foreground"
+          >
+            <span className="flex items-center gap-2">
+              <MapPin className="w-4 h-4 text-primary" />
+              {personalInfo.location}
+            </span>
+            <span className="flex items-center gap-2">
+              <Mail className="w-4 h-4 text-primary" />
+              {personalInfo.email}
+            </span>
+            <span className="inline-flex items-center gap-2 text-primary">
+              <span className="w-2 h-2 rounded-full bg-primary animate-pulse-glow" />
+              {personalInfo.availability}
+            </span>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Stats strip — below first viewport */}
+      <section className="py-12 border-y border-border/60 bg-card/40">
+        <div className="max-w-7xl mx-auto px-6 grid grid-cols-2 md:grid-cols-4 gap-8">
+          {[
+            { value: personalInfo.stats.yearsExperience, label: "Years building" },
+            { value: personalInfo.stats.projectsCompleted, label: "GitHub projects" },
+            { value: personalInfo.stats.systemsShipped, label: "Microsoft badges" },
+            { value: personalInfo.stats.technologies, label: "Skills" },
+          ].map((stat, index) => (
+            <motion.div
+              key={stat.label}
+              initial={{ opacity: 0, y: 12 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: index * 0.08 }}
+            >
+              <div className="text-3xl md:text-4xl font-display font-bold text-gradient mb-1">
+                {stat.value}+
+              </div>
+              <div className="text-sm text-muted-foreground">{stat.label}</div>
+            </motion.div>
+          ))}
+        </div>
+      </section>
+
+      {/* Featured projects */}
+      <section className="py-24 relative">
+        <div className="absolute inset-0 bg-grid opacity-20" />
+        <div className="max-w-7xl mx-auto px-6 relative">
+          <AnimatedSection>
+            <div className="mb-14 max-w-2xl">
+              <p className="text-sm uppercase tracking-[0.2em] text-primary mb-3">Selected work</p>
+              <h2 className="text-3xl md:text-5xl font-display font-bold mb-4">
+                Work that blends <span className="text-gradient">code & craft</span>
+              </h2>
+              <p className="text-muted-foreground">
+                Public work from{" "}
+                <a
+                  href={personalInfo.social.github}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-primary underline-offset-4 hover:underline"
+                >
+                  github.com/ali-ghiax
+                </a>
+                .
+              </p>
+            </div>
+          </AnimatedSection>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {featuredProjects.map((project, index) => (
+              <AnimatedSection key={project.id} delay={index * 0.1}>
+                <Link href={`/projects/${project.slug}`}>
+                  <div
+                    className="h-full group cursor-pointer border border-border hover:border-primary/40 transition-colors p-6 bg-card/50"
+                    style={{ borderTopWidth: 3, borderTopColor: project.color }}
+                  >
+                    <Badge variant="outline" className="mb-4 text-xs">
+                      {project.category}
+                    </Badge>
+                    <h3 className="text-xl font-display font-semibold mb-2 group-hover:text-primary transition-colors">
+                      {project.title}
+                    </h3>
+                    <p className="text-sm text-muted-foreground line-clamp-3 mb-5">
+                      {project.description}
+                    </p>
+                    <div className="flex flex-wrap gap-2">
+                      {project.techStack.slice(0, 4).map((tech) => (
+                        <span
+                          key={tech}
+                          className="text-xs px-2 py-1 bg-muted text-muted-foreground"
+                        >
+                          {tech}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                </Link>
+              </AnimatedSection>
+            ))}
+          </div>
+
+          <div className="mt-12">
+            <Link href="/projects">
+              <Button variant="outline" size="lg" className="group">
+                All projects
+                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+              </Button>
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* Expertise */}
+      <section className="py-24 relative">
+        <div className="max-w-7xl mx-auto px-6">
+          <AnimatedSection>
+            <div className="mb-14 max-w-2xl">
+              <p className="text-sm uppercase tracking-[0.2em] text-primary mb-3">Stack</p>
+              <h2 className="text-3xl md:text-5xl font-display font-bold mb-4">
+                Built for <span className="text-gradient">impact & clarity</span>
+              </h2>
+              <p className="text-muted-foreground">
+                Web, design, Microsoft technologies, and the soft skills behind collaborative delivery.
+              </p>
+            </div>
+          </AnimatedSection>
+
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
+            {[
+              { icon: Code2, title: "Web", skills: skills.frontend.slice(0, 3).map((s) => s.name) },
+              { icon: Server, title: "Development", skills: skills.backend.slice(0, 3).map((s) => s.name) },
+              { icon: Database, title: "Design", skills: skills.database.slice(0, 3).map((s) => s.name) },
+              { icon: Monitor, title: "Soft skills", skills: skills.desktop.slice(0, 3).map((s) => s.name) },
+              { icon: Boxes, title: "Microsoft", skills: skills.devops.slice(0, 3).map((s) => s.name) },
+            ].map((category, index) => (
+              <AnimatedSection key={category.title} delay={index * 0.08}>
+                <div className="p-5 border border-border bg-card/40 h-full hover:border-primary/35 transition-colors">
+                  <category.icon className="w-5 h-5 text-primary mb-3" />
+                  <h3 className="font-display font-semibold mb-2">{category.title}</h3>
+                  <ul className="space-y-1">
+                    {category.skills.map((skill) => (
+                      <li key={skill} className="text-xs text-muted-foreground">
+                        {skill}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </AnimatedSection>
+            ))}
+          </div>
+
+          <div className="mt-12">
+            <Link href="/skills">
+              <Button variant="outline" size="lg" className="group">
+                Full skill map
+                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+              </Button>
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* Services */}
+      <section className="py-24 relative border-t border-border/60">
+        <div className="max-w-7xl mx-auto px-6">
+          <AnimatedSection>
+            <div className="mb-14 max-w-2xl">
+              <p className="text-sm uppercase tracking-[0.2em] text-primary mb-3">Services</p>
+              <h2 className="text-3xl md:text-5xl font-display font-bold mb-4">
+                How I can <span className="text-gradient">help</span>
+              </h2>
+            </div>
+          </AnimatedSection>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {services.map((service, index) => (
+              <AnimatedSection key={service.id} delay={index * 0.1}>
+                <Card className="p-6 h-full hover:border-primary/30 transition-colors">
+                  <Rocket className="w-6 h-6 text-primary mb-4" />
+                  <h3 className="text-xl font-display font-semibold mb-2">{service.title}</h3>
+                  <p className="text-muted-foreground text-sm mb-5">{service.description}</p>
+                  <ul className="space-y-2 mb-6">
+                    {service.features.map((feature) => (
+                      <li key={feature} className="flex items-center gap-2 text-sm text-muted-foreground">
+                        <CheckCircle className="w-4 h-4 text-primary shrink-0" />
+                        {feature}
+                      </li>
+                    ))}
+                  </ul>
+                  <p className="text-sm font-medium text-primary pt-4 border-t border-border">
+                    {service.price}
+                  </p>
+                </Card>
+              </AnimatedSection>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* CTA */}
+      <section className="py-24 relative">
+        <div className="absolute inset-0 hero-mesh opacity-60" />
+        <div className="max-w-3xl mx-auto px-6 relative text-center">
+          <AnimatedSection>
+            <h2 className="text-3xl md:text-5xl font-display font-bold mb-5">
+              Let&apos;s build the next <span className="text-gradient">idea</span>
+            </h2>
+            <p className="text-muted-foreground mb-8">
+              Web apps, brand design, or campus tech workshops — I bring engineering and creative craft together.
+            </p>
+            <Link href="/contact">
+              <Button size="lg" className="glow-primary">
+                Start a conversation
+              </Button>
+            </Link>
+          </AnimatedSection>
+        </div>
+      </section>
+    </div>
+  );
+}
