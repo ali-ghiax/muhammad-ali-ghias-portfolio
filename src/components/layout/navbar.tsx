@@ -100,42 +100,40 @@ export function Navbar() {
           scrolled ? "glass border-b border-border/50" : "bg-transparent"
         )}
       >
-        <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between gap-4">
-          <div className="flex items-center gap-5 lg:gap-8 min-w-0">
-            <Link
-              href="/"
-              className="flex shrink-0 items-center group"
-              aria-label="MAG — Muhammad Ali Ghias home"
-            >
-              <LogoMag className="h-10 w-auto md:h-11 transition-opacity group-hover:opacity-90" />
-            </Link>
+        <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+          <Link
+            href="/"
+            className="flex items-center group"
+            aria-label="MAG — Muhammad Ali Ghias home"
+          >
+            <LogoMag className="h-11 w-auto md:h-12 transition-opacity group-hover:opacity-90" />
+          </Link>
 
-            <nav className="hidden md:flex items-center gap-0.5">
-              {navLinks.map((link) => (
-                <Link
-                  key={link.href}
-                  href={link.href}
-                  className={cn(
-                    "relative px-3 py-2 text-sm font-medium transition-colors",
-                    pathname === link.href
-                      ? "text-primary"
-                      : "text-muted-foreground hover:text-foreground"
-                  )}
-                >
-                  {link.label}
-                  {pathname === link.href && (
-                    <motion.div
-                      layoutId="navbar-indicator"
-                      className="absolute inset-x-0 -bottom-1 h-0.5 bg-primary"
-                      transition={{ type: "spring", stiffness: 500, damping: 30 }}
-                    />
-                  )}
-                </Link>
-              ))}
-            </nav>
-          </div>
+          <nav className="hidden md:flex items-center gap-1">
+            {navLinks.map((link) => (
+              <Link
+                key={link.href}
+                href={link.href}
+                className={cn(
+                  "relative px-4 py-2 text-sm font-medium transition-colors",
+                  pathname === link.href
+                    ? "text-primary"
+                    : "text-muted-foreground hover:text-foreground"
+                )}
+              >
+                {link.label}
+                {pathname === link.href && (
+                  <motion.div
+                    layoutId="navbar-indicator"
+                    className="absolute inset-x-0 -bottom-1 h-0.5 bg-primary"
+                    transition={{ type: "spring", stiffness: 500, damping: 30 }}
+                  />
+                )}
+              </Link>
+            ))}
+          </nav>
 
-          <div className="hidden md:flex items-center gap-2 shrink-0">
+          <div className="hidden md:flex items-center gap-3">
             <button
               onClick={() => setDarkMode(!darkMode)}
               className="p-2 text-muted-foreground hover:text-foreground transition-colors"
@@ -171,7 +169,7 @@ export function Navbar() {
 
           <button
             onClick={() => setIsOpen(true)}
-            className="md:hidden p-2 text-foreground shrink-0"
+            className="md:hidden p-2 text-foreground"
           >
             <Menu className="w-6 h-6" />
           </button>
