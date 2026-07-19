@@ -118,19 +118,21 @@ export default function Home() {
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ delay: 0.7 }}
-                className="flex flex-col sm:flex-row flex-wrap items-center justify-center lg:justify-start gap-x-6 gap-y-2 text-xs sm:text-sm text-muted-foreground"
+                className="flex flex-col md:flex-row md:flex-nowrap items-center justify-center lg:justify-start gap-y-2 gap-x-4 lg:gap-x-6 text-xs sm:text-sm text-muted-foreground"
               >
-                <span className="flex items-center gap-2">
+                <span className="flex items-center gap-2 shrink-0">
                   <MapPin className="w-4 h-4 text-primary shrink-0" />
-                  {personalInfo.location}
+                  <span className="whitespace-nowrap">{personalInfo.location}</span>
                 </span>
-                <span className="flex items-center gap-2 break-all">
+                <span className="hidden md:inline text-border">·</span>
+                <span className="flex items-center gap-2 shrink-0 min-w-0">
                   <Mail className="w-4 h-4 text-primary shrink-0" />
-                  {personalInfo.email}
+                  <span className="truncate">{personalInfo.email}</span>
                 </span>
-                <span className="inline-flex items-center gap-2 text-primary text-center sm:text-left">
+                <span className="hidden md:inline text-border">·</span>
+                <span className="inline-flex items-center gap-2 text-primary shrink-0">
                   <span className="w-2 h-2 rounded-full bg-primary animate-pulse-glow shrink-0" />
-                  {personalInfo.availability}
+                  <span className="whitespace-nowrap">{personalInfo.availability}</span>
                 </span>
               </motion.div>
             </div>
