@@ -1,15 +1,14 @@
 "use client";
 
-import { Suspense, useCallback, useEffect, useState } from "react";
+import { Suspense, useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
-import { useRouter, useSearchParams } from "next/navigation";
+import { useSearchParams } from "next/navigation";
 import { motion } from "framer-motion";
 import { Mail, MapPin, Send, Loader2, MessageCircle } from "lucide-react";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Input, Textarea } from "@/components/ui/input";
-import { Toast } from "@/components/ui/toast";
 import { personalInfo } from "@/data/portfolio";
 import { AnimatedSection, StaggerContainer, StaggerItem } from "@/components/layout/animations";
 import {
@@ -65,11 +64,9 @@ const services = [
 ];
 
 function ContactForm() {
-  const router = useRouter();
   const searchParams = useSearchParams();
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<"idle" | "success">("idle");
-  const [toastOpen, setToastOpen] = useState(false);
 
   const {
     register,
@@ -77,15 +74,11 @@ function ContactForm() {
     formState: { errors },
   } = useForm<ContactFormData>();
 
-  const closeToast = useCallback(() => setToastOpen(false), []);
-
   useEffect(() => {
     if (searchParams.get("sent") === "1") {
       setSubmitStatus("success");
-      setToastOpen(true);
-      router.replace("/contact", { scroll: false });
     }
-  }, [searchParams, router]);
+  }, [searchParams]);
 
   const onSubmit = (data: ContactFormData) => {
     setIsSubmitting(true);
@@ -118,17 +111,10 @@ function ContactForm() {
   };
 
   return (
-    <>
-      <Toast
-        open={toastOpen}
-        onClose={closeToast}
-        message="Message sent successfully. I'll get back to you soon."
-      />
-
-      <Card className="p-4 sm:p-6 md:p-8 w-full overflow-hidden">
-        <h2 className="text-xl sm:text-2xl font-display font-bold mb-5 sm:mb-6">
-          Send a <span className="text-gradient">Message</span>
-        </h2>
+    <Card className="p-4 sm:p-6 md:p-8 w-full overflow-hidden">
+      <h2 className="text-xl sm:text-2xl font-display font-bold mb-5 sm:mb-6">
+        Send a <span className="text-gradient">Message</span>
+      </h2>
 
         <form onSubmit={handleSubmit(onSubmit)} className="space-y-4 sm:space-y-6">
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -223,8 +209,7 @@ function ContactForm() {
             </motion.p>
           )}
         </form>
-      </Card>
-    </>
+    </Card>
   );
 }
 
