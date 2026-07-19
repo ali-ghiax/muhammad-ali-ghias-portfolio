@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 200" role="img" aria-label="MAG  Software Engineer">
+  <defs>
+    <linearGradient id="magFill" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#1a9dff"/>
+      <stop offset="28%" stop-color="#2b7fd9"/>
+      <stop offset="52%" stop-color="#3a5f9a"/>
+      <stop offset="72%" stop-color="#5a4a5a"/>
+      <stop offset="100%" stop-color="#e08a3a"/>
+    </linearGradient>
+    <linearGradient id="magShine" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.55"/>
+      <stop offset="35%" stop-color="#ffffff" stop-opacity="0.12"/>
+      <stop offset="100%" stop-color="#000000" stop-opacity="0.28"/>
+    </linearGradient>
+    <linearGradient id="lineL" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#1a9dff"/>
+      <stop offset="100%" stop-color="#2b7fd9"/>
+    </linearGradient>
+    <linearGradient id="lineR" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#c07030"/>
+      <stop offset="100%" stop-color="#e08a3a"/>
+    </linearGradient>
+    <filter id="softShadow" x="-10%" y="-10%" width="120%" height="140%">
+      <feDropShadow dx="0" dy="4" stdDeviation="3" flood-color="#0a2540" flood-opacity="0.35"/>
+    </filter>
+  </defs>
+
+  <!-- MAG wordmark -->
+  <g filter="url(#softShadow)">
+    <text
+      x="240"
+      y="108"
+      text-anchor="middle"
+      font-family="Arial Black, Arial, Helvetica, sans-serif"
+      font-size="108"
+      font-weight="900"
+      letter-spacing="-6"
+      fill="url(#magFill)"
+    >MAG</text>
+    <text
+      x="240"
+      y="108"
+      text-anchor="middle"
+      font-family="Arial Black, Arial, Helvetica, sans-serif"
+      font-size="108"
+      font-weight="900"
+      letter-spacing="-6"
+      fill="url(#magShine)"
+    >MAG</text>
+  </g>
+
+  <!-- Accent lines + subtitle -->
+  <line x1="72" y1="148" x2="128" y2="148" stroke="url(#lineL)" stroke-width="2.5" stroke-linecap="round"/>
+  <line x1="352" y1="148" x2="408" y2="148" stroke="url(#lineR)" stroke-width="2.5" stroke-linecap="round"/>
+  <text
+    x="240"
+    y="154"
+    text-anchor="middle"
+    font-family="Arial, Helvetica, sans-serif"
+    font-size="14"
+    font-weight="600"
+    letter-spacing="6"
+    fill="#2a2a2a"
+  >SOFTWARE ENGINEER</text>
+</svg>

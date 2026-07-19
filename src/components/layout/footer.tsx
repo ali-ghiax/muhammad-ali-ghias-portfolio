@@ -1,8 +1,8 @@
 "use client";
 
 import * as React from "react";
-import Image from "next/image";
 import NextLink from "next/link";
+import { LogoMag } from "@/components/brand/logo-mag";
 import { personalInfo } from "@/data/portfolio";
 import {
   GitHubIcon,
@@ -56,13 +56,7 @@ export function Footer() {
               className="inline-flex items-center mb-4"
               aria-label="MAG — Muhammad Ali Ghias home"
             >
-              <Image
-                src="/logo-mag.png"
-                alt="MAG — Muhammad Ali Ghias, Software Engineer"
-                width={478}
-                height={198}
-                className="h-14 w-auto"
-              />
+              <LogoMag className="h-14 w-auto" />
             </NextLink>
             <p className="text-muted-foreground mb-6 max-w-sm">
               Where code meets craft — building thoughtful digital experiences and visual identities.

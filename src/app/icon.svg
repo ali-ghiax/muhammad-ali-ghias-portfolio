@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+  <defs>
+    <linearGradient id="f" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#1a9dff"/>
+      <stop offset="55%" stop-color="#3a5f9a"/>
+      <stop offset="100%" stop-color="#e08a3a"/>
+    </linearGradient>
+  </defs>
+  <text
+    x="16"
+    y="22"
+    text-anchor="middle"
+    font-family="Arial Black, Arial, Helvetica, sans-serif"
+    font-size="14"
+    font-weight="900"
+    letter-spacing="-1"
+    fill="url(#f)"
+  >MAG</text>
+</svg>

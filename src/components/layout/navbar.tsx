@@ -1,12 +1,12 @@
 "use client";
 
 import * as React from "react";
-import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, Moon, Sun } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { LogoMag } from "@/components/brand/logo-mag";
 import { cn } from "@/lib/utils";
 import { personalInfo } from "@/data/portfolio";
 
@@ -101,15 +101,12 @@ export function Navbar() {
         )}
       >
         <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
-          <Link href="/" className="flex items-center group" aria-label="MAG — Muhammad Ali Ghias home">
-            <Image
-              src="/logo-mag.png"
-              alt="MAG — Muhammad Ali Ghias, Software Engineer"
-              width={478}
-              height={198}
-              priority
-              className="h-11 w-auto md:h-12 transition-opacity group-hover:opacity-90"
-            />
+          <Link
+            href="/"
+            className="flex items-center group"
+            aria-label="MAG — Muhammad Ali Ghias home"
+          >
+            <LogoMag className="h-11 w-auto md:h-12 transition-opacity group-hover:opacity-90" />
           </Link>
 
           <nav className="hidden md:flex items-center gap-1">
