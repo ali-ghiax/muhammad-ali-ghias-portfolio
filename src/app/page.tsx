@@ -41,7 +41,7 @@ export default function Home() {
             >
               <div className="relative">
                 <div className="absolute inset-0 -z-10 scale-110 rounded-full bg-primary/10 blur-2xl" />
-                <div className="h-36 w-36 overflow-hidden rounded-full border-4 border-primary/20 bg-muted shadow-[0_20px_50px_rgba(15,118,110,0.18)] ring-4 ring-primary/10 sm:h-52 sm:w-52 md:h-60 md:w-60 lg:h-[260px] lg:w-[260px] xl:h-[300px] xl:w-[300px]">
+                <div className="h-52 w-52 overflow-hidden rounded-full border-4 border-primary/20 bg-muted shadow-[0_20px_50px_rgba(15,118,110,0.18)] ring-4 ring-primary/10 sm:h-60 sm:w-60 lg:h-[260px] lg:w-[260px] xl:h-[300px] xl:w-[300px]">
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img
                     src="/hero-photo.jpg"

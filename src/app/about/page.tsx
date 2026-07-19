@@ -51,7 +51,7 @@ export default function About() {
           <StaggerContainer className="grid grid-cols-1 lg:grid-cols-12 gap-8 sm:gap-12 lg:gap-16 items-start">
             <StaggerItem className="lg:col-span-5">
               <div className="border border-border bg-card/50 p-5 sm:p-6 md:p-8 text-center max-w-md mx-auto lg:max-w-none">
-                <div className="relative mx-auto mb-6 h-40 w-40 sm:h-52 sm:w-52 md:h-60 md:w-60 shrink-0 overflow-hidden rounded-full border-4 border-primary/20 bg-muted shadow-lg ring-4 ring-primary/10">
+                <div className="relative mx-auto mb-6 h-52 w-52 sm:h-60 sm:w-60 shrink-0 overflow-hidden rounded-full border-4 border-primary/20 bg-muted shadow-lg ring-4 ring-primary/10">
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img
                     src="/about-photo.jpg"
