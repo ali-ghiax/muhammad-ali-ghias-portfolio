@@ -179,6 +179,39 @@
   animation: line-draw 0.8s ease-out forwards;
 }
 
+@keyframes whatsapp-float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+
+@keyframes whatsapp-pulse {
+  0% {
+    transform: scale(1);
+    opacity: 0.55;
+  }
+  70% {
+    transform: scale(1.55);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1.55);
+    opacity: 0;
+  }
+}
+
+.whatsapp-float {
+  animation: whatsapp-float 2.8s ease-in-out infinite;
+}
+
+.whatsapp-float:hover {
+  animation-play-state: paused;
+}
+
+.whatsapp-float-pulse {
+  animation: whatsapp-pulse 2s ease-out infinite;
+  z-index: 0;
+}
+
 ::-webkit-scrollbar {
   width: 8px;
   height: 8px;

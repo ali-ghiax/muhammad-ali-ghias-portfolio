@@ -19,15 +19,27 @@ export function WhatsAppFloat() {
   if (!personalInfo.social.whatsapp) return null;
 
   return (
-    <a
-      href={personalInfo.social.whatsapp}
-      target="_blank"
-      rel="noopener noreferrer"
-      aria-label="Chat on WhatsApp"
-      className="fixed bottom-6 right-6 z-50 flex h-14 w-14 items-center justify-center rounded-full bg-[#25D366] text-white shadow-lg transition-transform hover:scale-110 hover:shadow-xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#25D366] focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+    <div
+      className="pointer-events-none fixed z-[9999]"
+      style={{
+        right: "max(1rem, env(safe-area-inset-right))",
+        bottom: "max(1rem, env(safe-area-inset-bottom))",
+      }}
     >
-      <WhatsAppIcon className="h-7 w-7" />
-      <span className="sr-only">Chat on WhatsApp</span>
-    </a>
+      <a
+        href={personalInfo.social.whatsapp}
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Chat on WhatsApp"
+        className="whatsapp-float pointer-events-auto relative flex h-14 w-14 items-center justify-center rounded-full bg-[#25D366] text-white shadow-[0_8px_28px_rgba(37,211,102,0.45)] transition-transform duration-300 hover:scale-110 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#25D366] focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+      >
+        <span
+          className="whatsapp-float-pulse absolute inset-0 rounded-full bg-[#25D366]"
+          aria-hidden="true"
+        />
+        <WhatsAppIcon className="relative z-10 h-7 w-7" />
+        <span className="sr-only">Chat on WhatsApp</span>
+      </a>
+    </div>
   );
 }
