@@ -124,12 +124,10 @@ export default function Home() {
                   <MapPin className="w-4 h-4 text-primary shrink-0" />
                   <span className="whitespace-nowrap">{personalInfo.location}</span>
                 </span>
-                <span className="hidden md:inline text-border">·</span>
                 <span className="flex items-center gap-2 shrink-0 min-w-0">
                   <Mail className="w-4 h-4 text-primary shrink-0" />
                   <span className="truncate">{personalInfo.email}</span>
                 </span>
-                <span className="hidden md:inline text-border">·</span>
                 <span className="inline-flex items-center gap-2 text-primary shrink-0">
                   <span className="w-2 h-2 rounded-full bg-primary animate-pulse-glow shrink-0" />
                   <span className="whitespace-nowrap">{personalInfo.availability}</span>
