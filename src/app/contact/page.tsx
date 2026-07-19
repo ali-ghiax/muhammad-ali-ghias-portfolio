@@ -78,16 +78,25 @@ export default function Contact() {
 
   const onSubmit = async (data: ContactFormData) => {
     setIsSubmitting(true);
+    setSubmitStatus("idle");
     try {
-      await new Promise((resolve) => setTimeout(resolve, 1500));
-      console.log("Form data:", data);
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data),
+      });
+
+      if (!res.ok) {
+        throw new Error("Failed to send");
+      }
+
       setSubmitStatus("success");
       reset();
     } catch {
       setSubmitStatus("error");
     } finally {
       setIsSubmitting(false);
-      setTimeout(() => setSubmitStatus("idle"), 3000);
+      setTimeout(() => setSubmitStatus("idle"), 4000);
     }
   };
 
@@ -218,6 +227,22 @@ export default function Contact() {
                         className="text-green-500 text-center text-sm"
                       >
                         Thanks for reaching out! I&apos;ll get back to you soon.
+                      </motion.p>
+                    )}
+                    {submitStatus === "error" && (
+                      <motion.p
+                        initial={{ opacity: 0, y: -10 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        className="text-destructive text-center text-sm"
+                      >
+                        Couldn&apos;t send right now. Email me at{" "}
+                        <a
+                          href={`mailto:${personalInfo.email}`}
+                          className="underline hover:text-primary"
+                        >
+                          {personalInfo.email}
+                        </a>
+                        .
                       </motion.p>
                     )}
                   </form>
