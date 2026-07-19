@@ -9,7 +9,6 @@ import {
   TrendingUp,
   Code,
 } from "lucide-react";
-import { Button } from "@/components/ui/button";
 import { AnimatedSection, StaggerContainer, StaggerItem } from "@/components/layout/animations";
 import type { CuratedArticle } from "@/lib/blog-feed";
 
