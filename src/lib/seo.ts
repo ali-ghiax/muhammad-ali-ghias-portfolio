@@ -6,9 +6,9 @@ export const siteConfig = {
     "Official portfolio of Muhammad Ali Ghias — also known as Ali Ghias and Ghias. Software Engineer, Graphic Designer, and Microsoft Learn Student Ambassador based in Peshawar, Pakistan.",
   url: "https://muhammadalighias.me",
   locale: "en_US",
-  /** Rounded MAG logo avatar — used for OG / Twitter / JSON-LD */
-  ogImage: "https://muhammadalighias.me/og-banner.png",
-  avatarImage: "https://muhammadalighias.me/avatar-mag.png",
+  /** Full portrait used for WhatsApp / OG / Twitter link previews */
+  ogImage: "https://muhammadalighias.me/about-photo.jpg",
+  avatarImage: "https://muhammadalighias.me/about-photo.jpg",
   email: "muhammadalighias@gmail.com",
   phone: "+92 326 5763041",
   location: {
