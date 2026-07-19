@@ -27,11 +27,11 @@ const PROFILE_TAGS = [
 const KEYWORD_CHIPS = [
   "full stack software engineer",
   "React Next.js TypeScript",
-  "Node.js web development",
+  "Node.js JavaScript",
   "graphic design",
+  "responsive UI",
   "Microsoft Learn MLSA",
   "GitHub student developer",
-  "responsive UI",
   "freelance design",
 ] as const;
 
