@@ -17,6 +17,7 @@ import {
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
+import { LogoMag } from "@/components/brand/logo-mag";
 import { personalInfo, projects, skills, services } from "@/data/portfolio";
 import { AnimatedSection } from "@/components/layout/animations";
 
@@ -29,36 +30,40 @@ export default function Home() {
       <section className="relative min-h-screen flex items-end md:items-center pt-24 pb-16 overflow-hidden">
         <div className="absolute inset-0 hero-mesh" />
         <div className="absolute inset-0 bg-grid opacity-40" />
-        <div className="absolute inset-y-0 right-0 w-full md:w-1/2 opacity-40 md:opacity-100 pointer-events-none hidden sm:block">
-          <div className="absolute inset-0 bg-gradient-to-l from-transparent via-transparent to-background z-10" />
+
+        {/* MAG mark — above overlays so it never stays blank */}
+        <div className="pointer-events-none absolute top-28 right-4 z-20 sm:right-8 md:top-1/4 md:right-[10%]">
           <motion.div
-            initial={{ opacity: 0, scale: 0.92 }}
+            initial={{ opacity: 0, scale: 0.94 }}
             animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.9, delay: 0.15 }}
-            className="absolute top-1/4 right-[8%] md:right-[12%] pointer-events-none"
+            transition={{ duration: 0.7, delay: 0.1 }}
+            className="relative"
           >
-            <div className="relative h-[220px] w-[220px] overflow-hidden rounded-full border-4 border-primary/20 bg-white shadow-[0_20px_50px_rgba(15,118,110,0.18)] ring-4 ring-primary/10 md:h-[280px] md:w-[280px]">
+            <div className="absolute inset-0 -z-10 scale-110 rounded-full bg-primary/10 blur-2xl" />
+            <div className="flex h-40 w-40 items-center justify-center overflow-hidden rounded-full border-4 border-primary/20 bg-white shadow-[0_20px_50px_rgba(15,118,110,0.18)] ring-4 ring-primary/10 sm:h-52 sm:w-52 md:h-[280px] md:w-[280px]">
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
                 src="/mag-circle.png"
                 alt="MAG"
                 width={280}
                 height={280}
-                className="h-full w-full object-cover"
+                className="h-full w-full object-contain p-3"
                 decoding="async"
                 fetchPriority="high"
+                onError={(e) => {
+                  e.currentTarget.style.display = "none";
+                  const fallback = e.currentTarget.nextElementSibling;
+                  if (fallback instanceof HTMLElement) fallback.style.display = "block";
+                }}
               />
+              <div className="hidden w-[75%] px-1">
+                <LogoMag className="h-auto w-full" />
+              </div>
             </div>
           </motion.div>
-          <motion.div
-            initial={{ scale: 0.9, opacity: 0 }}
-            animate={{ scale: 1, opacity: 1 }}
-            transition={{ duration: 1, delay: 0.2 }}
-            className="absolute top-[28%] right-[12%] w-48 h-48 md:w-72 md:h-72 rounded-full bg-primary/10 blur-2xl animate-float -z-10"
-          />
         </div>
 
-        <div className="max-w-7xl mx-auto px-6 relative z-10 w-full">
+        <div className="max-w-7xl mx-auto px-6 relative z-10 w-full md:pr-[42%]">
           <motion.p
             initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
