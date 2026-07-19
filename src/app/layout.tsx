@@ -105,7 +105,10 @@ export default function RootLayout({
         <link rel="me" href={siteConfig.github} />
         <link rel="me" href={siteConfig.linkedin} />
       </head>
-      <body className="min-h-screen bg-background antialiased font-sans">
+      <body
+        className="min-h-screen bg-background antialiased font-sans"
+        suppressHydrationWarning
+      >
         <JsonLd />
         <Navbar />
         <main>{children}</main>

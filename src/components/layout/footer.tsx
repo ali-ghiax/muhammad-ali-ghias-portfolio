@@ -2,9 +2,13 @@
 
 import * as React from "react";
 import NextLink from "next/link";
-import { GitBranch, Globe, Cloud, Mail, MessageCircle } from "lucide-react";
 import { personalInfo } from "@/data/portfolio";
-import { cn } from "@/lib/utils";
+import {
+  GitHubIcon,
+  InstagramIcon,
+  LinkedInIcon,
+  TikTokIcon,
+} from "@/components/icons/social";
 
 const footerLinks = [
   { label: "Home", href: "/" },
@@ -17,20 +21,26 @@ const footerLinks = [
 ];
 
 const socialLinks = [
-  ...(personalInfo.social.website
-    ? [{ icon: Globe, href: personalInfo.social.website, label: "Website" }]
-    : []),
-  ...(personalInfo.social.github
-    ? [{ icon: GitBranch, href: personalInfo.social.github, label: "GitHub" }]
-    : []),
-  { icon: Globe, href: personalInfo.social.linkedin, label: "LinkedIn" },
-  ...(personalInfo.social.whatsapp
-    ? [{ icon: MessageCircle, href: personalInfo.social.whatsapp, label: "WhatsApp" }]
-    : []),
-  ...(personalInfo.social.twitter
-    ? [{ icon: Cloud, href: personalInfo.social.twitter, label: "Twitter" }]
-    : []),
-  { icon: Mail, href: `mailto:${personalInfo.email}`, label: "Email" },
+  {
+    icon: InstagramIcon,
+    href: personalInfo.social.instagram,
+    label: "Instagram",
+  },
+  {
+    icon: GitHubIcon,
+    href: personalInfo.social.github,
+    label: "GitHub",
+  },
+  {
+    icon: LinkedInIcon,
+    href: personalInfo.social.linkedin,
+    label: "LinkedIn",
+  },
+  {
+    icon: TikTokIcon,
+    href: personalInfo.social.tiktok,
+    label: "TikTok",
+  },
 ];
 
 export function Footer() {
@@ -49,7 +59,7 @@ export function Footer() {
               </span>
             </NextLink>
             <p className="text-muted-foreground mb-6 max-w-sm">
-              {personalInfo.role}. Web development, Microsoft technologies, and creative design.
+              Where code meets craft — building thoughtful digital experiences and visual identities.
             </p>
             <div className="flex gap-4">
               {socialLinks.map((social) => (
@@ -58,6 +68,7 @@ export function Footer() {
                   href={social.href}
                   target="_blank"
                   rel="noopener noreferrer"
+                  aria-label={social.label}
                   className="p-2 rounded-lg border border-border text-muted-foreground hover:text-primary hover:border-primary/30 transition-all"
                 >
                   <social.icon className="w-5 h-5" />
@@ -76,7 +87,7 @@ export function Footer() {
                     className="text-muted-foreground hover:text-primary transition-colors"
                   >
                     {link.label}
-</NextLink>
+                  </NextLink>
                 </li>
               ))}
             </ul>
@@ -86,10 +97,10 @@ export function Footer() {
             <h4 className="font-semibold mb-4">Contact</h4>
             <ul className="space-y-3 text-muted-foreground">
               <li>{personalInfo.location}</li>
-              <li>{personalInfo.email}</li>
+              <li className="break-all">{personalInfo.email}</li>
               <li>
                 <span className="text-green-500 flex items-center gap-2">
-                  <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
+                  <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse shrink-0" />
                   {personalInfo.availability}
                 </span>
               </li>
@@ -98,23 +109,16 @@ export function Footer() {
         </div>
 
         <div className="mt-12 pt-8 border-t border-border flex flex-col md:flex-row justify-between items-center gap-4">
-          <div className="text-sm text-muted-foreground text-center md:text-left">
-            <p>
-              © {new Date().getFullYear()} {personalInfo.name} (MAG). All rights reserved.
-            </p>
-            <p className="mt-1 text-xs">
-              Also known as Ali Ghias · Ghias · muhammad-ali-ghias ·{" "}
-              <a
-                href="https://muhammadalighias.me"
-                className="hover:text-primary transition-colors"
-              >
-                muhammadalighias.me
-              </a>
-            </p>
-          </div>
+          <p className="text-sm text-muted-foreground">
+            © {new Date().getFullYear()} {personalInfo.name} (MAG). All rights reserved.
+          </p>
           <div className="flex gap-6 text-sm text-muted-foreground">
-            <a href="#" className="hover:text-primary transition-colors">Privacy</a>
-            <a href="#" className="hover:text-primary transition-colors">Terms</a>
+            <NextLink href="/privacy" className="hover:text-primary transition-colors">
+              Privacy
+            </NextLink>
+            <NextLink href="/terms" className="hover:text-primary transition-colors">
+              Terms
+            </NextLink>
           </div>
         </div>
       </div>

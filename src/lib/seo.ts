@@ -15,6 +15,8 @@ export const siteConfig = {
   },
   github: "https://github.com/ali-ghiax",
   linkedin: "https://www.linkedin.com/in/muhammad-ali-ghias/",
+  instagram: "https://www.instagram.com/ali_ghiax/",
+  tiktok: "https://www.tiktok.com/@ali-ghiax",
   whatsapp: "https://wa.me/923265763041",
   keywords: [
     "Muhammad Ali Ghias",
@@ -51,4 +53,6 @@ export const sitePages = [
   { path: "/skills", priority: 0.8, changeFrequency: "monthly" as const },
   { path: "/blog", priority: 0.7, changeFrequency: "weekly" as const },
   { path: "/contact", priority: 0.85, changeFrequency: "monthly" as const },
+  { path: "/privacy", priority: 0.4, changeFrequency: "yearly" as const },
+  { path: "/terms", priority: 0.4, changeFrequency: "yearly" as const },
 ];

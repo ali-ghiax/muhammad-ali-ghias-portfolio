@@ -43,7 +43,13 @@ export function JsonLd() {
       "Adobe Illustrator",
       "Microsoft Technologies",
     ],
-    sameAs: [siteConfig.github, siteConfig.linkedin, siteConfig.whatsapp],
+    sameAs: [
+      siteConfig.github,
+      siteConfig.linkedin,
+      siteConfig.instagram,
+      siteConfig.tiktok,
+      siteConfig.whatsapp,
+    ],
   };
 
   const website = {

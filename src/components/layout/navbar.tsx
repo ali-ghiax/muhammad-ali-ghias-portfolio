@@ -4,10 +4,26 @@ import * as React from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, GitBranch, LinkIcon, Moon, Sun, Globe } from "lucide-react";
+import { Menu, X, Moon, Sun } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { personalInfo } from "@/data/portfolio";
+
+function GitHubIcon({ className }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" className={className}>
+      <path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.438 9.8 8.205 11.387.6.113.82-.26.82-.577 0-.285-.01-1.04-.016-2.04-3.338.726-4.042-1.61-4.042-1.61-.546-1.387-1.333-1.757-1.333-1.757-1.09-.745.083-.73.083-.73 1.205.085 1.84 1.237 1.84 1.237 1.07 1.835 2.807 1.305 3.492.998.108-.775.42-1.305.763-1.605-2.665-.303-5.467-1.335-5.467-5.93 0-1.31.468-2.382 1.235-3.222-.123-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.3 1.23.96-.267 1.98-.4 3-.405 1.02.005 2.04.138 3 .405 2.29-1.552 3.297-1.23 3.297-1.23.653 1.652.242 2.873.12 3.176.77.84 1.234 1.912 1.234 3.222 0 4.607-2.807 5.624-5.48 5.92.432.372.816 1.102.816 2.222 0 1.606-.015 2.898-.015 3.293 0 .32.216.694.825.576C20.565 21.796 24 17.297 24 12 24 5.37 18.63 0 12 0z" />
+    </svg>
+  );
+}
+
+function LinkedInIcon({ className }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" className={className}>
+      <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+    </svg>
+  );
+}
 
 const navLinks = [
   { href: "/", label: "Home" },
@@ -92,33 +108,25 @@ export function Navbar() {
             >
               {darkMode ? <Sun className="w-5 h-5" /> : <Moon className="w-5 h-5" />}
             </button>
-            {personalInfo.social.website && (
-              <a
-                href={personalInfo.social.website}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="p-2 text-muted-foreground hover:text-foreground transition-colors"
-              >
-                <Globe className="w-5 h-5" />
-              </a>
-            )}
             {personalInfo.social.github && (
               <a
                 href={personalInfo.social.github}
                 target="_blank"
                 rel="noopener noreferrer"
+                aria-label="GitHub"
                 className="p-2 text-muted-foreground hover:text-foreground transition-colors"
               >
-                <GitBranch className="w-5 h-5" />
+                <GitHubIcon className="w-5 h-5" />
               </a>
             )}
             <a
               href={personalInfo.social.linkedin}
               target="_blank"
               rel="noopener noreferrer"
+              aria-label="LinkedIn"
               className="p-2 text-muted-foreground hover:text-foreground transition-colors"
             >
-              <LinkIcon className="w-5 h-5" />
+              <LinkedInIcon className="w-5 h-5" />
             </a>
             <Link href="/contact">
               <Button size="sm" variant="glow">
@@ -179,18 +187,23 @@ export function Navbar() {
                 >
                   {darkMode ? <Sun className="w-6 h-6" /> : <Moon className="w-6 h-6" />}
                 </button>
-                {personalInfo.social.website && (
-                  <a href={personalInfo.social.website} target="_blank" rel="noopener noreferrer">
-                    <Globe className="w-6 h-6 text-muted-foreground hover:text-foreground" />
-                  </a>
-                )}
                 {personalInfo.social.github && (
-                  <a href={personalInfo.social.github} target="_blank" rel="noopener noreferrer">
-                    <GitBranch className="w-6 h-6 text-muted-foreground hover:text-foreground" />
+                  <a
+                    href={personalInfo.social.github}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="GitHub"
+                  >
+                    <GitHubIcon className="w-6 h-6 text-muted-foreground hover:text-foreground" />
                   </a>
                 )}
-                <a href={personalInfo.social.linkedin} target="_blank" rel="noopener noreferrer">
-                  <LinkIcon className="w-6 h-6 text-muted-foreground hover:text-foreground" />
+                <a
+                  href={personalInfo.social.linkedin}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="LinkedIn"
+                >
+                  <LinkedInIcon className="w-6 h-6 text-muted-foreground hover:text-foreground" />
                 </a>
               </div>
             </div>

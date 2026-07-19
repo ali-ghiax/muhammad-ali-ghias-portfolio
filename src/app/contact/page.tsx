@@ -4,13 +4,19 @@ import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { motion } from "framer-motion";
-import { Mail, MapPin, Send, GitBranch, Globe, Cloud, Loader2, MessageCircle } from "lucide-react";
+import { Mail, MapPin, Send, Loader2, MessageCircle } from "lucide-react";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Input, Textarea } from "@/components/ui/input";
 import { personalInfo } from "@/data/portfolio";
 import { AnimatedSection, StaggerContainer, StaggerItem } from "@/components/layout/animations";
+import {
+  GitHubIcon,
+  InstagramIcon,
+  LinkedInIcon,
+  TikTokIcon,
+} from "@/components/icons/social";
 
 const contactFormSchema = z.object({
   name: z.string().min(2, "Name must be at least 2 characters"),
@@ -22,20 +28,26 @@ const contactFormSchema = z.object({
 type ContactFormData = z.infer<typeof contactFormSchema>;
 
 const socialLinks = [
-  ...(personalInfo.social.website
-    ? [{ icon: Globe, href: personalInfo.social.website, label: "Website" }]
-    : []),
-  ...(personalInfo.social.github
-    ? [{ icon: GitBranch, href: personalInfo.social.github, label: "GitHub" }]
-    : []),
-  { icon: Globe, href: personalInfo.social.linkedin, label: "LinkedIn" },
-  ...(personalInfo.social.whatsapp
-    ? [{ icon: MessageCircle, href: personalInfo.social.whatsapp, label: "WhatsApp" }]
-    : []),
-  ...(personalInfo.social.twitter
-    ? [{ icon: Cloud, href: personalInfo.social.twitter, label: "Twitter" }]
-    : []),
-  { icon: Mail, href: `mailto:${personalInfo.email}`, label: "Email" },
+  {
+    icon: InstagramIcon,
+    href: personalInfo.social.instagram,
+    label: "Instagram",
+  },
+  {
+    icon: GitHubIcon,
+    href: personalInfo.social.github,
+    label: "GitHub",
+  },
+  {
+    icon: LinkedInIcon,
+    href: personalInfo.social.linkedin,
+    label: "LinkedIn",
+  },
+  {
+    icon: TikTokIcon,
+    href: personalInfo.social.tiktok,
+    label: "TikTok",
+  },
 ];
 
 const services = [
