@@ -1,11 +1,11 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { GraduationCap, Award, MapPin, BookOpen } from "lucide-react";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { ProfileAvatar } from "@/components/brand/profile-avatar";
 import { personalInfo, education, courses } from "@/data/portfolio";
 import { AnimatedSection, StaggerContainer, StaggerItem } from "@/components/layout/animations";
 
@@ -27,11 +27,14 @@ export default function About() {
           <StaggerContainer className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
             <StaggerItem className="lg:col-span-5">
               <div className="border border-border bg-card/50 p-8 md:p-10">
-                <div className="flex justify-center mb-6">
-                  <ProfileAvatar
-                    size={180}
+                <div className="relative mx-auto mb-6 aspect-square w-full max-w-[280px] overflow-hidden rounded-2xl ring-1 ring-border/80 shadow-[0_12px_40px_rgba(15,118,110,0.12)]">
+                  <Image
+                    src="/about-photo.jpg"
+                    alt="Muhammad Ali Ghias"
+                    fill
                     priority
-                    className="ring-2 ring-primary/20 shadow-[0_12px_40px_rgba(15,118,110,0.15)]"
+                    sizes="280px"
+                    className="object-cover object-top"
                   />
                 </div>
                 <h1 className="text-2xl font-display font-bold mb-1 text-center md:text-left">
