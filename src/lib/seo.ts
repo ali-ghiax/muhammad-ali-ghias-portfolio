@@ -16,7 +16,7 @@ export const siteConfig = {
   github: "https://github.com/ali-ghiax",
   linkedin: "https://www.linkedin.com/in/muhammad-ali-ghias/",
   instagram: "https://www.instagram.com/ali_ghiax/",
-  tiktok: "https://www.tiktok.com/@ali-ghiax",
+  tiktok: "https://www.tiktok.com/@ali_ghiax",
   whatsapp: "https://wa.me/923265763041",
   keywords: [
     "Muhammad Ali Ghias",
