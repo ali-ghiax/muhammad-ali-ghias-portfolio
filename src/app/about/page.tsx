@@ -1,7 +1,6 @@
 "use client";
 
 import Link from "next/link";
-import Image from "next/image";
 import { GraduationCap, Award, MapPin, BookOpen } from "lucide-react";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -52,14 +51,16 @@ export default function About() {
           <StaggerContainer className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
             <StaggerItem className="lg:col-span-5">
               <div className="border border-border bg-card/50 p-6 md:p-8 text-center">
-                <div className="relative mx-auto mb-6 h-52 w-52 overflow-hidden rounded-full border-4 border-primary/20 shadow-lg ring-4 ring-primary/10 sm:h-60 sm:w-60">
-                  <Image
+                <div className="relative mx-auto mb-6 h-52 w-52 shrink-0 overflow-hidden rounded-full border-4 border-primary/20 bg-muted shadow-lg ring-4 ring-primary/10 sm:h-60 sm:w-60">
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
                     src="/about-photo.jpg"
                     alt="Muhammad Ali Ghias"
-                    fill
-                    priority
-                    sizes="240px"
-                    className="object-cover object-[50%_40%]"
+                    width={240}
+                    height={240}
+                    className="h-full w-full object-cover object-[50%_40%]"
+                    decoding="async"
+                    fetchPriority="high"
                   />
                 </div>
 
