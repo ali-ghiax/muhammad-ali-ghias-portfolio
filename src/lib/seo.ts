@@ -1,9 +1,9 @@
 export const siteConfig = {
   name: "Muhammad Ali Ghias",
   shortName: "MAG",
-  title: "Muhammad Ali Ghias (MAG) | Junior Software Engineer & Graphic Designer",
+  title: "Muhammad Ali Ghias | Software Engineer & Graphic Designer",
   description:
-    "Official portfolio of Muhammad Ali Ghias (MAG) — also known as Ali Ghias and Ghias. Junior Software Engineer, Graphic Designer, and Microsoft Learn Student Ambassador based in Peshawar, Pakistan.",
+    "Official portfolio of Muhammad Ali Ghias — also known as Ali Ghias and Ghias. Software Engineer, Graphic Designer, and Microsoft Learn Student Ambassador based in Peshawar, Pakistan.",
   url: "https://muhammadalighias.me",
   locale: "en_US",
   /** Rounded MAG logo avatar — used for OG / Twitter / JSON-LD */
@@ -36,7 +36,7 @@ export const siteConfig = {
     "ghias",
     "Ghias portfolio",
     "ali-ghiax",
-    "Junior Software Engineer",
+    "Software Engineer",
     "Graphic Designer",
     "Web Developer Peshawar",
     "MLSA CUSIT",

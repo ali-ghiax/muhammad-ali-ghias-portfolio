@@ -29,7 +29,7 @@ export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
   title: {
     default: siteConfig.title,
-    template: `%s | ${siteConfig.name} (MAG)`,
+    template: `%s | ${siteConfig.name}`,
   },
   description: siteConfig.description,
   keywords: [...siteConfig.keywords],
@@ -53,7 +53,7 @@ export const metadata: Metadata = {
     title: siteConfig.title,
     description: siteConfig.description,
     url: siteConfig.url,
-    siteName: `${siteConfig.name} | MAG Portfolio`,
+    siteName: `${siteConfig.name} Portfolio`,
     locale: siteConfig.locale,
     type: "website",
     images: [
@@ -61,7 +61,7 @@ export const metadata: Metadata = {
         url: siteConfig.ogImage,
         width: 1200,
         height: 630,
-        alt: "MAG — Muhammad Ali Ghias portfolio",
+        alt: "Muhammad Ali Ghias portfolio",
       },
     ],
   },
@@ -69,7 +69,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: siteConfig.title,
     description:
-      "Muhammad Ali Ghias (MAG) · Ali Ghias · Ghias — Junior Software Engineer & Graphic Designer.",
+      "Muhammad Ali Ghias · Ali Ghias · Ghias — Software Engineer & Graphic Designer.",
     images: [siteConfig.ogImage],
     creator: "@ali_ghiax",
   },

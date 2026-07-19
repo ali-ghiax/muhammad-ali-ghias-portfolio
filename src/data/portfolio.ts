@@ -1,9 +1,9 @@
 export const personalInfo = {
   name: "Muhammad Ali Ghias",
-  role: "Junior Software Engineer · Graphic Designer",
+  role: "Software Engineer · Graphic Designer",
   tagline:
     "Building impactful digital solutions across web development, Microsoft technologies, and creative design",
-  bio: "I am a Junior Software Engineer and Lead Microsoft Learn Student Ambassador at CUSIT with experience in web development, Microsoft technologies, and cloud solutions. Skilled freelance graphic designer with a strong creative portfolio. Passionate about building impactful digital solutions and continuous learning.",
+  bio: "I am a Software Engineer and Lead Microsoft Learn Student Ambassador at CUSIT with experience in web development, Microsoft technologies, and cloud solutions. Skilled freelance graphic designer with a strong creative portfolio. Passionate about building impactful digital solutions and continuous learning.",
   email: "muhammadalighias@gmail.com",
   phone: "+92 326 5763041",
   location: "Peshawar, KPK, Pakistan",
@@ -892,7 +892,7 @@ export const testimonials = [
     role: "MLSA Lead · Designer · Developer",
     company: "CUSIT",
     quote:
-      "Building web experiences, campus tech community, and creative brand systems. Reach out if you need a junior engineer and designer who ships with care.",
+      "Building web experiences, campus tech community, and creative brand systems. Reach out if you need an engineer and designer who ships with care.",
     avatar: "/avatar-mag.png",
   },
 ];

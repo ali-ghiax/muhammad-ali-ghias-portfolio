@@ -18,7 +18,7 @@ export function JsonLd() {
     image: siteConfig.avatarImage,
     email: siteConfig.email,
     telephone: siteConfig.phone,
-    jobTitle: "Junior Software Engineer & Graphic Designer",
+    jobTitle: "Software Engineer & Graphic Designer",
     description: siteConfig.description,
     address: {
       "@type": "PostalAddress",

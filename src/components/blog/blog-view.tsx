@@ -65,7 +65,7 @@ export function BlogView({
                 and MLSA campus leadership — plus a daily feed of well-ranked community articles
                 targeting keywords like{" "}
                 <strong className="text-foreground font-medium">
-                  junior software engineer
+                  software engineer
                 </strong>
                 , React/Next.js, and visual design.
               </p>
@@ -92,7 +92,7 @@ export function BlogView({
 
           {/* From MAG */}
           <AnimatedSection>
-            <h2 className="text-2xl font-display font-bold mb-6">From MAG</h2>
+            <h2 className="text-2xl font-display font-bold mb-6">From Muhammad Ali Ghias</h2>
           </AnimatedSection>
 
           <StaggerContainer className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">

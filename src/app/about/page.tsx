@@ -69,7 +69,7 @@ export default function About() {
                 </h1>
                 <p className="text-muted-foreground mb-2">{personalInfo.role}</p>
                 <p className="text-sm text-primary font-medium mb-4">
-                  MAG · Lead MLSA CUSIT
+                  Lead MLSA CUSIT
                 </p>
 
                 <div className="flex items-center justify-start gap-2 text-sm text-muted-foreground mb-8">

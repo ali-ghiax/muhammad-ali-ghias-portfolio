@@ -116,7 +116,7 @@ export function Footer() {
 
         <div className="mt-12 pt-8 border-t border-border flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="text-sm text-muted-foreground">
-            © {new Date().getFullYear()} {personalInfo.name} (MAG). All rights reserved.
+            © {new Date().getFullYear()} {personalInfo.name}. All rights reserved.
           </p>
           <div className="flex gap-6 text-sm text-muted-foreground">
             <NextLink href="/privacy" className="hover:text-primary transition-colors">

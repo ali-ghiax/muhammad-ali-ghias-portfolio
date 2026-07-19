@@ -49,7 +49,7 @@ npm start
 
 ## Blog feed
 
-`/blog` shows original MAG posts plus a **daily curated feed** from the [DEV.to API](https://developers.forem.com/api) (React, Next.js, TypeScript, webdev, design, Microsoft, and more), sorted by community reactions.
+`/blog` shows original posts plus a **daily curated feed** from the [DEV.to API](https://developers.forem.com/api) (React, Next.js, TypeScript, webdev, design, Microsoft, and more), sorted by community reactions.
 
 - Feed API: `/api/blog/feed`
 - Daily refresh: Vercel Cron → `/api/blog/revalidate` at 06:00 UTC (`vercel.json`)
@@ -99,5 +99,5 @@ CV download: `public/Muhammad_Ali_Ghias_Resume.pdf`.
 
 ## Author
 
-**Muhammad Ali Ghias (MAG)** · Ali Ghias · Ghias  
+**Muhammad Ali Ghias** · Ali Ghias · Ghias  
 Peshawar, KPK · [muhammadalighias.me](https://muhammadalighias.me) · [ali-ghiax](https://github.com/ali-ghiax)
