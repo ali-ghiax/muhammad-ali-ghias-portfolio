@@ -1,6 +1,7 @@
 "use client";
 
 import * as React from "react";
+import Image from "next/image";
 import NextLink from "next/link";
 import { personalInfo } from "@/data/portfolio";
 import {
@@ -50,13 +51,18 @@ export function Footer() {
       <div className="max-w-7xl mx-auto px-6 py-16 relative">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-12">
           <div className="md:col-span-2">
-            <NextLink href="/" className="flex items-center gap-2 mb-4">
-              <div className="w-9 h-9 bg-primary flex items-center justify-center">
-                <span className="font-display font-bold text-primary-foreground text-lg">A</span>
-              </div>
-              <span className="text-lg font-display font-bold tracking-tight">
-                Muhammad <span className="text-primary">Ali Ghias</span>
-              </span>
+            <NextLink
+              href="/"
+              className="inline-flex items-center mb-4"
+              aria-label="MAG — Muhammad Ali Ghias home"
+            >
+              <Image
+                src="/logo-mag.png"
+                alt="MAG — Muhammad Ali Ghias, Software Engineer"
+                width={478}
+                height={198}
+                className="h-14 w-auto"
+              />
             </NextLink>
             <p className="text-muted-foreground mb-6 max-w-sm">
               Where code meets craft — building thoughtful digital experiences and visual identities.
