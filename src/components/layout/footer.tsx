@@ -2,7 +2,7 @@
 
 import * as React from "react";
 import NextLink from "next/link";
-import { GitBranch, Globe, Cloud, Mail } from "lucide-react";
+import { GitBranch, Globe, Cloud, Mail, MessageCircle } from "lucide-react";
 import { personalInfo } from "@/data/portfolio";
 import { cn } from "@/lib/utils";
 
@@ -24,6 +24,9 @@ const socialLinks = [
     ? [{ icon: GitBranch, href: personalInfo.social.github, label: "GitHub" }]
     : []),
   { icon: Globe, href: personalInfo.social.linkedin, label: "LinkedIn" },
+  ...(personalInfo.social.whatsapp
+    ? [{ icon: MessageCircle, href: personalInfo.social.whatsapp, label: "WhatsApp" }]
+    : []),
   ...(personalInfo.social.twitter
     ? [{ icon: Cloud, href: personalInfo.social.twitter, label: "Twitter" }]
     : []),

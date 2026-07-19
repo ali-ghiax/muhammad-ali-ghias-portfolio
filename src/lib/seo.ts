@@ -15,6 +15,7 @@ export const siteConfig = {
   },
   github: "https://github.com/ali-ghiax",
   linkedin: "https://www.linkedin.com/in/muhammad-ali-ghias/",
+  whatsapp: "https://wa.me/923265763041",
   keywords: [
     "Muhammad Ali Ghias",
     "muhammad-ali-ghias",

@@ -13,6 +13,7 @@ export const personalInfo = {
     linkedin: "https://www.linkedin.com/in/muhammad-ali-ghias/",
     twitter: "",
     website: "https://muhammadalighias.me",
+    whatsapp: "https://wa.me/923265763041",
   },
   languages: ["English", "Urdu", "Pashto"],
   stats: {

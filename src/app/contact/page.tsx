@@ -5,7 +5,7 @@ import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { motion } from "framer-motion";
 import Link from "next/link";
-import { Mail, MapPin, Send, GitBranch, Globe, Cloud, Loader2 } from "lucide-react";
+import { Mail, MapPin, Send, GitBranch, Globe, Cloud, Loader2, MessageCircle } from "lucide-react";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -31,6 +31,9 @@ const socialLinks = [
     ? [{ icon: GitBranch, href: personalInfo.social.github, label: "GitHub" }]
     : []),
   { icon: Globe, href: personalInfo.social.linkedin, label: "LinkedIn" },
+  ...(personalInfo.social.whatsapp
+    ? [{ icon: MessageCircle, href: personalInfo.social.whatsapp, label: "WhatsApp" }]
+    : []),
   ...(personalInfo.social.twitter
     ? [{ icon: Cloud, href: personalInfo.social.twitter, label: "Twitter" }]
     : []),
@@ -230,6 +233,25 @@ export default function Contact() {
                         </a>
                       </div>
                     </div>
+
+                    {personalInfo.social.whatsapp && (
+                      <div className="flex items-center gap-4">
+                        <div className="w-12 h-12 rounded-lg bg-green-500/10 flex items-center justify-center">
+                          <MessageCircle className="w-5 h-5 text-green-500" />
+                        </div>
+                        <div>
+                          <p className="text-sm text-muted-foreground">WhatsApp</p>
+                          <a
+                            href={personalInfo.social.whatsapp}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="font-medium hover:text-primary transition-colors"
+                          >
+                            +92 326 5763041
+                          </a>
+                        </div>
+                      </div>
+                    )}
 
                     <div className="flex items-center gap-4">
                       <div className="w-12 h-12 rounded-lg bg-green-500/10 flex items-center justify-center">
