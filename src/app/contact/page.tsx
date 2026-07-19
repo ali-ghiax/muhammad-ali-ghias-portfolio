@@ -282,21 +282,6 @@ export default function Contact() {
                       </div>
                     </div>
 
-                    <div className="flex items-start gap-3 sm:gap-4 min-w-0">
-                      <div className="w-10 h-10 sm:w-12 sm:h-12 shrink-0 rounded-lg bg-accent/10 flex items-center justify-center">
-                        <span className="text-accent font-mono text-xs font-bold">TEL</span>
-                      </div>
-                      <div className="min-w-0">
-                        <p className="text-sm text-muted-foreground">Phone</p>
-                        <a
-                          href={`tel:${personalInfo.phone.replace(/\s/g, "")}`}
-                          className="font-medium hover:text-primary transition-colors break-words"
-                        >
-                          {personalInfo.phone}
-                        </a>
-                      </div>
-                    </div>
-
                     {personalInfo.social.whatsapp && (
                       <div className="flex items-start gap-3 sm:gap-4 min-w-0">
                         <div className="w-10 h-10 sm:w-12 sm:h-12 shrink-0 rounded-lg bg-green-500/10 flex items-center justify-center">
