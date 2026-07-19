@@ -176,7 +176,7 @@ export default function Home() {
                   </p>
                   <h2 className="text-2xl sm:text-3xl md:text-4xl font-display font-bold mb-4 leading-tight">
                     {personalInfo.venture.title}{" "}
-                    {personalInfo.venture.brand}
+                    <span className="text-gradient">{personalInfo.venture.brand}</span>
                   </h2>
                   <p className="text-muted-foreground text-sm sm:text-base leading-relaxed mb-6 max-w-2xl">
                     {personalInfo.venture.description}
