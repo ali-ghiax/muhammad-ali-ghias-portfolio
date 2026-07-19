@@ -2,7 +2,7 @@
 
 import * as React from "react";
 import NextLink from "next/link";
-import { LogoMag } from "@/components/brand/logo-mag";
+import { ProfileAvatar } from "@/components/brand/profile-avatar";
 import { personalInfo } from "@/data/portfolio";
 import {
   GitHubIcon,
@@ -53,10 +53,16 @@ export function Footer() {
           <div className="md:col-span-2">
             <NextLink
               href="/"
-              className="inline-flex items-center mb-4"
+              className="inline-flex items-center gap-3 mb-4 group"
               aria-label="MAG — Muhammad Ali Ghias home"
             >
-              <LogoMag className="h-14 w-auto" />
+              <ProfileAvatar
+                size={48}
+                className="transition-opacity group-hover:opacity-90"
+              />
+              <span className="text-lg font-display font-bold tracking-tight">
+                Muhammad <span className="text-primary">Ali Ghias</span>
+              </span>
             </NextLink>
             <p className="text-muted-foreground mb-6 max-w-sm">
               Where code meets craft — building thoughtful digital experiences and visual identities.

@@ -6,7 +6,7 @@ import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, Moon, Sun } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { LogoMag } from "@/components/brand/logo-mag";
+import { ProfileAvatar } from "@/components/brand/profile-avatar";
 import { cn } from "@/lib/utils";
 import { personalInfo } from "@/data/portfolio";
 
@@ -103,10 +103,17 @@ export function Navbar() {
         <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
           <Link
             href="/"
-            className="flex items-center group"
+            className="flex items-center gap-3 group"
             aria-label="MAG — Muhammad Ali Ghias home"
           >
-            <LogoMag className="h-11 w-auto md:h-12 transition-opacity group-hover:opacity-90" />
+            <ProfileAvatar
+              size={40}
+              priority
+              className="transition-opacity group-hover:opacity-90"
+            />
+            <span className="text-lg font-display font-bold tracking-tight hidden min-[380px]:inline">
+              Muhammad <span className="text-primary">Ali Ghias</span>
+            </span>
           </Link>
 
           <nav className="hidden md:flex items-center gap-1">
