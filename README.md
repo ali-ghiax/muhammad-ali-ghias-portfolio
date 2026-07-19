@@ -49,9 +49,9 @@ npm start
 
 ## Contact form email
 
-Messages from `/contact` are emailed to **muhammadalighias@gmail.com** via [FormSubmit](https://formsubmit.co) — no Resend or Vercel API keys required.
+Messages from `/contact` are emailed to **muhammadalighias@gmail.com** via [FormSubmit](https://formsubmit.co).
 
-**First time only:** after the first form submission, FormSubmit sends a confirmation link to your Gmail. Click **Activate Form** in that email, then submissions will arrive normally.
+**First time only:** after you submit the form, check Gmail for a FormSubmit confirmation email and click **Activate Form**. Later messages arrive in your inbox automatically.
 
 ---
 
