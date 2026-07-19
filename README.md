@@ -47,6 +47,18 @@ npm start
 
 ---
 
+## Blog feed
+
+`/blog` shows original MAG posts plus a **daily curated feed** from the [DEV.to API](https://developers.forem.com/api) (React, Next.js, TypeScript, webdev, design, Microsoft, and more), sorted by community reactions.
+
+- Feed API: `/api/blog/feed`
+- Daily refresh: Vercel Cron → `/api/blog/revalidate` at 06:00 UTC (`vercel.json`)
+- ISR revalidate: 24 hours
+
+Optional: set `CRON_SECRET` and Vercel will authorize the cron with `Authorization: Bearer …`.
+
+---
+
 ## Contact form email
 
 Messages from `/contact` are emailed to **muhammadalighias@gmail.com** via [FormSubmit](https://formsubmit.co).

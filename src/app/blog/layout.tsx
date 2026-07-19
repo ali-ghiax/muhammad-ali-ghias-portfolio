@@ -2,20 +2,24 @@ import type { Metadata } from "next";
 import { siteConfig } from "@/lib/seo";
 
 export const metadata: Metadata = {
-  title: "Blog — Muhammad Ali Ghias (MAG)",
+  title: "Blog — Engineering insights & ranked articles | MAG",
   description:
-    "Articles and notes by Muhammad Ali Ghias (Ali Ghias / MAG / Ghias) on engineering, design, and campus tech community.",
+    "Original notes by Muhammad Ali Ghias (MAG) plus a daily curated feed of top-ranked DEV.to articles on React, Next.js, TypeScript, webdev, design, and Microsoft tech.",
   keywords: [
     "Muhammad Ali Ghias blog",
     "Ali Ghias blog",
     "MAG blog",
-    "Ghias writing",
+    "full stack software engineer",
+    "React Next.js TypeScript",
+    "graphic design",
+    "MLSA CUSIT",
     "muhammad-ali-ghias",
   ],
   alternates: { canonical: "/blog" },
   openGraph: {
-    title: "Blog — Muhammad Ali Ghias (MAG)",
-    description: "Writing from Ali Ghias (MAG).",
+    title: "Blog — Engineering insights & ranked articles | MAG",
+    description:
+      "Original MAG writing plus daily auto-updated ranked industry reads from DEV.to.",
     url: `${siteConfig.url}/blog`,
   },
 };
