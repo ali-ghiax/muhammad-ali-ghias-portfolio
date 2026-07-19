@@ -49,15 +49,22 @@ npm start
 ## SEO & indexing
 
 - Canonical domain: `https://muhammadalighias.me`
-- Dynamic `sitemap.xml` and `robots.txt` (allow all crawlers)
+- `robots.txt` — allows Googlebot and major crawlers
+- `sitemap.xml` — XML sitemap (all pages, projects, blog)
+- `sitemap.txt` — text sitemap (one URL per line)
+- `index.txt` — plain URL index for crawlers / bulk submission
 - JSON-LD Person / WebSite / ProfilePage schema with name aliases
 - Per-page metadata for About, Experience, Projects, Skills, Blog, Contact
+- Optional Google verification via `NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION` (see `.env.example`)
 
 ### After deploy — Google Search Console
 
 1. Add property `https://muhammadalighias.me`
-2. Verify domain (DNS TXT) or HTML tag
-3. Submit sitemap: `https://muhammadalighias.me/sitemap.xml`
+2. Verify domain (DNS TXT) or HTML / meta tag
+3. Submit sitemaps:
+   - `https://muhammadalighias.me/sitemap.xml`
+   - `https://muhammadalighias.me/sitemap.txt`
+   - `https://muhammadalighias.me/index.txt`
 4. Request indexing for the homepage
 
 ---

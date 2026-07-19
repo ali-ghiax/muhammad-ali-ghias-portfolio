@@ -86,6 +86,9 @@ export const metadata: Metadata = {
       "max-snippet": -1,
     },
   },
+  verification: {
+    google: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION || undefined,
+  },
   other: {
     "geo.region": "PK-KP",
     "geo.placename": "Peshawar",
@@ -104,6 +107,9 @@ export default function RootLayout({
         <link rel="author" href={siteConfig.url} />
         <link rel="me" href={siteConfig.github} />
         <link rel="me" href={siteConfig.linkedin} />
+        <link rel="sitemap" type="application/xml" href="/sitemap.xml" />
+        <link rel="alternate" type="text/plain" href="/sitemap.txt" title="Sitemap" />
+        <link rel="alternate" type="text/plain" href="/index.txt" title="URL Index" />
       </head>
       <body
         className="min-h-screen bg-background antialiased font-sans"

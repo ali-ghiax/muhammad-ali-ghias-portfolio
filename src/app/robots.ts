@@ -7,6 +7,7 @@ export default function robots(): MetadataRoute.Robots {
       {
         userAgent: "*",
         allow: "/",
+        disallow: [],
       },
       {
         userAgent: "Googlebot",
@@ -17,11 +18,27 @@ export default function robots(): MetadataRoute.Robots {
         allow: "/",
       },
       {
+        userAgent: "Googlebot-News",
+        allow: "/",
+      },
+      {
         userAgent: "Bingbot",
         allow: "/",
       },
+      {
+        userAgent: "Slurp",
+        allow: "/",
+      },
+      {
+        userAgent: "DuckDuckBot",
+        allow: "/",
+      },
     ],
-    sitemap: `${siteConfig.url}/sitemap.xml`,
+    sitemap: [
+      `${siteConfig.url}/sitemap.xml`,
+      `${siteConfig.url}/sitemap.txt`,
+      `${siteConfig.url}/index.txt`,
+    ],
     host: siteConfig.url,
   };
 }

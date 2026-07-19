@@ -1,0 +1,11 @@
+# Place your Google Search Console HTML verification file in /public
+# Example filename from Google:
+#   google1234567890abcdef.html
+#
+# Or set the meta tag verification code in .env.local:
+#   NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION=your_verification_code
+#
+# After deploy, submit these in Google Search Console:
+#   https://muhammadalighias.me/sitemap.xml
+#   https://muhammadalighias.me/sitemap.txt
+#   https://muhammadalighias.me/index.txt
