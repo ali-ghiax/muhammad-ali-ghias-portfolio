@@ -164,6 +164,68 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Founder / company highlight */}
+      <section className="py-10 sm:py-14">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6">
+          <AnimatedSection>
+            <div className="rounded-2xl border border-border/70 bg-muted/40 p-6 sm:p-8 lg:p-10 shadow-sm">
+              <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-center">
+                <div className="lg:col-span-7">
+                  <p className="text-xs uppercase tracking-[0.22em] text-muted-foreground mb-3">
+                    {personalInfo.venture.label}
+                  </p>
+                  <h2 className="text-2xl sm:text-3xl md:text-4xl font-display font-bold mb-4 leading-tight">
+                    {personalInfo.venture.title}{" "}
+                    <span className="text-primary">{personalInfo.venture.brand}</span>
+                  </h2>
+                  <p className="text-muted-foreground text-sm sm:text-base leading-relaxed mb-6 max-w-2xl">
+                    {personalInfo.venture.description}
+                  </p>
+                  <a
+                    href={personalInfo.venture.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex"
+                  >
+                    <Button
+                      variant="outline"
+                      size="lg"
+                      className="bg-background shadow-sm hover:bg-background group"
+                    >
+                      {personalInfo.venture.cta}
+                      <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                    </Button>
+                  </a>
+                </div>
+
+                <div className="lg:col-span-5">
+                  <a
+                    href={personalInfo.venture.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="block rounded-xl border border-border bg-background p-6 sm:p-7 shadow-sm transition-colors hover:border-primary/40"
+                  >
+                    <p className="text-xs uppercase tracking-[0.22em] text-muted-foreground mb-3">
+                      {personalInfo.venture.platformLabel}
+                    </p>
+                    <h3 className="text-xl sm:text-2xl font-display font-bold text-primary mb-2">
+                      {personalInfo.venture.platformTitle}
+                    </h3>
+                    <p className="text-sm text-muted-foreground mb-5">
+                      {personalInfo.venture.platformTagline}
+                    </p>
+                    <span className="inline-flex items-center gap-1.5 text-sm font-medium text-foreground">
+                      {personalInfo.venture.platformLinkLabel}
+                      <ArrowRight className="w-3.5 h-3.5" />
+                    </span>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </AnimatedSection>
+        </div>
+      </section>
+
       {/* Featured projects */}
       <section className="py-24 relative">
         <div className="absolute inset-0 bg-grid opacity-20" />

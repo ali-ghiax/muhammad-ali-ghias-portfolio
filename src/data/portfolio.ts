@@ -28,6 +28,19 @@ export const personalInfo = {
     technologies: 40,
     systemsShipped: 160,
   },
+  venture: {
+    label: "Company",
+    title: "Founder of",
+    brand: "Cyber Tools",
+    description:
+      "Building Cyber Tools — a free platform with 50,000+ online utilities for students, professionals, creators, and teams. Calculate, write, plan, build resumes, manage documents, and get everyday academic and work tasks done faster.",
+    cta: "Visit Cyber Tools",
+    url: "https://cyber-menta-tools.vercel.app/",
+    platformLabel: "Platform",
+    platformTitle: "Cyber Tools",
+    platformTagline: "50k+ tools for students & professionals",
+    platformLinkLabel: "cyber-menta-tools.vercel.app",
+  },
 };
 
 export const experience = [
