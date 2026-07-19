@@ -17,7 +17,6 @@ import {
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { ProfileAvatar } from "@/components/brand/profile-avatar";
 import { personalInfo, projects, skills, services } from "@/data/portfolio";
 import { AnimatedSection } from "@/components/layout/animations";
 
@@ -38,11 +37,18 @@ export default function Home() {
             transition={{ duration: 0.9, delay: 0.15 }}
             className="absolute top-1/4 right-[8%] md:right-[12%] pointer-events-none"
           >
-            <ProfileAvatar
-              size={280}
-              priority
-              className="shadow-[0_20px_50px_rgba(15,118,110,0.18)] ring-2 ring-primary/15"
-            />
+            <div className="relative h-[220px] w-[220px] overflow-hidden rounded-full border-4 border-primary/20 bg-white shadow-[0_20px_50px_rgba(15,118,110,0.18)] ring-4 ring-primary/10 md:h-[280px] md:w-[280px]">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src="/mag-circle.png"
+                alt="MAG"
+                width={280}
+                height={280}
+                className="h-full w-full object-cover"
+                decoding="async"
+                fetchPriority="high"
+              />
+            </div>
           </motion.div>
           <motion.div
             initial={{ scale: 0.9, opacity: 0 }}
