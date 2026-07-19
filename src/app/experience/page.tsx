@@ -35,7 +35,7 @@ export default function ExperiencePage() {
             <div className="absolute left-4 md:left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-primary via-secondary to-accent" />
             <div className="space-y-10">
               {experience.map((exp, index) => (
-                <AnimatedSection key={exp.id} delay={index * 0.1}>
+                <AnimatedSection key={exp.id} delay={Math.min(index * 0.03, 0.15)} duration={0.35}>
                   <div
                     className={cn(
                       "flex items-start gap-8",
