@@ -208,7 +208,7 @@ export default function Home() {
                     <p className="text-xs uppercase tracking-[0.22em] text-muted-foreground mb-3">
                       {personalInfo.venture.platformLabel}
                     </p>
-                    <h3 className="text-xl sm:text-2xl font-display font-bold text-primary mb-2">
+                    <h3 className="text-xl sm:text-2xl font-display font-bold text-foreground mb-2">
                       {personalInfo.venture.platformTitle}
                     </h3>
                     <p className="text-sm text-muted-foreground mb-5">
