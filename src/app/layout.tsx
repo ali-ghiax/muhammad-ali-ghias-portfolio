@@ -40,7 +40,6 @@ export const metadata: Metadata = {
   category: "portfolio",
   classification: "Personal Portfolio",
   referrer: "origin-when-cross-origin",
-  manifest: "/site.webmanifest",
   formatDetection: {
     email: false,
     address: false,
