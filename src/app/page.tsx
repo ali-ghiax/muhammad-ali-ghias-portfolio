@@ -176,7 +176,7 @@ export default function Home() {
                   </p>
                   <h2 className="text-2xl sm:text-3xl md:text-4xl font-display font-bold mb-4 leading-tight">
                     {personalInfo.venture.title}{" "}
-                    <span className="text-primary">{personalInfo.venture.brand}</span>
+                    <span className="text-secondary">{personalInfo.venture.brand}</span>
                   </h2>
                   <p className="text-muted-foreground text-sm sm:text-base leading-relaxed mb-6 max-w-2xl">
                     {personalInfo.venture.description}
@@ -208,7 +208,7 @@ export default function Home() {
                     <p className="text-xs uppercase tracking-[0.22em] text-muted-foreground mb-3">
                       {personalInfo.venture.platformLabel}
                     </p>
-                    <h3 className="text-xl sm:text-2xl font-display font-bold text-foreground mb-2">
+                    <h3 className="text-xl sm:text-2xl font-display font-bold text-secondary mb-2">
                       {personalInfo.venture.platformTitle}
                     </h3>
                     <p className="text-sm text-muted-foreground mb-5">
