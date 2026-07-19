@@ -25,116 +25,122 @@ const featuredProjects = projects.filter((p) => p.featured).slice(0, 3);
 export default function Home() {
   return (
     <div className="relative">
-      {/* Hero — brand-first, one composition */}
-      <section className="relative min-h-screen flex items-end md:items-center pt-24 pb-16 overflow-hidden">
+      {/* Hero — brand-first, responsive composition */}
+      <section className="relative min-h-[100svh] flex items-center pt-24 pb-12 sm:pb-16 overflow-hidden">
         <div className="absolute inset-0 hero-mesh" />
         <div className="absolute inset-0 bg-grid opacity-40" />
 
-        {/* Portrait — above overlays so it never stays blank */}
-        <div className="pointer-events-none absolute top-28 right-4 z-20 sm:right-8 md:top-1/4 md:right-[10%]">
-          <motion.div
-            initial={{ opacity: 0, scale: 0.94 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.7, delay: 0.1 }}
-            className="relative"
-          >
-            <div className="absolute inset-0 -z-10 scale-110 rounded-full bg-primary/10 blur-2xl" />
-            <div className="h-40 w-40 overflow-hidden rounded-full border-4 border-primary/20 bg-muted shadow-[0_20px_50px_rgba(15,118,110,0.18)] ring-4 ring-primary/10 sm:h-52 sm:w-52 md:h-[280px] md:w-[280px]">
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
-                src="/hero-photo.jpg"
-                alt="Muhammad Ali Ghias"
-                width={280}
-                height={280}
-                className="h-full w-full object-cover object-[50%_40%]"
-                decoding="async"
-                fetchPriority="high"
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 relative z-10 w-full">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 sm:gap-10 lg:gap-12 items-center">
+            {/* Portrait — stacks above text on mobile, right column on desktop */}
+            <motion.div
+              initial={{ opacity: 0, scale: 0.94 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.7, delay: 0.1 }}
+              className="order-1 lg:order-2 lg:col-span-5 flex justify-center lg:justify-end"
+            >
+              <div className="relative">
+                <div className="absolute inset-0 -z-10 scale-110 rounded-full bg-primary/10 blur-2xl" />
+                <div className="h-36 w-36 overflow-hidden rounded-full border-4 border-primary/20 bg-muted shadow-[0_20px_50px_rgba(15,118,110,0.18)] ring-4 ring-primary/10 sm:h-52 sm:w-52 md:h-60 md:w-60 lg:h-[260px] lg:w-[260px] xl:h-[300px] xl:w-[300px]">
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
+                    src="/hero-photo.jpg"
+                    alt="Muhammad Ali Ghias"
+                    width={300}
+                    height={300}
+                    className="h-full w-full object-cover object-[50%_40%]"
+                    decoding="async"
+                    fetchPriority="high"
+                  />
+                </div>
+              </div>
+            </motion.div>
+
+            {/* Copy */}
+            <div className="order-2 lg:order-1 lg:col-span-7 text-center lg:text-left">
+              <motion.p
+                initial={{ opacity: 0, y: 12 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5 }}
+                className="font-display text-4xl sm:text-5xl md:text-7xl lg:text-8xl xl:text-9xl font-bold tracking-tight mb-2 md:mb-3"
+              >
+                <span className="text-gradient">Muhammad</span>
+                <br />
+                <span className="text-foreground">Ali Ghias</span>
+              </motion.p>
+
+              <motion.div
+                initial={{ scaleX: 0 }}
+                animate={{ scaleX: 1 }}
+                transition={{ duration: 0.7, delay: 0.25 }}
+                className="h-1 w-20 sm:w-24 md:w-32 bg-primary mb-3 md:mb-4 origin-center lg:origin-left mx-auto lg:mx-0"
               />
+
+              <motion.h1
+                initial={{ opacity: 0, y: 16 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.3 }}
+                className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-display font-semibold text-foreground/90 mb-4 max-w-2xl mx-auto lg:mx-0"
+              >
+                {personalInfo.role}
+              </motion.h1>
+
+              <motion.p
+                initial={{ opacity: 0, y: 16 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.4 }}
+                className="text-sm sm:text-base md:text-lg text-muted-foreground mb-8 max-w-xl mx-auto lg:mx-0"
+              >
+                {personalInfo.tagline}. Web development, Microsoft technologies, and creative
+                design.
+              </motion.p>
+
+              <motion.div
+                initial={{ opacity: 0, y: 16 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.5 }}
+                className="flex flex-col sm:flex-row gap-3 mb-8 sm:mb-10 justify-center lg:justify-start"
+              >
+                <Link href="/projects" className="w-full sm:w-auto">
+                  <Button size="lg" className="group glow-primary w-full sm:w-auto">
+                    View projects
+                    <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                  </Button>
+                </Link>
+                <Link href="/contact" className="w-full sm:w-auto">
+                  <Button size="lg" variant="outline" className="w-full sm:w-auto">
+                    Get in touch
+                  </Button>
+                </Link>
+              </motion.div>
+
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 0.7 }}
+                className="flex flex-col sm:flex-row flex-wrap items-center justify-center lg:justify-start gap-x-6 gap-y-2 text-xs sm:text-sm text-muted-foreground"
+              >
+                <span className="flex items-center gap-2">
+                  <MapPin className="w-4 h-4 text-primary shrink-0" />
+                  {personalInfo.location}
+                </span>
+                <span className="flex items-center gap-2 break-all">
+                  <Mail className="w-4 h-4 text-primary shrink-0" />
+                  {personalInfo.email}
+                </span>
+                <span className="inline-flex items-center gap-2 text-primary text-center sm:text-left">
+                  <span className="w-2 h-2 rounded-full bg-primary animate-pulse-glow shrink-0" />
+                  {personalInfo.availability}
+                </span>
+              </motion.div>
             </div>
-          </motion.div>
-        </div>
-
-        <div className="max-w-7xl mx-auto px-6 relative z-10 w-full md:pr-[42%]">
-          <motion.p
-            initial={{ opacity: 0, y: 12 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-            className="font-display text-5xl sm:text-6xl md:text-8xl lg:text-9xl font-bold tracking-tight mb-2 md:mb-3"
-          >
-            <span className="text-gradient">Muhammad</span>
-            <br />
-            <span className="text-foreground">Ali Ghias</span>
-          </motion.p>
-
-          <motion.div
-            initial={{ scaleX: 0 }}
-            animate={{ scaleX: 1 }}
-            transition={{ duration: 0.7, delay: 0.25 }}
-            className="h-1 w-24 md:w-32 bg-primary mb-3 md:mb-4 origin-left"
-          />
-
-          <motion.h1
-            initial={{ opacity: 0, y: 16 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.3 }}
-            className="text-xl md:text-3xl font-display font-semibold text-foreground/90 mb-4 max-w-2xl"
-          >
-            {personalInfo.role}
-          </motion.h1>
-
-          <motion.p
-            initial={{ opacity: 0, y: 16 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.4 }}
-            className="text-base md:text-lg text-muted-foreground mb-8 max-w-xl"
-          >
-            {personalInfo.tagline}. Web development, Microsoft technologies, and creative design.
-          </motion.p>
-
-          <motion.div
-            initial={{ opacity: 0, y: 16 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.5 }}
-            className="flex flex-col sm:flex-row gap-3 mb-10"
-          >
-            <Link href="/projects">
-              <Button size="lg" className="group glow-primary">
-                View projects
-                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-              </Button>
-            </Link>
-            <Link href="/contact">
-              <Button size="lg" variant="outline">
-                Get in touch
-              </Button>
-            </Link>
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.7 }}
-            className="flex flex-wrap items-center gap-x-6 gap-y-2 text-sm text-muted-foreground"
-          >
-            <span className="flex items-center gap-2">
-              <MapPin className="w-4 h-4 text-primary" />
-              {personalInfo.location}
-            </span>
-            <span className="flex items-center gap-2">
-              <Mail className="w-4 h-4 text-primary" />
-              {personalInfo.email}
-            </span>
-            <span className="inline-flex items-center gap-2 text-primary">
-              <span className="w-2 h-2 rounded-full bg-primary animate-pulse-glow" />
-              {personalInfo.availability}
-            </span>
-          </motion.div>
+          </div>
         </div>
       </section>
 
       {/* Stats strip — below first viewport */}
-      <section className="py-12 border-y border-border/60 bg-card/40">
-        <div className="max-w-7xl mx-auto px-6 grid grid-cols-2 md:grid-cols-4 gap-8">
+      <section className="py-10 sm:py-12 border-y border-border/60 bg-card/40">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 grid grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8">
           {[
             { value: personalInfo.stats.yearsExperience, label: "Years building" },
             { value: personalInfo.stats.projectsCompleted, label: "Real world projects" },

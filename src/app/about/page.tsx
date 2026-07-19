@@ -45,13 +45,13 @@ export default function About() {
   return (
     <div className="min-h-screen pt-20">
       {/* Hero — profile card + about copy (matches mustafaportfolio about layout) */}
-      <section className="py-20 relative">
+      <section className="py-12 sm:py-16 md:py-20 relative">
         <div className="absolute inset-0 bg-grid opacity-20" />
-        <div className="max-w-7xl mx-auto px-6 relative">
-          <StaggerContainer className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 relative">
+          <StaggerContainer className="grid grid-cols-1 lg:grid-cols-12 gap-8 sm:gap-12 lg:gap-16 items-start">
             <StaggerItem className="lg:col-span-5">
-              <div className="border border-border bg-card/50 p-6 md:p-8 text-center">
-                <div className="relative mx-auto mb-6 h-52 w-52 shrink-0 overflow-hidden rounded-full border-4 border-primary/20 bg-muted shadow-lg ring-4 ring-primary/10 sm:h-60 sm:w-60">
+              <div className="border border-border bg-card/50 p-5 sm:p-6 md:p-8 text-center max-w-md mx-auto lg:max-w-none">
+                <div className="relative mx-auto mb-6 h-40 w-40 sm:h-52 sm:w-52 md:h-60 md:w-60 shrink-0 overflow-hidden rounded-full border-4 border-primary/20 bg-muted shadow-lg ring-4 ring-primary/10">
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img
                     src="/about-photo.jpg"
