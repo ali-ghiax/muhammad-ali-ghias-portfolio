@@ -80,14 +80,34 @@ export default function Contact() {
     setIsSubmitting(true);
     setSubmitStatus("idle");
     try {
-      const res = await fetch("/api/contact", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(data),
-      });
+      // FormSubmit — free, no API key / Vercel env needed
+      const res = await fetch(
+        `https://formsubmit.co/ajax/${encodeURIComponent(personalInfo.email)}`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Accept: "application/json",
+          },
+          body: JSON.stringify({
+            name: data.name,
+            email: data.email,
+            subject: data.subject,
+            message: data.message,
+            _subject: `[Portfolio] ${data.subject}`,
+            _template: "table",
+            _captcha: "false",
+          }),
+        }
+      );
 
-      if (!res.ok) {
-        throw new Error("Failed to send");
+      const result = (await res.json().catch(() => null)) as {
+        success?: string | boolean;
+        message?: string;
+      } | null;
+
+      if (!res.ok || result?.success === "false" || result?.success === false) {
+        throw new Error(result?.message || "Failed to send");
       }
 
       setSubmitStatus("success");
@@ -96,7 +116,7 @@ export default function Contact() {
       setSubmitStatus("error");
     } finally {
       setIsSubmitting(false);
-      setTimeout(() => setSubmitStatus("idle"), 4000);
+      setTimeout(() => setSubmitStatus("idle"), 5000);
     }
   };
 

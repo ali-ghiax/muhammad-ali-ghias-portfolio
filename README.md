@@ -27,7 +27,7 @@ Also searchable as **Ali Ghias**, **MAG**, **Ghias**, and **muhammad-ali-ghias**
 - **React 19** + **Tailwind CSS**
 - **Framer Motion** / GSAP
 - **React Hook Form** + Zod
-- **Resend** — contact form email delivery
+- **FormSubmit** — contact form email delivery (no API key)
 
 ---
 
@@ -49,17 +49,9 @@ npm start
 
 ## Contact form email
 
-Messages from `/contact` are emailed to **muhammadalighias@gmail.com** via [Resend](https://resend.com).
+Messages from `/contact` are emailed to **muhammadalighias@gmail.com** via [FormSubmit](https://formsubmit.co) — no Resend or Vercel API keys required.
 
-1. Create a free Resend account (use that Gmail address)
-2. Create an API key
-3. Add env vars locally (`.env.local`) and on Vercel → Settings → Environment Variables:
-
-```bash
-RESEND_API_KEY=re_xxxxxxxx
-```
-
-Optional: `CONTACT_TO_EMAIL`, `CONTACT_FROM_EMAIL` (see `.env.example`). Until you verify your domain, Resend’s default `onboarding@resend.dev` from-address works for testing.
+**First time only:** after the first form submission, FormSubmit sends a confirmation link to your Gmail. Click **Activate Form** in that email, then submissions will arrive normally.
 
 ---
 
