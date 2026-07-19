@@ -17,7 +17,6 @@ import {
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { LogoMag } from "@/components/brand/logo-mag";
 import { personalInfo, projects, skills, services } from "@/data/portfolio";
 import { AnimatedSection } from "@/components/layout/animations";
 
@@ -31,7 +30,7 @@ export default function Home() {
         <div className="absolute inset-0 hero-mesh" />
         <div className="absolute inset-0 bg-grid opacity-40" />
 
-        {/* MAG mark — above overlays so it never stays blank */}
+        {/* Portrait — above overlays so it never stays blank */}
         <div className="pointer-events-none absolute top-28 right-4 z-20 sm:right-8 md:top-1/4 md:right-[10%]">
           <motion.div
             initial={{ opacity: 0, scale: 0.94 }}
@@ -40,25 +39,17 @@ export default function Home() {
             className="relative"
           >
             <div className="absolute inset-0 -z-10 scale-110 rounded-full bg-primary/10 blur-2xl" />
-            <div className="flex h-40 w-40 items-center justify-center overflow-hidden rounded-full border-4 border-primary/20 bg-white shadow-[0_20px_50px_rgba(15,118,110,0.18)] ring-4 ring-primary/10 sm:h-52 sm:w-52 md:h-[280px] md:w-[280px]">
+            <div className="h-40 w-40 overflow-hidden rounded-full border-4 border-primary/20 bg-muted shadow-[0_20px_50px_rgba(15,118,110,0.18)] ring-4 ring-primary/10 sm:h-52 sm:w-52 md:h-[280px] md:w-[280px]">
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
-                src="/mag-circle.png"
-                alt="MAG"
+                src="/hero-photo.jpg"
+                alt="Muhammad Ali Ghias"
                 width={280}
                 height={280}
-                className="h-full w-full object-contain p-3"
+                className="h-full w-full object-cover object-[50%_40%]"
                 decoding="async"
                 fetchPriority="high"
-                onError={(e) => {
-                  e.currentTarget.style.display = "none";
-                  const fallback = e.currentTarget.nextElementSibling;
-                  if (fallback instanceof HTMLElement) fallback.style.display = "block";
-                }}
               />
-              <div className="hidden w-[75%] px-1">
-                <LogoMag className="h-auto w-full" />
-              </div>
             </div>
           </motion.div>
         </div>
