@@ -15,7 +15,7 @@ export function JsonLd() {
       "Muhammad Ali Ghias MAG",
     ],
     url: siteConfig.url,
-    image: "https://github.com/ali-ghiax.png",
+    image: siteConfig.avatarImage,
     email: siteConfig.email,
     telephone: siteConfig.phone,
     jobTitle: "Junior Software Engineer & Graphic Designer",

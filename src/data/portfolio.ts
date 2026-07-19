@@ -889,7 +889,7 @@ export const testimonials = [
     company: "CUSIT",
     quote:
       "Building web experiences, campus tech community, and creative brand systems. Reach out if you need a junior engineer and designer who ships with care.",
-    avatar: "",
+    avatar: "/avatar-mag.png",
   },
 ];
 

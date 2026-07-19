@@ -58,10 +58,10 @@ export const metadata: Metadata = {
     type: "website",
     images: [
       {
-        url: "https://github.com/ali-ghiax.png",
-        width: 460,
-        height: 460,
-        alt: "Muhammad Ali Ghias (MAG) — Ali Ghias portfolio",
+        url: siteConfig.ogImage,
+        width: 1200,
+        height: 630,
+        alt: "MAG — Muhammad Ali Ghias portfolio",
       },
     ],
   },
@@ -70,7 +70,7 @@ export const metadata: Metadata = {
     title: siteConfig.title,
     description:
       "Muhammad Ali Ghias (MAG) · Ali Ghias · Ghias — Junior Software Engineer & Graphic Designer.",
-    images: ["https://github.com/ali-ghiax.png"],
+    images: [siteConfig.ogImage],
     creator: "@ali_ghiax",
   },
   robots: {

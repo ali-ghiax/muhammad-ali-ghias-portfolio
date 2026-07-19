@@ -17,6 +17,7 @@ import {
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
+import { ProfileAvatar } from "@/components/brand/profile-avatar";
 import { personalInfo, projects, skills, services } from "@/data/portfolio";
 import { AnimatedSection } from "@/components/layout/animations";
 
@@ -29,19 +30,25 @@ export default function Home() {
       <section className="relative min-h-screen flex items-end md:items-center pt-24 pb-16 overflow-hidden">
         <div className="absolute inset-0 hero-mesh" />
         <div className="absolute inset-0 bg-grid opacity-40" />
-        <div className="absolute inset-y-0 right-0 w-full md:w-1/2 opacity-30 md:opacity-50 pointer-events-none">
-          <div className="absolute inset-0 bg-gradient-to-l from-transparent via-transparent to-background" />
+        <div className="absolute inset-y-0 right-0 w-full md:w-1/2 opacity-40 md:opacity-100 pointer-events-none hidden sm:block">
+          <div className="absolute inset-0 bg-gradient-to-l from-transparent via-transparent to-background z-10" />
           <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 1.2 }}
-            className="absolute top-1/4 right-[8%] w-64 h-64 md:w-96 md:h-96 rounded-full border border-primary/20"
-          />
+            initial={{ opacity: 0, scale: 0.92 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.9, delay: 0.15 }}
+            className="absolute top-1/4 right-[8%] md:right-[12%] pointer-events-none"
+          >
+            <ProfileAvatar
+              size={280}
+              priority
+              className="shadow-[0_20px_50px_rgba(15,118,110,0.18)] ring-2 ring-primary/15"
+            />
+          </motion.div>
           <motion.div
             initial={{ scale: 0.9, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
             transition={{ duration: 1, delay: 0.2 }}
-            className="absolute top-[28%] right-[12%] w-48 h-48 md:w-72 md:h-72 rounded-full bg-primary/10 blur-2xl animate-float"
+            className="absolute top-[28%] right-[12%] w-48 h-48 md:w-72 md:h-72 rounded-full bg-primary/10 blur-2xl animate-float -z-10"
           />
         </div>
 

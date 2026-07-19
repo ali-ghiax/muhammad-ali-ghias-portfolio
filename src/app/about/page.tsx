@@ -5,6 +5,7 @@ import { GraduationCap, Award, MapPin, BookOpen } from "lucide-react";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
+import { ProfileAvatar } from "@/components/brand/profile-avatar";
 import { personalInfo, education, courses } from "@/data/portfolio";
 import { AnimatedSection, StaggerContainer, StaggerItem } from "@/components/layout/animations";
 
@@ -26,9 +27,7 @@ export default function About() {
           <StaggerContainer className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
             <StaggerItem className="lg:col-span-5">
               <div className="border border-border bg-card/50 p-8 md:p-10">
-                <p className="font-display text-4xl md:text-5xl font-bold mb-2">
-                  <span className="text-gradient">AG</span>
-                </p>
+                <ProfileAvatar size={140} priority className="mb-6" />
                 <h1 className="text-2xl font-display font-bold mb-1">{personalInfo.name}</h1>
                 <p className="text-muted-foreground mb-6">{personalInfo.role}</p>
                 <div className="flex items-center gap-2 text-sm text-muted-foreground mb-8">
