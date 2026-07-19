@@ -22,6 +22,38 @@ function safeStatus() {
   }
 }
 
+/** Build a short "why" commit message from staged paths. */
+function commitMessageFromFiles(staged) {
+  const files = staged
+    .split("\n")
+    .map((f) => f.trim())
+    .filter(Boolean);
+  const joined = files.join(" ");
+
+  if (/contact|toast/i.test(joined)) {
+    return "Show a success toast after contact form messages are sent.";
+  }
+  if (/page\.tsx|portfolio\.ts|cyber-tools/i.test(joined) && /venture|cyber/i.test(joined)) {
+    return "Add Cyber Tools founder section and polish home page branding.";
+  }
+  if (/seo\.ts|layout\.tsx|og-|avatar|webmanifest|manifest/i.test(joined)) {
+    return "Fix share preview image, SEO titles, and remove install prompt.";
+  }
+  if (/blog/i.test(joined)) {
+    return "Update blog feed and related page copy.";
+  }
+  if (/globals\.css/i.test(joined)) {
+    return "Adjust site theme and color utilities.";
+  }
+  if (files.length === 1) {
+    return `Update ${files[0]} for portfolio improvements.`;
+  }
+  if (files.length <= 4) {
+    return `Update ${files.map((f) => f.split("/").pop()).join(", ")} for portfolio improvements.`;
+  }
+  return `Improve portfolio across ${files.length} files.`;
+}
+
 try {
   const status = safeStatus();
   if (!status) {
@@ -53,7 +85,10 @@ try {
     process.exit(0);
   }
 
-  run('git commit -m "Update portfolio site."');
+  const message = commitMessageFromFiles(staged);
+  // Escape double quotes for the shell
+  const safeMessage = message.replace(/"/g, '\\"');
+  run(`git commit -m "${safeMessage}"`);
   run("git push origin HEAD");
 } catch {
   // Fail open — do not block the agent if git/network fails.
