@@ -61,13 +61,13 @@ export function BlogView({
                 <span className="text-gradient">ranked articles</span>
               </h1>
               <p className="text-lg text-muted-foreground max-w-3xl mx-auto mb-6">
-                Original notes on web development, React, Next.js, TypeScript, graphic design, and
-                MLSA campus leadership — plus a daily feed of well-ranked community articles
+                Original notes on full-stack web apps, React, Next.js, TypeScript, graphic design,
+                and MLSA campus leadership — plus a daily feed of well-ranked community articles
                 targeting keywords like{" "}
                 <strong className="text-foreground font-medium">
-                  full stack software engineer
+                  junior software engineer
                 </strong>
-                , React/Next.js, and creative tech.
+                , React/Next.js, and visual design.
               </p>
               <p className="text-sm text-muted-foreground inline-flex items-center justify-center gap-2 flex-wrap">
                 <TrendingUp className="w-4 h-4 text-primary shrink-0" />

@@ -25,7 +25,7 @@ const PROFILE_TAGS = [
 ] as const;
 
 const KEYWORD_CHIPS = [
-  "full stack software engineer",
+  "junior software engineer",
   "React Next.js TypeScript",
   "Node.js JavaScript",
   "graphic design",
