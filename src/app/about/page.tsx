@@ -27,10 +27,20 @@ export default function About() {
           <StaggerContainer className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
             <StaggerItem className="lg:col-span-5">
               <div className="border border-border bg-card/50 p-8 md:p-10">
-                <ProfileAvatar size={140} priority className="mb-6" />
-                <h1 className="text-2xl font-display font-bold mb-1">{personalInfo.name}</h1>
-                <p className="text-muted-foreground mb-6">{personalInfo.role}</p>
-                <div className="flex items-center gap-2 text-sm text-muted-foreground mb-8">
+                <div className="flex justify-center mb-6">
+                  <ProfileAvatar
+                    size={180}
+                    priority
+                    className="ring-2 ring-primary/20 shadow-[0_12px_40px_rgba(15,118,110,0.15)]"
+                  />
+                </div>
+                <h1 className="text-2xl font-display font-bold mb-1 text-center md:text-left">
+                  {personalInfo.name}
+                </h1>
+                <p className="text-muted-foreground mb-6 text-center md:text-left">
+                  {personalInfo.role}
+                </p>
+                <div className="flex items-center justify-center md:justify-start gap-2 text-sm text-muted-foreground mb-8">
                   <MapPin className="w-4 h-4 text-primary" />
                   {personalInfo.location}
                 </div>
