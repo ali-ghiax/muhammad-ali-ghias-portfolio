@@ -1,4 +1,4 @@
-import { revalidateTag } from "next/cache";
+import { revalidatePath, revalidateTag } from "next/cache";
 import { NextResponse } from "next/server";
 
 /**
@@ -13,11 +13,14 @@ export async function GET(request: Request) {
     return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
   }
 
-  revalidateTag("blog-feed");
+  revalidateTag("blog-feed", "max");
+  revalidatePath("/blog");
+
   return NextResponse.json({
     ok: true,
     revalidated: true,
     tag: "blog-feed",
+    path: "/blog",
     at: new Date().toISOString(),
   });
 }
