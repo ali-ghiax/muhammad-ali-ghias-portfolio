@@ -6,7 +6,7 @@ export const siteConfig = {
     "Official portfolio of Muhammad Ali Ghias (MAG) — also known as Ali Ghias and Ghias. Junior Software Engineer, Graphic Designer, and Microsoft Learn Student Ambassador based in Peshawar, Pakistan.",
   url: "https://muhammadalighias.me",
   locale: "en_US",
-  email: "MuhammadAli.Ghias@studentambassadors.com",
+  email: "muhammadalighias@gmail.com",
   phone: "+92 326 5763041",
   location: {
     city: "Peshawar",

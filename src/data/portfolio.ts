@@ -4,7 +4,7 @@ export const personalInfo = {
   tagline:
     "Building impactful digital solutions across web development, Microsoft technologies, and creative design",
   bio: "I am a Junior Software Engineer and Lead Microsoft Learn Student Ambassador at CUSIT with experience in web development, Microsoft technologies, and cloud solutions. Skilled freelance graphic designer with a strong creative portfolio. Passionate about building impactful digital solutions and continuous learning.",
-  email: "MuhammadAli.Ghias@studentambassadors.com",
+  email: "muhammadalighias@gmail.com",
   phone: "+92 326 5763041",
   location: "Peshawar, KPK, Pakistan",
   availability: "Open to full-time, freelance & collaboration opportunities",

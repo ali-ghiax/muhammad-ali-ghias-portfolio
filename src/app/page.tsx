@@ -128,7 +128,7 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-6 grid grid-cols-2 md:grid-cols-4 gap-8">
           {[
             { value: personalInfo.stats.yearsExperience, label: "Years building" },
-            { value: personalInfo.stats.projectsCompleted, label: "GitHub projects" },
+            { value: personalInfo.stats.projectsCompleted, label: "Real world projects" },
             { value: personalInfo.stats.systemsShipped, label: "Microsoft badges" },
             { value: personalInfo.stats.technologies, label: "Skills" },
           ].map((stat, index) => (
@@ -138,6 +138,7 @@ export default function Home() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: index * 0.08 }}
+              className="text-center"
             >
               <div className="text-3xl md:text-4xl font-display font-bold text-gradient mb-1">
                 {stat.value}+
