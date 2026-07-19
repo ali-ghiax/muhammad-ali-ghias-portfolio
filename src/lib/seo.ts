@@ -20,7 +20,8 @@ export const siteConfig = {
   linkedin: "https://www.linkedin.com/in/muhammad-ali-ghias/",
   instagram: "https://www.instagram.com/ali_ghiax/",
   tiktok: "https://www.tiktok.com/@ali_ghiax",
-  whatsapp: "https://wa.me/923265763041",
+  whatsapp:
+    "https://wa.me/923265763041?text=Assalamualaikum%20Ghias%2C%20I%20found%20your%20portfolio%20and%20would%20like%20to%20discuss%20a%20project.",
   keywords: [
     "Muhammad Ali Ghias",
     "muhammad-ali-ghias",

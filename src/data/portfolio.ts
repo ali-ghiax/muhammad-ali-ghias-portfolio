@@ -15,7 +15,11 @@ export const personalInfo = {
     tiktok: "https://www.tiktok.com/@ali_ghiax",
     twitter: "",
     website: "https://muhammadalighias.me",
-    whatsapp: "https://wa.me/923265763041",
+    whatsapp:
+      "https://wa.me/923265763041?text=" +
+      encodeURIComponent(
+        "Assalamualaikum Ghias, I found your portfolio and would like to discuss a project."
+      ),
   },
   languages: ["English", "Urdu", "Pashto"],
   stats: {
