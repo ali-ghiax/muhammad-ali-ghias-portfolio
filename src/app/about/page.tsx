@@ -50,7 +50,7 @@ export default function About() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 relative">
           <StaggerContainer className="grid grid-cols-1 lg:grid-cols-12 gap-8 sm:gap-12 lg:gap-16 items-start">
             <StaggerItem className="lg:col-span-5">
-              <div className="border border-border bg-card/50 p-5 sm:p-6 md:p-8 text-center max-w-md mx-auto lg:max-w-none">
+              <div className="border border-border bg-card/50 p-5 sm:p-6 md:p-8 text-left max-w-md mx-auto lg:max-w-none">
                 <div className="relative mx-auto mb-6 h-52 w-52 sm:h-60 sm:w-60 shrink-0 overflow-hidden rounded-full border-4 border-primary/20 bg-muted shadow-lg ring-4 ring-primary/10">
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img
@@ -68,12 +68,12 @@ export default function About() {
                   {personalInfo.name}
                 </h1>
                 <p className="text-muted-foreground mb-2">{personalInfo.role}</p>
-                <p className="inline-block text-sm text-primary font-medium mb-4">
+                <p className="text-sm text-primary font-medium mb-4">
                   MAG · Lead MLSA CUSIT
                 </p>
 
-                <div className="flex items-center justify-center gap-2 text-sm text-muted-foreground mb-8">
-                  <MapPin className="w-4 h-4 text-primary" />
+                <div className="flex items-center justify-start gap-2 text-sm text-muted-foreground mb-8">
+                  <MapPin className="w-4 h-4 text-primary shrink-0" />
                   {personalInfo.location}
                 </div>
 
@@ -92,7 +92,7 @@ export default function About() {
                   </div>
                 </div>
 
-                <p className="mt-6 text-sm text-muted-foreground">
+                <p className="mt-6 text-sm text-muted-foreground text-left">
                   Languages: {personalInfo.languages.join(" · ")}
                 </p>
               </div>
