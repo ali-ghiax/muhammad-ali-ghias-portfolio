@@ -1,0 +1,15 @@
+---
+description: Always commit and push portfolio changes to GitHub after edits
+alwaysApply: true
+---
+
+# Auto push after changes
+
+When you finish making code or content changes in this repo:
+
+1. Commit the relevant files (never commit `.env` or secrets).
+2. Use author identity already in git config — **never** add Cursor / Copilot as a co-author (`Co-authored-by` trailers are forbidden).
+3. Push to `origin` on the current branch (`git push -u origin HEAD` if needed).
+4. Do this without asking for confirmation each time, unless the push fails or would be destructive (`--force` to main is never allowed).
+
+Commit messages should be concise and explain why the change was made.
