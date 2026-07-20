@@ -20,25 +20,33 @@ export default function CertificationsPage() {
                 Certifications & <span className="text-gradient">learning</span>
               </h1>
               <p className="text-lg text-muted-foreground">
-                Design specializations, Adobe tools, and {personalInfo.stats.systemsShipped}+
-                Microsoft Learn badges from continuous learning.
+                Credentials from{" "}
+                <a
+                  href="https://www.linkedin.com/in/mghias/details/certifications/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-primary underline-offset-4 hover:underline"
+                >
+                  LinkedIn
+                </a>
+                , plus {personalInfo.stats.systemsShipped}+ Microsoft Learn badges.
               </p>
             </div>
           </AnimatedSection>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
             {courses.map((course, index) => (
-              <AnimatedSection key={course.id} delay={index * 0.08}>
-                <article className="group h-full overflow-hidden border border-border bg-card/50 hover:border-primary/35 transition-colors">
+              <AnimatedSection key={course.id} delay={index * 0.05}>
+                <article className="group h-full overflow-hidden border border-border bg-card/50 hover:border-primary/35 transition-colors flex flex-col">
                   <div className="relative aspect-[16/10] overflow-hidden bg-muted border-b border-border">
                     {/* eslint-disable-next-line @next/next/no-img-element */}
                     <img
                       src={course.image}
                       alt={`${course.title} certificate`}
-                      className="h-full w-full object-cover object-center transition-transform duration-500 group-hover:scale-[1.03]"
+                      className="h-full w-full object-contain object-center bg-white p-3 transition-transform duration-500 group-hover:scale-[1.02]"
                     />
                   </div>
-                  <div className="p-5 sm:p-6">
+                  <div className="p-5 sm:p-6 flex flex-col flex-1">
                     <div className="flex flex-wrap items-center gap-2 mb-2">
                       <h2 className="text-lg sm:text-xl font-display font-semibold">
                         {course.title}
@@ -48,9 +56,9 @@ export default function CertificationsPage() {
                       </Badge>
                     </div>
                     <p className="text-sm text-primary mb-2">{course.institution}</p>
-                    <p className="text-sm text-muted-foreground mb-4">{course.description}</p>
+                    <p className="text-sm text-muted-foreground mb-4 flex-1">{course.description}</p>
                     <a
-                      href={course.image}
+                      href={course.url}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="inline-flex items-center gap-1.5 text-sm font-medium text-foreground hover:text-primary transition-colors"
