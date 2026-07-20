@@ -1,5 +1,5 @@
 export type CertificateCategory =
-  | "ibm-devops"
+  | "professional"
   | "graphic-design"
   | "coursera"
   | "udemy"
@@ -30,7 +30,7 @@ export const courses: Certificate[] = [
       "Professional Certificate covering DevOps practices, Python, Docker, Kubernetes, CI/CD, and cloud-native application development.",
     image: "/certifications/coursera-ibm-devops-engineering.jpg",
     url: "https://www.coursera.org/account/accomplishments/specialization/6Q12X08S82Q1",
-    category: "ibm-devops",
+    category: "professional",
     kind: "professional",
   },
   {
@@ -41,7 +41,7 @@ export const courses: Certificate[] = [
     description: "Foundations of DevOps culture, CI/CD, cloud-native development, and collaborative software delivery.",
     image: "/certifications/coursera-intro-devops.jpg",
     url: "https://www.coursera.org/account/accomplishments/verify/LADMZDU72DKK",
-    category: "ibm-devops",
+    category: "coursera",
     kind: "course",
   },
   {
@@ -52,7 +52,7 @@ export const courses: Certificate[] = [
     description: "Cloud service models, deployment patterns, and platforms including AWS, Azure, Google Cloud, and IBM Cloud.",
     image: "/certifications/coursera-intro-cloud-computing.jpg",
     url: "https://www.coursera.org/account/accomplishments/verify/ZBBSC2YAZ97X",
-    category: "ibm-devops",
+    category: "coursera",
     kind: "course",
   },
   {
@@ -63,7 +63,7 @@ export const courses: Certificate[] = [
     description: "Agile and Scrum practices for iterative delivery, backlog management, and collaborative team workflows.",
     image: "/certifications/coursera-intro-agile-scrum.jpg",
     url: "https://www.coursera.org/account/accomplishments/verify/E88WXPY2TPGQ",
-    category: "ibm-devops",
+    category: "coursera",
     kind: "course",
   },
   {
@@ -74,7 +74,7 @@ export const courses: Certificate[] = [
     description: "Software engineering principles, SDLC, Python basics, and software architecture fundamentals.",
     image: "/certifications/coursera-intro-software-engineering.jpg",
     url: "https://www.coursera.org/account/accomplishments/verify/YPZH1Y1NQUEG",
-    category: "ibm-devops",
+    category: "coursera",
     kind: "course",
   },
   {
@@ -85,7 +85,7 @@ export const courses: Certificate[] = [
     description: "Version control with Git and GitHub for collaborative coding, branching, and pull requests.",
     image: "/certifications/coursera-git-github.jpg",
     url: "https://www.coursera.org/account/accomplishments/verify/B46BLPLQKQ03",
-    category: "ibm-devops",
+    category: "coursera",
     kind: "course",
   },
   {
@@ -96,7 +96,7 @@ export const courses: Certificate[] = [
     description: "Linux commands, Bash scripting, file management, and automation for development workflows.",
     image: "/certifications/coursera-linux-shell-scripting.jpg",
     url: "https://www.coursera.org/account/accomplishments/verify/5WZ41T03G5RN",
-    category: "ibm-devops",
+    category: "coursera",
     kind: "course",
   },
   {
@@ -107,7 +107,7 @@ export const courses: Certificate[] = [
     description: "Python programming with Pandas, NumPy, and Jupyter for data science and AI development.",
     image: "/certifications/coursera-python-data-science.jpg",
     url: "https://www.coursera.org/account/accomplishments/verify/SJGI4KI7OEPS",
-    category: "ibm-devops",
+    category: "coursera",
     kind: "course",
   },
   {
@@ -118,7 +118,7 @@ export const courses: Certificate[] = [
     description: "Built and deployed AI-powered web applications using Python, Flask, and IBM Watson libraries.",
     image: "/certifications/coursera-python-flask-ai.jpg",
     url: "https://www.coursera.org/account/accomplishments/verify/IUO3FLJDU98H",
-    category: "ibm-devops",
+    category: "coursera",
     kind: "course",
   },
   {
@@ -129,7 +129,7 @@ export const courses: Certificate[] = [
     description: "Containerization with Docker, orchestration with Kubernetes and OpenShift, and cloud-native deployments.",
     image: "/certifications/coursera-docker-kubernetes-openshift.jpg",
     url: "https://www.coursera.org/account/accomplishments/verify/H5P25SY28O0K",
-    category: "ibm-devops",
+    category: "coursera",
     kind: "course",
   },
   {
@@ -140,7 +140,7 @@ export const courses: Certificate[] = [
     description: "REST APIs, Docker microservices, and serverless deployment with IBM Code Engine.",
     image: "/certifications/coursera-microservices-serverless.jpg",
     url: "https://www.coursera.org/account/accomplishments/verify/CA7YIJYPSGH5",
-    category: "ibm-devops",
+    category: "coursera",
     kind: "course",
   },
   {
@@ -151,7 +151,7 @@ export const courses: Certificate[] = [
     description: "Unit testing, TDD, BDD, mocks, and test coverage for reliable application development.",
     image: "/certifications/coursera-tdd-bdd.jpg",
     url: "https://www.coursera.org/account/accomplishments/verify/BT7I4ZJBYMD7",
-    category: "ibm-devops",
+    category: "coursera",
     kind: "course",
   },
   {
@@ -162,7 +162,7 @@ export const courses: Certificate[] = [
     description: "CI/CD pipelines with Jenkins, GitHub Actions, Terraform, and OpenShift deployment automation.",
     image: "/certifications/coursera-cicd.jpg",
     url: "https://www.coursera.org/account/accomplishments/verify/DUO928RG4KOR",
-    category: "ibm-devops",
+    category: "coursera",
     kind: "course",
   },
   {
@@ -173,7 +173,7 @@ export const courses: Certificate[] = [
     description: "Secure coding, OWASP principles, vulnerability scanning, and DevSecOps security practices.",
     image: "/certifications/coursera-app-security-devops.jpg",
     url: "https://www.coursera.org/account/accomplishments/verify/DS8N1PMVA7BF",
-    category: "ibm-devops",
+    category: "coursera",
     kind: "course",
   },
   {
@@ -184,7 +184,7 @@ export const courses: Certificate[] = [
     description: "Logging, tracing, Prometheus, Grafana, and observability for cloud-native applications.",
     image: "/certifications/coursera-monitoring-observability.jpg",
     url: "https://www.coursera.org/account/accomplishments/verify/2YERRC65D70T",
-    category: "ibm-devops",
+    category: "coursera",
     kind: "course",
   },
   {
@@ -195,7 +195,7 @@ export const courses: Certificate[] = [
     description: "Capstone applying Agile, microservices, containers, CI/CD, and testing in a full DevOps project.",
     image: "/certifications/coursera-devops-capstone.jpg",
     url: "https://www.coursera.org/account/accomplishments/verify/Y8UJ4TYYE7VT",
-    category: "ibm-devops",
+    category: "coursera",
     kind: "course",
   },
   {
@@ -442,21 +442,22 @@ export const courses: Certificate[] = [
 
 export const certificateSections = [
   {
-    id: "ibm-devops",
-    title: "IBM DevOps & Software Engineering",
+    id: "professional",
+    title: "Professional Certifications",
     subtitle:
-      "Professional Certificate and individual course credentials from the IBM DevOps program on Coursera.",
+      "Multi-course professional certificates from verified learning programs.",
+  },
+  {
+    id: "coursera",
+    title: "Coursera",
+    subtitle:
+      "Individual course certificates from Coursera, including IBM DevOps, AI, and technical writing.",
   },
   {
     id: "graphic-design",
     title: "Graphic Design",
     subtitle:
       "Coursera courses and guided projects in graphic design, Canva, Adobe Photoshop, and visual branding.",
-  },
-  {
-    id: "coursera",
-    title: "Coursera",
-    subtitle: "Additional Coursera course certificates in AI and technical writing.",
   },
   {
     id: "udemy",

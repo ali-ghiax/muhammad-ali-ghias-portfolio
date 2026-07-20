@@ -84,7 +84,7 @@ function CertificateCard({
 export default function CertificationsPage() {
   const [tab, setTab] = useState<Tab>("badges");
 
-  const ibmDevOpsCount = getCertificatesByCategory("ibm-devops").length;
+  const professionalCount = getCertificatesByCategory("professional").length;
   const graphicDesignCount = getCertificatesByCategory("graphic-design").length;
   const courseraCount = getCertificatesByCategory("coursera").length;
   const totalCredentials =
@@ -127,19 +127,11 @@ export default function CertificationsPage() {
               <div className="flex flex-wrap gap-3 text-sm">
                 <button
                   type="button"
-                  onClick={() => goToSection("ibm-devops")}
+                  onClick={() => goToSection("professional")}
                   className="inline-flex items-center gap-2 border border-border bg-card/50 px-3 py-1.5 cursor-pointer transition-colors hover:border-primary/40 hover:bg-card"
                 >
-                  <span className="font-display font-bold text-foreground">{ibmDevOpsCount}</span>
-                  IBM DevOps
-                </button>
-                <button
-                  type="button"
-                  onClick={() => goToSection("graphic-design")}
-                  className="inline-flex items-center gap-2 border border-border bg-card/50 px-3 py-1.5 cursor-pointer transition-colors hover:border-primary/40 hover:bg-card"
-                >
-                  <span className="font-display font-bold text-foreground">{graphicDesignCount}</span>
-                  Graphic Design
+                  <span className="font-display font-bold text-foreground">{professionalCount}</span>
+                  Professional Certifications
                 </button>
                 <button
                   type="button"
@@ -148,6 +140,14 @@ export default function CertificationsPage() {
                 >
                   <span className="font-display font-bold text-foreground">{courseraCount}</span>
                   Coursera
+                </button>
+                <button
+                  type="button"
+                  onClick={() => goToSection("graphic-design")}
+                  className="inline-flex items-center gap-2 border border-border bg-card/50 px-3 py-1.5 cursor-pointer transition-colors hover:border-primary/40 hover:bg-card"
+                >
+                  <span className="font-display font-bold text-foreground">{graphicDesignCount}</span>
+                  Graphic Design
                 </button>
                 <button
                   type="button"
