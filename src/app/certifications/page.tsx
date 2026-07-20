@@ -114,18 +114,8 @@ export default function CertificationsPage() {
                 Certifications & <span className="text-gradient">learning</span>
               </h1>
               <p className="text-lg text-muted-foreground mb-6">
-                IBM DevOps Professional Certificate, graphic design, Coursera courses, Udemy training, plus{" "}
-                {microsoftAchievementStats.badges} Microsoft Badges and{" "}
-                {microsoftAchievementStats.trophies} Microsoft Trophies from{" "}
-                <a
-                  href={microsoftAchievementStats.profileUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-primary underline-offset-4 hover:underline"
-                >
-                  Microsoft Learn
-                </a>
-                .
+                Browse verified certificates and learning achievements by category. Each credential
+                includes a shareable verification link.
               </p>
               <div className="flex flex-wrap gap-3 text-sm">
                 <button
