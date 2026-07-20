@@ -124,10 +124,8 @@ export default function CertificationsPage() {
                 Certifications & <span className="text-gradient">learning</span>
               </h1>
               <p className="text-lg text-muted-foreground mb-6">
-                Browse {totalCredentials} verified credentials by category — {courses.length}{" "}
-                certificates, {credlyCount} Credly badges, {microsoftAchievementStats.badges}{" "}
-                Microsoft Badges, and {microsoftAchievementStats.trophies} Microsoft Trophies. Jump
-                to a section below; each item links to its official verification page.
+                Browse {totalCredentials} verified credentials by category. Jump to a section below;
+                each item links to its official verification page.
               </p>
               <div className="flex flex-wrap gap-3 text-sm">
                 <button
