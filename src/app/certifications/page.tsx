@@ -24,6 +24,16 @@ import { cn } from "@/lib/utils";
 
 type Tab = "badges" | "trophies";
 
+const certAnimation = {
+  duration: 0.35,
+  viewportMargin: "-120px",
+  y: 24,
+} as const;
+
+function staggerDelay(index: number, step = 0.006, max = 0.12) {
+  return Math.min(index * step, max);
+}
+
 function CertificateCard({
   course,
   index,
@@ -34,7 +44,13 @@ function CertificateCard({
   featured?: boolean;
 }) {
   return (
-    <AnimatedSection key={course.id} delay={index * 0.04}>
+    <AnimatedSection
+      key={course.id}
+      delay={staggerDelay(index, 0.012)}
+      duration={certAnimation.duration}
+      viewportMargin={certAnimation.viewportMargin}
+      y={certAnimation.y}
+    >
       <article
         className={cn(
           "group h-full overflow-hidden border border-border bg-card/50 hover:border-primary/35 transition-colors flex flex-col",
@@ -117,7 +133,7 @@ export default function CertificationsPage() {
       <section className="py-20 relative">
         <div className="absolute inset-0 bg-grid opacity-20" />
         <div className="max-w-7xl mx-auto px-6 relative">
-          <AnimatedSection>
+          <AnimatedSection duration={certAnimation.duration} viewportMargin={certAnimation.viewportMargin} y={certAnimation.y}>
             <div className="mb-14 max-w-3xl">
               <p className="text-sm uppercase tracking-[0.2em] text-primary mb-3">Credentials</p>
               <h1 className="text-4xl md:text-6xl font-display font-bold mb-5">
@@ -197,7 +213,7 @@ export default function CertificationsPage() {
               if (section.id === "credly") {
                 return (
                   <div key={section.id} id={section.id} className="scroll-mt-28">
-                    <AnimatedSection>
+                    <AnimatedSection duration={certAnimation.duration} viewportMargin={certAnimation.viewportMargin} y={certAnimation.y}>
                       <div className="mb-8">
                         <h2 className="text-2xl md:text-3xl font-display font-bold mb-2">
                           {section.title}
@@ -208,7 +224,13 @@ export default function CertificationsPage() {
 
                     <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3 sm:gap-4">
                       {credlyBadges.map((badge, index) => (
-                        <AnimatedSection key={badge.id} delay={Math.min(index * 0.015, 0.4)}>
+                        <AnimatedSection
+                          key={badge.id}
+                          delay={staggerDelay(index)}
+                          duration={certAnimation.duration}
+                          viewportMargin={certAnimation.viewportMargin}
+                          y={certAnimation.y}
+                        >
                           <a
                             href={badge.url}
                             target="_blank"
@@ -253,7 +275,7 @@ export default function CertificationsPage() {
 
               return (
                 <div key={section.id} id={section.id} className="scroll-mt-28">
-                  <AnimatedSection>
+                  <AnimatedSection duration={certAnimation.duration} viewportMargin={certAnimation.viewportMargin} y={certAnimation.y}>
                     <div className="mb-8">
                       <h2 className="text-2xl md:text-3xl font-display font-bold mb-2">
                         {section.title}
@@ -276,7 +298,7 @@ export default function CertificationsPage() {
           </div>
 
           <div id="microsoft-achievements" className="scroll-mt-28 mt-20">
-            <AnimatedSection>
+            <AnimatedSection duration={certAnimation.duration} viewportMargin={certAnimation.viewportMargin} y={certAnimation.y}>
               <div className="mb-6 flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4">
                 <div>
                   <h2 className="text-2xl md:text-3xl font-display font-bold mb-2">
@@ -319,7 +341,13 @@ export default function CertificationsPage() {
 
             <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3 sm:gap-4">
               {items.map((item, index) => (
-                <AnimatedSection key={item.id} delay={Math.min(index * 0.015, 0.4)}>
+                <AnimatedSection
+                  key={item.id}
+                  delay={staggerDelay(index)}
+                  duration={certAnimation.duration}
+                  viewportMargin={certAnimation.viewportMargin}
+                  y={certAnimation.y}
+                >
                   <a
                     href={item.url}
                     target="_blank"
@@ -362,7 +390,7 @@ export default function CertificationsPage() {
 
       <section className="py-20 border-t border-border/60">
         <div className="max-w-3xl mx-auto px-6 text-center">
-          <AnimatedSection>
+          <AnimatedSection duration={certAnimation.duration} viewportMargin={certAnimation.viewportMargin} y={certAnimation.y}>
             <h2 className="text-3xl font-display font-bold mb-4">
               Want to <span className="text-gradient">collaborate</span>?
             </h2>

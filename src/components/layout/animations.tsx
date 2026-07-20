@@ -7,6 +7,9 @@ interface AnimatedSectionProps {
   children: ReactNode;
   className?: string;
   delay?: number;
+  duration?: number;
+  viewportMargin?: string;
+  y?: number;
 }
 
 export function AnimatedSection({
@@ -14,12 +17,14 @@ export function AnimatedSection({
   className,
   delay = 0,
   duration = 0.8,
-}: AnimatedSectionProps & { duration?: number }) {
+  viewportMargin = "-40px",
+  y = 50,
+}: AnimatedSectionProps) {
   return (
     <motion.section
-      initial={{ opacity: 0, y: 50 }}
+      initial={{ opacity: 0, y }}
       whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-40px" }}
+      viewport={{ once: true, margin: viewportMargin }}
       transition={{ duration, delay, ease: "easeOut" }}
       className={className}
     >
