@@ -26,6 +26,14 @@ function LinkedInIcon({ className }: { className?: string }) {
   );
 }
 
+function CredlyIcon({ className }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" className={className}>
+      <path d="M12 1.5c-2.1 0-3.9 1.2-4.8 3-.7-.2-1.4-.2-2.1 0C3.4 5 2.2 6.8 2.2 8.9c0 .7.1 1.3.4 1.9-.9 1.1-1.3 2.5-1.1 4 .3 2.3 2 4.2 4.3 4.8.5 1.7 1.9 3.1 3.6 3.6 1.5.4 3 .2 4.2-.6.7.4 1.5.6 2.4.6 2.5 0 4.6-1.8 5-4.2.9-.4 1.6-1.1 2.1-2 .8-1.5.8-3.3 0-4.8-.3-.6-.8-1.2-1.3-1.6.2-.6.3-1.2.3-1.9 0-2.5-1.8-4.6-4.2-5-.7-1.5-2.1-2.6-3.7-2.9-.6-.1-1.2-.1-1.8 0zm0 2.2c.4 0 .8 0 1.1.1 1.1.2 2 1 2.4 2 .2.5.7.8 1.2.9 1.4.2 2.5 1.4 2.5 2.9 0 .4 0 .8-.2 1.1-.2.5 0 1 .3 1.4.4.6.6 1.2.6 1.9 0 .9-.4 1.7-1.1 2.2-.4.3-.6.8-.5 1.3.2 1.3-1 2.5-2.4 2.5-.5 0-.9.2-1.2.6-.6.7-1.6 1-2.5.8-1-.2-1.8-1-2.1-1.9-.2-.5-.6-.8-1.1-.9-1.3-.3-2.3-1.5-2.1-2.9.1-.5-.2-1-.6-1.3-.5-.4-.8-1-.8-1.7 0-.9.5-1.7 1.3-2.1.4-.2.7-.7.6-1.2-.1-.4 0-.8.2-1.2.5-1 1.5-1.6 2.6-1.6.5 0 .9-.3 1.1-.7.4-.7 1.1-1.1 1.9-1.1zm-.1 4.1c-2 0-3.6 1.6-3.6 3.7s1.6 3.7 3.6 3.7 3.6-1.6 3.6-3.7-1.6-3.7-3.6-3.7zm0 2c.9 0 1.6.7 1.6 1.7s-.7 1.7-1.6 1.7-1.6-.7-1.6-1.7.7-1.7 1.6-1.7z" />
+    </svg>
+  );
+}
+
 const navLinks = [
   { href: "/", label: "Home" },
   { href: "/about", label: "About" },
@@ -168,6 +176,15 @@ export function Navbar() {
             >
               <LinkedInIcon className="w-5 h-5" />
             </a>
+            <a
+              href={personalInfo.social.credly}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Credly"
+              className="p-2 text-muted-foreground hover:text-foreground transition-colors"
+            >
+              <CredlyIcon className="w-5 h-5" />
+            </a>
             <Link href="/contact">
               <Button size="sm" variant="glow">
                 Hire me
@@ -247,6 +264,14 @@ export function Navbar() {
                   aria-label="LinkedIn"
                 >
                   <LinkedInIcon className="w-6 h-6 text-muted-foreground hover:text-foreground" />
+                </a>
+                <a
+                  href={personalInfo.social.credly}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Credly"
+                >
+                  <CredlyIcon className="w-6 h-6 text-muted-foreground hover:text-foreground" />
                 </a>
               </div>
             </div>
