@@ -26,7 +26,7 @@ export const personalInfo = {
     projectsCompleted: 17,
     yearsExperience: 2,
     technologies: 40,
-    systemsShipped: 160,
+    systemsShipped: 189,
   },
   venture: {
     label: "Company",
