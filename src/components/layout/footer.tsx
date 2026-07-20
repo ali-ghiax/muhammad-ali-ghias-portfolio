@@ -5,6 +5,7 @@ import NextLink from "next/link";
 import { ProfileAvatar } from "@/components/brand/profile-avatar";
 import { personalInfo } from "@/data/portfolio";
 import {
+  CredlyIcon,
   GitHubIcon,
   InstagramIcon,
   LinkedInIcon,
@@ -42,6 +43,11 @@ const socialLinks = [
     icon: TikTokIcon,
     href: personalInfo.social.tiktok,
     label: "TikTok",
+  },
+  {
+    icon: CredlyIcon,
+    href: personalInfo.social.credly,
+    label: "Credly",
   },
 ];
 
