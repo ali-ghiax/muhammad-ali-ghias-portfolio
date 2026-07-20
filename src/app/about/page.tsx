@@ -1,11 +1,11 @@
 "use client";
 
 import Link from "next/link";
-import { GraduationCap, Award, MapPin, BookOpen } from "lucide-react";
+import { GraduationCap, Award, MapPin } from "lucide-react";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { personalInfo, education, courses } from "@/data/portfolio";
+import { personalInfo, education } from "@/data/portfolio";
 import { AnimatedSection, StaggerContainer, StaggerItem } from "@/components/layout/animations";
 
 const strengths = [
@@ -166,10 +166,10 @@ export default function About() {
         <div className="max-w-7xl mx-auto px-6">
           <AnimatedSection>
             <h2 className="text-3xl font-display font-bold mb-10">
-              <span className="text-gradient">Education</span> & courses
+              <span className="text-gradient">Education</span>
             </h2>
           </AnimatedSection>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-10">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {education.map((edu, index) => (
               <AnimatedSection key={edu.id} delay={index * 0.08}>
                 <Card className="flex items-start gap-4 p-5 rounded-xl">
@@ -183,23 +183,6 @@ export default function About() {
                       <span>{edu.year}</span>
                       <Badge variant="outline">{edu.focus}</Badge>
                     </div>
-                  </div>
-                </Card>
-              </AnimatedSection>
-            ))}
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {courses.map((course, index) => (
-              <AnimatedSection key={course.id} delay={index * 0.08}>
-                <Card className="flex items-start gap-4 p-5 rounded-xl">
-                  <div className="w-11 h-11 bg-accent/10 flex items-center justify-center shrink-0">
-                    <BookOpen className="w-5 h-5 text-accent" />
-                  </div>
-                  <div>
-                    <h3 className="font-display font-semibold">{course.title}</h3>
-                    <p className="text-muted-foreground text-sm">{course.institution}</p>
-                    <p className="text-xs text-primary mt-1 mb-2">{course.period}</p>
-                    <p className="text-sm text-muted-foreground">{course.description}</p>
                   </div>
                 </Card>
               </AnimatedSection>
