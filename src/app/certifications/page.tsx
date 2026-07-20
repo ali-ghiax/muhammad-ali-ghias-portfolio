@@ -8,7 +8,6 @@ import { Button } from "@/components/ui/button";
 import { personalInfo } from "@/data/portfolio";
 import {
   certificateSections,
-  courses,
   getCertificatesByCategory,
   type Certificate,
 } from "@/data/certificates";
@@ -172,14 +171,6 @@ export default function CertificationsPage() {
                     {microsoftAchievementStats.trophies}
                   </span>
                   Microsoft Trophies
-                </button>
-                <button
-                  type="button"
-                  onClick={() => goToSection("featured-certificates")}
-                  className="inline-flex items-center gap-2 border border-border bg-card/50 px-3 py-1.5 cursor-pointer transition-colors hover:border-primary/40 hover:bg-card"
-                >
-                  <span className="font-display font-bold text-foreground">{courses.length}</span>
-                  All certificates
                 </button>
               </div>
             </div>
