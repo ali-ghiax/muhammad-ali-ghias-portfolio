@@ -1,10 +1,11 @@
 import type { Metadata } from "next";
 import { siteConfig } from "@/lib/seo";
+import { microsoftAchievementStats } from "@/data/microsoft-achievements";
 
 export const metadata: Metadata = {
   title: "Certifications",
   description:
-    "Certifications of Muhammad Ali Ghias — IBM DevOps Professional Certificate, Coursera courses, Udemy, Credly, and 189 Microsoft Learn badges.",
+    `Certifications of Muhammad Ali Ghias — IBM DevOps Professional Certificate, Coursera courses, Udemy, Credly, and ${microsoftAchievementStats.badges} Microsoft Learn badges.`,
   keywords: [
     "Muhammad Ali Ghias certifications",
     "Ali Ghias certificates",
