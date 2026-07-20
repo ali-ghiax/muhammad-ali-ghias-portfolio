@@ -47,8 +47,8 @@ export default function CertificationsPage() {
               </h1>
               <p className="text-lg text-muted-foreground mb-6">
                 Featured certificates from LinkedIn and Udemy, plus{" "}
-                {microsoftAchievementStats.badges} Microsoft Learn badges and{" "}
-                {microsoftAchievementStats.trophies} trophies from{" "}
+                {microsoftAchievementStats.badges} Microsoft Badges and{" "}
+                {microsoftAchievementStats.trophies} Microsoft Trophies from{" "}
                 <a
                   href={microsoftAchievementStats.profileUrl}
                   target="_blank"
@@ -65,27 +65,27 @@ export default function CertificationsPage() {
                   onClick={() => goToSection("microsoft-achievements", "badges")}
                   className="inline-flex items-center gap-2 border border-border bg-card/50 px-3 py-1.5 cursor-pointer transition-colors hover:border-primary/40 hover:bg-card"
                 >
-                  <span className="font-display font-bold text-primary">
+                  <span className="font-display font-bold text-foreground">
                     {microsoftAchievementStats.badges}
                   </span>
-                  Badges
+                  Microsoft Badges
                 </button>
                 <button
                   type="button"
                   onClick={() => goToSection("microsoft-achievements", "trophies")}
                   className="inline-flex items-center gap-2 border border-border bg-card/50 px-3 py-1.5 cursor-pointer transition-colors hover:border-primary/40 hover:bg-card"
                 >
-                  <span className="font-display font-bold text-primary">
+                  <span className="font-display font-bold text-foreground">
                     {microsoftAchievementStats.trophies}
                   </span>
-                  Trophies
+                  Microsoft Trophies
                 </button>
                 <button
                   type="button"
                   onClick={() => goToSection("featured-certificates")}
                   className="inline-flex items-center gap-2 border border-border bg-card/50 px-3 py-1.5 cursor-pointer transition-colors hover:border-primary/40 hover:bg-card"
                 >
-                  <span className="font-display font-bold text-primary">
+                  <span className="font-display font-bold text-foreground">
                     {courses.length}
                   </span>
                   Featured certificates
@@ -161,10 +161,13 @@ export default function CertificationsPage() {
                 <div className="flex gap-2">
                   {(
                     [
-                      { id: "badges", label: `Badges (${microsoftAchievementStats.badges})` },
+                      {
+                        id: "badges",
+                        label: `Microsoft Badges (${microsoftAchievementStats.badges})`,
+                      },
                       {
                         id: "trophies",
-                        label: `Trophies (${microsoftAchievementStats.trophies})`,
+                        label: `Microsoft Trophies (${microsoftAchievementStats.trophies})`,
                       },
                     ] as const
                   ).map((option) => (
