@@ -54,6 +54,7 @@ export const sitePages = [
   { path: "/about", priority: 0.9, changeFrequency: "monthly" as const },
   { path: "/experience", priority: 0.85, changeFrequency: "monthly" as const },
   { path: "/projects", priority: 0.95, changeFrequency: "weekly" as const },
+  { path: "/certifications", priority: 0.85, changeFrequency: "monthly" as const },
   { path: "/skills", priority: 0.8, changeFrequency: "monthly" as const },
   { path: "/blog", priority: 0.7, changeFrequency: "weekly" as const },
   { path: "/contact", priority: 0.85, changeFrequency: "monthly" as const },

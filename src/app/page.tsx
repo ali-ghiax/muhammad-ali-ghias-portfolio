@@ -4,7 +4,6 @@ import { motion } from "framer-motion";
 import Link from "next/link";
 import {
   ArrowRight,
-  Award,
   Code2,
   Mail,
   MapPin,
@@ -18,7 +17,7 @@ import {
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { personalInfo, projects, skills, services, courses } from "@/data/portfolio";
+import { personalInfo, projects, skills, services } from "@/data/portfolio";
 import { AnimatedSection } from "@/components/layout/animations";
 
 const featuredProjects = projects.filter((p) => p.featured).slice(0, 3);
@@ -298,47 +297,6 @@ export default function Home() {
                 <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
               </Button>
             </Link>
-          </div>
-        </div>
-      </section>
-
-      {/* Certifications */}
-      <section className="py-24 relative border-t border-border/60">
-        <div className="max-w-7xl mx-auto px-6">
-          <AnimatedSection>
-            <div className="mb-14 max-w-2xl">
-              <p className="text-sm uppercase tracking-[0.2em] text-primary mb-3">Credentials</p>
-              <h2 className="text-3xl md:text-5xl font-display font-bold mb-4">
-                Certifications & <span className="text-gradient">learning</span>
-              </h2>
-              <p className="text-muted-foreground">
-                Design specializations, Adobe tools, and 160+ Microsoft Learn badges.
-              </p>
-            </div>
-          </AnimatedSection>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-            {courses.map((course, index) => (
-              <AnimatedSection key={course.id} delay={index * 0.08}>
-                <div className="h-full border border-border bg-card/50 p-6 hover:border-primary/35 transition-colors">
-                  <div className="flex items-start gap-4">
-                    <div className="w-11 h-11 shrink-0 bg-primary/10 flex items-center justify-center">
-                      <Award className="w-5 h-5 text-primary" />
-                    </div>
-                    <div className="min-w-0">
-                      <div className="flex flex-wrap items-center gap-2 mb-2">
-                        <h3 className="text-lg font-display font-semibold">{course.title}</h3>
-                        <Badge variant="outline" className="text-xs">
-                          {course.period}
-                        </Badge>
-                      </div>
-                      <p className="text-sm text-primary mb-2">{course.institution}</p>
-                      <p className="text-sm text-muted-foreground">{course.description}</p>
-                    </div>
-                  </div>
-                </div>
-              </AnimatedSection>
-            ))}
           </div>
         </div>
       </section>
