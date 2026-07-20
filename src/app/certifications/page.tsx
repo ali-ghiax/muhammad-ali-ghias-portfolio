@@ -124,11 +124,10 @@ export default function CertificationsPage() {
                 Certifications & <span className="text-gradient">learning</span>
               </h1>
               <p className="text-lg text-muted-foreground mb-6">
-                Browse {totalCredentials} verified certificates and learning achievements by category
-                — {courses.length} featured certificates, {credlyBadges.length} Credly badges, plus{" "}
-                {microsoftAchievementStats.badges} Microsoft Badges and{" "}
-                {microsoftAchievementStats.trophies} Microsoft Trophies. Each featured credential
-                includes a shareable verification link.
+                Browse {totalCredentials} verified credentials by category — {courses.length}{" "}
+                certificates, {credlyCount} Credly badges, {microsoftAchievementStats.badges}{" "}
+                Microsoft Badges, and {microsoftAchievementStats.trophies} Microsoft Trophies. Jump
+                to a section below; each item links to its official verification page.
               </p>
               <div className="flex flex-wrap gap-3 text-sm">
                 <button
