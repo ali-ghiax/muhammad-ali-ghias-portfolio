@@ -11,7 +11,9 @@ import {
   courses,
   getCertificatesByCategory,
   type Certificate,
+  type CertificateCategory,
 } from "@/data/certificates";
+import { credlyBadges, credlyProfileUrl } from "@/data/credly-badges";
 import {
   microsoftAchievementStats,
   microsoftBadges,
@@ -87,8 +89,11 @@ export default function CertificationsPage() {
   const professionalCount = getCertificatesByCategory("professional").length;
   const graphicDesignCount = getCertificatesByCategory("graphic-design").length;
   const courseraCount = getCertificatesByCategory("coursera").length;
+  const udemyCount = getCertificatesByCategory("udemy").length;
+  const credlyCount = credlyBadges.length;
   const totalCredentials =
     courses.length +
+    credlyBadges.length +
     microsoftAchievementStats.badges +
     microsoftAchievementStats.trophies;
 
@@ -120,9 +125,10 @@ export default function CertificationsPage() {
               </h1>
               <p className="text-lg text-muted-foreground mb-6">
                 Browse {totalCredentials} verified certificates and learning achievements by category
-                — {courses.length} featured certificates plus {microsoftAchievementStats.badges}{" "}
-                Microsoft Badges and {microsoftAchievementStats.trophies} Microsoft Trophies. Each
-                featured credential includes a shareable verification link.
+                — {courses.length} featured certificates, {credlyBadges.length} Credly badges, plus{" "}
+                {microsoftAchievementStats.badges} Microsoft Badges and{" "}
+                {microsoftAchievementStats.trophies} Microsoft Trophies. Each featured credential
+                includes a shareable verification link.
               </p>
               <div className="flex flex-wrap gap-3 text-sm">
                 <button
@@ -151,6 +157,22 @@ export default function CertificationsPage() {
                 </button>
                 <button
                   type="button"
+                  onClick={() => goToSection("udemy")}
+                  className="inline-flex items-center gap-2 border border-border bg-card/50 px-3 py-1.5 cursor-pointer transition-colors hover:border-primary/40 hover:bg-card"
+                >
+                  <span className="font-display font-bold text-foreground">{udemyCount}</span>
+                  Udemy
+                </button>
+                <button
+                  type="button"
+                  onClick={() => goToSection("credly")}
+                  className="inline-flex items-center gap-2 border border-border bg-card/50 px-3 py-1.5 cursor-pointer transition-colors hover:border-primary/40 hover:bg-card"
+                >
+                  <span className="font-display font-bold text-foreground">{credlyCount}</span>
+                  Credly
+                </button>
+                <button
+                  type="button"
                   onClick={() => goToSection("microsoft-achievements", "badges")}
                   className="inline-flex items-center gap-2 border border-border bg-card/50 px-3 py-1.5 cursor-pointer transition-colors hover:border-primary/40 hover:bg-card"
                 >
@@ -175,7 +197,58 @@ export default function CertificationsPage() {
 
           <div id="featured-certificates" className="scroll-mt-28 space-y-20">
             {certificateSections.map((section) => {
-              const sectionCerts = getCertificatesByCategory(section.id);
+              if (section.id === "credly") {
+                return (
+                  <div key={section.id} id={section.id} className="scroll-mt-28">
+                    <AnimatedSection>
+                      <div className="mb-8">
+                        <h2 className="text-2xl md:text-3xl font-display font-bold mb-2">
+                          {section.title}
+                        </h2>
+                        <p className="text-muted-foreground text-sm">{section.subtitle}</p>
+                      </div>
+                    </AnimatedSection>
+
+                    <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3 sm:gap-4">
+                      {credlyBadges.map((badge, index) => (
+                        <AnimatedSection key={badge.id} delay={Math.min(index * 0.015, 0.4)}>
+                          <a
+                            href={badge.url}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="group block h-full border border-border bg-card/50 p-3 sm:p-4 hover:border-primary/40 transition-colors"
+                          >
+                            <div className="aspect-square mb-3 flex items-center justify-center bg-white/80 dark:bg-white/95 rounded-sm overflow-hidden">
+                              {/* eslint-disable-next-line @next/next/no-img-element */}
+                              <img
+                                src={badge.image}
+                                alt={badge.title}
+                                loading="lazy"
+                                className="h-[72%] w-[72%] object-contain transition-transform duration-300 group-hover:scale-105"
+                              />
+                            </div>
+                            <p className="text-xs sm:text-sm font-medium leading-snug line-clamp-3 group-hover:text-primary transition-colors">
+                              {badge.title}
+                            </p>
+                            <p className="text-[11px] text-muted-foreground mt-1.5">{badge.period}</p>
+                          </a>
+                        </AnimatedSection>
+                      ))}
+                    </div>
+
+                    <div className="mt-8">
+                      <a href={credlyProfileUrl} target="_blank" rel="noopener noreferrer">
+                        <Button variant="outline" size="lg" className="group">
+                          Open Credly profile
+                          <ExternalLink className="w-4 h-4" />
+                        </Button>
+                      </a>
+                    </div>
+                  </div>
+                );
+              }
+
+              const sectionCerts = getCertificatesByCategory(section.id as CertificateCategory);
               if (sectionCerts.length === 0) return null;
 
               const professionalCert = sectionCerts.find((cert) => cert.kind === "professional");

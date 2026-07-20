@@ -2,8 +2,7 @@ export type CertificateCategory =
   | "professional"
   | "graphic-design"
   | "coursera"
-  | "udemy"
-  | "credly";
+  | "udemy";
 
 export type CertificateKind = "professional" | "course" | "project" | "badge";
 
@@ -370,18 +369,6 @@ export const courses: Certificate[] = [
     category: "udemy",
     kind: "course",
   },
-  {
-    id: 13,
-    title: "Microsoft Learn Student Ambassador (2026)",
-    institution: "Microsoft Student Ambassadors",
-    period: "Jan 2026",
-    description:
-      "Official Credly badge recognizing membership in the global Microsoft Learn Student Ambassadors community.",
-    image: "/certifications/mlsa-2026.png",
-    url: "https://www.credly.com/badges/41025d05-da39-4807-805b-3806fbf4488b",
-    category: "credly",
-    kind: "badge",
-  },
 ];
 
 export const certificateSections = [
@@ -411,9 +398,12 @@ export const certificateSections = [
   {
     id: "credly",
     title: "Credly",
-    subtitle: "Verified digital badges and ambassador credentials.",
+    subtitle:
+      "Verified digital badges from Credly, including IBM, Cisco, and Microsoft Student Ambassador credentials.",
   },
 ] as const;
+
+export type CertificateSectionId = (typeof certificateSections)[number]["id"];
 
 export function getCertificatesByCategory(category: CertificateCategory) {
   return courses.filter((course) => course.category === category);
