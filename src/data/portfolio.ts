@@ -214,6 +214,16 @@ export const education = [
 
 export const courses = [
   {
+    id: 19,
+    title: "IBM DevOps and Software Engineering",
+    institution: "IBM (Coursera)",
+    period: "Jun 2026",
+    description:
+      "Completed the IBM DevOps and Software Engineering Professional Certificate covering Python, Docker, Kubernetes, CI/CD, and cloud-native application development.",
+    image: "/certifications/coursera-ibm-devops-engineering.jpg",
+    url: "https://coursera.org/share/0e8a1afaf897b48443c8bd6f0ff8844a",
+  },
+  {
     id: 1,
     title: "Graphic Design",
     institution: "University of Colorado Boulder (Coursera)",
