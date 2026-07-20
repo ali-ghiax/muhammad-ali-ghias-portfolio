@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { Award, ArrowRight } from "lucide-react";
+import { ArrowRight, ExternalLink } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { courses, personalInfo } from "@/data/portfolio";
@@ -26,26 +26,40 @@ export default function CertificationsPage() {
             </div>
           </AnimatedSection>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
             {courses.map((course, index) => (
               <AnimatedSection key={course.id} delay={index * 0.08}>
-                <div className="h-full border border-border bg-card/50 p-6 hover:border-primary/35 transition-colors">
-                  <div className="flex items-start gap-4">
-                    <div className="w-11 h-11 shrink-0 bg-primary/10 flex items-center justify-center">
-                      <Award className="w-5 h-5 text-primary" />
-                    </div>
-                    <div className="min-w-0">
-                      <div className="flex flex-wrap items-center gap-2 mb-2">
-                        <h2 className="text-lg font-display font-semibold">{course.title}</h2>
-                        <Badge variant="outline" className="text-xs">
-                          {course.period}
-                        </Badge>
-                      </div>
-                      <p className="text-sm text-primary mb-2">{course.institution}</p>
-                      <p className="text-sm text-muted-foreground">{course.description}</p>
-                    </div>
+                <article className="group h-full overflow-hidden border border-border bg-card/50 hover:border-primary/35 transition-colors">
+                  <div className="relative aspect-[16/10] overflow-hidden bg-muted border-b border-border">
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img
+                      src={course.image}
+                      alt={`${course.title} certificate`}
+                      className="h-full w-full object-cover object-center transition-transform duration-500 group-hover:scale-[1.03]"
+                    />
                   </div>
-                </div>
+                  <div className="p-5 sm:p-6">
+                    <div className="flex flex-wrap items-center gap-2 mb-2">
+                      <h2 className="text-lg sm:text-xl font-display font-semibold">
+                        {course.title}
+                      </h2>
+                      <Badge variant="outline" className="text-xs">
+                        {course.period}
+                      </Badge>
+                    </div>
+                    <p className="text-sm text-primary mb-2">{course.institution}</p>
+                    <p className="text-sm text-muted-foreground mb-4">{course.description}</p>
+                    <a
+                      href={course.image}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-1.5 text-sm font-medium text-foreground hover:text-primary transition-colors"
+                    >
+                      View certificate
+                      <ExternalLink className="w-3.5 h-3.5" />
+                    </a>
+                  </div>
+                </article>
               </AnimatedSection>
             ))}
           </div>

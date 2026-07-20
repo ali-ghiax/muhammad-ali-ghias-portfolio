@@ -219,6 +219,7 @@ export const courses = [
     period: "Completed",
     description:
       "Earned the Graphic Design Specialization covering foundational design principles, visual communication, and professional creative workflows.",
+    image: "/certifications/graphic-design-specialization.png",
   },
   {
     id: 2,
@@ -227,6 +228,7 @@ export const courses = [
     period: "Completed",
     description:
       "Certification in Adobe Photoshop and Illustrator for professional graphic design production.",
+    image: "/certifications/adobe-photoshop-illustrator.png",
   },
   {
     id: 3,
@@ -235,6 +237,7 @@ export const courses = [
     period: "Completed",
     description:
       "Additional graphic design certifications focused on practical creative skills and digital design.",
+    image: "/certifications/graphic-design-certs.png",
   },
   {
     id: 4,
@@ -243,6 +246,7 @@ export const courses = [
     period: "160+",
     description:
       "Achieved 160+ Microsoft badges and certifications through continuous learning on Microsoft technologies and cloud tools.",
+    image: "/certifications/microsoft-learn-badges.png",
   },
 ];
 
