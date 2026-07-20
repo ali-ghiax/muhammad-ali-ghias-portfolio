@@ -3,7 +3,6 @@ export type CertificateCategory =
   | "graphic-design"
   | "coursera"
   | "udemy"
-  | "microsoft"
   | "credly";
 
 export type CertificateKind = "professional" | "course" | "project" | "badge";
@@ -383,61 +382,6 @@ export const courses: Certificate[] = [
     category: "credly",
     kind: "badge",
   },
-  {
-    id: 14,
-    title: "Get started with AI-powered information extraction in Microsoft Foundry",
-    institution: "Microsoft Learn",
-    period: "Jan 2026",
-    description: "Microsoft Learn achievement for AI-powered information extraction in Microsoft Foundry.",
-    image: "/certifications/ms-ai-extraction.png",
-    url: "https://learn.microsoft.com/api/achievements/share/en-us/muhammadalighias/9RMLTM6U?sharingId=studentamb_428629",
-    category: "microsoft",
-    kind: "badge",
-  },
-  {
-    id: 15,
-    title: "Get started with computer vision in Microsoft Foundry",
-    institution: "Microsoft Learn",
-    period: "Jan 2026",
-    description: "Microsoft Learn achievement for getting started with computer vision in Microsoft Foundry.",
-    image: "/certifications/ms-computer-vision-foundry.png",
-    url: "https://learn.microsoft.com/api/achievements/share/en-us/muhammadalighias/NMB3CPXF?sharingId=studentamb_428629",
-    category: "microsoft",
-    kind: "badge",
-  },
-  {
-    id: 16,
-    title: "Introduction to AI speech concepts",
-    institution: "Microsoft Learn",
-    period: "Jan 2026",
-    description: "Microsoft Learn achievement covering foundational AI speech concepts.",
-    image: "/certifications/ms-ai-speech.png",
-    url: "https://learn.microsoft.com/api/achievements/share/en-us/muhammadalighias/AK5F8V97?sharingId=studentamb_428629",
-    category: "microsoft",
-    kind: "badge",
-  },
-  {
-    id: 17,
-    title: "Introduction to AI-powered information extraction concepts",
-    institution: "Microsoft Learn",
-    period: "Jan 2026",
-    description: "Microsoft Learn achievement for AI-powered information extraction concepts.",
-    image: "/certifications/ms-ai-extraction-concepts.png",
-    url: "https://learn.microsoft.com/api/achievements/share/en-us/muhammadalighias/37E65M5H?sharingId=studentamb_428629",
-    category: "microsoft",
-    kind: "badge",
-  },
-  {
-    id: 18,
-    title: "Introduction to computer vision concepts",
-    institution: "Microsoft Learn",
-    period: "Jan 2026",
-    description: "Microsoft Learn achievement covering introductory computer vision concepts.",
-    image: "/certifications/ms-computer-vision-concepts.png",
-    url: "https://learn.microsoft.com/api/achievements/share/en-us/muhammadalighias/AK5F8EH7?sharingId=studentamb_428629",
-    category: "microsoft",
-    kind: "badge",
-  },
 ];
 
 export const certificateSections = [
@@ -468,11 +412,6 @@ export const certificateSections = [
     id: "credly",
     title: "Credly",
     subtitle: "Verified digital badges and ambassador credentials.",
-  },
-  {
-    id: "microsoft",
-    title: "Microsoft Learn",
-    subtitle: "Featured Microsoft Learn achievements and ambassador credentials.",
   },
 ] as const;
 
