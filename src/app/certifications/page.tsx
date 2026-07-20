@@ -5,7 +5,13 @@ import Link from "next/link";
 import { ArrowRight, ExternalLink } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { courses, personalInfo } from "@/data/portfolio";
+import { personalInfo } from "@/data/portfolio";
+import {
+  certificateSections,
+  courses,
+  getCertificatesByCategory,
+  type Certificate,
+} from "@/data/certificates";
 import {
   microsoftAchievementStats,
   microsoftBadges,
@@ -16,8 +22,70 @@ import { cn } from "@/lib/utils";
 
 type Tab = "badges" | "trophies";
 
+function CertificateCard({
+  course,
+  index,
+  featured = false,
+}: {
+  course: Certificate;
+  index: number;
+  featured?: boolean;
+}) {
+  return (
+    <AnimatedSection key={course.id} delay={index * 0.04}>
+      <article
+        className={cn(
+          "group h-full overflow-hidden border border-border bg-card/50 hover:border-primary/35 transition-colors flex flex-col",
+          featured && "md:flex-row md:col-span-2"
+        )}
+      >
+        <div
+          className={cn(
+            "relative overflow-hidden bg-muted border-b border-border",
+            featured ? "md:w-2/5 md:border-b-0 md:border-r aspect-[16/10] md:aspect-auto" : "aspect-[16/10]"
+          )}
+        >
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src={course.image}
+            alt={`${course.title} certificate`}
+            className="h-full w-full object-contain object-center bg-white p-3 transition-transform duration-500 group-hover:scale-[1.02]"
+          />
+        </div>
+        <div className="p-5 sm:p-6 flex flex-col flex-1">
+          <div className="flex flex-wrap items-center gap-2 mb-2">
+            <h3 className={cn("font-display font-semibold", featured ? "text-xl sm:text-2xl" : "text-lg sm:text-xl")}>
+              {course.title}
+            </h3>
+            {course.kind === "professional" && (
+              <Badge className="text-xs">Professional Certificate</Badge>
+            )}
+            <Badge variant="outline" className="text-xs">
+              {course.period}
+            </Badge>
+          </div>
+          <p className="text-sm text-primary mb-2">{course.institution}</p>
+          <p className="text-sm text-muted-foreground mb-4 flex-1">{course.description}</p>
+          <a
+            href={course.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-1.5 text-sm font-medium text-foreground hover:text-primary transition-colors"
+          >
+            View certificate
+            <ExternalLink className="w-3.5 h-3.5" />
+          </a>
+        </div>
+      </article>
+    </AnimatedSection>
+  );
+}
+
 export default function CertificationsPage() {
   const [tab, setTab] = useState<Tab>("badges");
+
+  const ibmDevOpsCount = getCertificatesByCategory("ibm-devops").length;
+  const courseraCount = getCertificatesByCategory("coursera").length;
 
   const items = useMemo(
     () => (tab === "badges" ? microsoftBadges : microsoftTrophies),
@@ -46,7 +114,7 @@ export default function CertificationsPage() {
                 Certifications & <span className="text-gradient">learning</span>
               </h1>
               <p className="text-lg text-muted-foreground mb-6">
-                Featured certificates from Coursera, LinkedIn, and Udemy, plus{" "}
+                IBM DevOps Professional Certificate, Coursera courses, Udemy training, plus{" "}
                 {microsoftAchievementStats.badges} Microsoft Badges and{" "}
                 {microsoftAchievementStats.trophies} Microsoft Trophies from{" "}
                 <a
@@ -60,6 +128,22 @@ export default function CertificationsPage() {
                 .
               </p>
               <div className="flex flex-wrap gap-3 text-sm">
+                <button
+                  type="button"
+                  onClick={() => goToSection("ibm-devops")}
+                  className="inline-flex items-center gap-2 border border-border bg-card/50 px-3 py-1.5 cursor-pointer transition-colors hover:border-primary/40 hover:bg-card"
+                >
+                  <span className="font-display font-bold text-foreground">{ibmDevOpsCount}</span>
+                  IBM DevOps
+                </button>
+                <button
+                  type="button"
+                  onClick={() => goToSection("coursera")}
+                  className="inline-flex items-center gap-2 border border-border bg-card/50 px-3 py-1.5 cursor-pointer transition-colors hover:border-primary/40 hover:bg-card"
+                >
+                  <span className="font-display font-bold text-foreground">{courseraCount}</span>
+                  Coursera
+                </button>
                 <button
                   type="button"
                   onClick={() => goToSection("microsoft-achievements", "badges")}
@@ -85,69 +169,46 @@ export default function CertificationsPage() {
                   onClick={() => goToSection("featured-certificates")}
                   className="inline-flex items-center gap-2 border border-border bg-card/50 px-3 py-1.5 cursor-pointer transition-colors hover:border-primary/40 hover:bg-card"
                 >
-                  <span className="font-display font-bold text-foreground">
-                    {courses.length}
-                  </span>
-                  Featured certificates
+                  <span className="font-display font-bold text-foreground">{courses.length}</span>
+                  All certificates
                 </button>
               </div>
             </div>
           </AnimatedSection>
 
-          <div id="featured-certificates" className="scroll-mt-28">
-            <AnimatedSection>
-              <div className="mb-8">
-                <h2 className="text-2xl md:text-3xl font-display font-bold mb-2">
-                  Featured <span className="text-gradient">certificates</span>
-                </h2>
-                <p className="text-muted-foreground text-sm mb-6">
-                  Selected credentials with shareable certificate links.
-                </p>
-              </div>
-            </AnimatedSection>
+          <div id="featured-certificates" className="scroll-mt-28 space-y-20">
+            {certificateSections.map((section) => {
+              const sectionCerts = getCertificatesByCategory(section.id);
+              if (sectionCerts.length === 0) return null;
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8 mb-20">
-              {courses.map((course, index) => (
-                <AnimatedSection key={course.id} delay={index * 0.04}>
-                  <article className="group h-full overflow-hidden border border-border bg-card/50 hover:border-primary/35 transition-colors flex flex-col">
-                    <div className="relative aspect-[16/10] overflow-hidden bg-muted border-b border-border">
-                      {/* eslint-disable-next-line @next/next/no-img-element */}
-                      <img
-                        src={course.image}
-                        alt={`${course.title} certificate`}
-                        className="h-full w-full object-contain object-center bg-white p-3 transition-transform duration-500 group-hover:scale-[1.02]"
-                      />
+              const professionalCert = sectionCerts.find((cert) => cert.kind === "professional");
+              const otherCerts = sectionCerts.filter((cert) => cert.kind !== "professional");
+
+              return (
+                <div key={section.id} id={section.id} className="scroll-mt-28">
+                  <AnimatedSection>
+                    <div className="mb-8">
+                      <h2 className="text-2xl md:text-3xl font-display font-bold mb-2">
+                        {section.title}
+                      </h2>
+                      <p className="text-muted-foreground text-sm">{section.subtitle}</p>
                     </div>
-                    <div className="p-5 sm:p-6 flex flex-col flex-1">
-                      <div className="flex flex-wrap items-center gap-2 mb-2">
-                        <h3 className="text-lg sm:text-xl font-display font-semibold">
-                          {course.title}
-                        </h3>
-                        <Badge variant="outline" className="text-xs">
-                          {course.period}
-                        </Badge>
-                      </div>
-                      <p className="text-sm text-primary mb-2">{course.institution}</p>
-                      <p className="text-sm text-muted-foreground mb-4 flex-1">
-                        {course.description}
-                      </p>
-                      <a
-                        href={course.url}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="inline-flex items-center gap-1.5 text-sm font-medium text-foreground hover:text-primary transition-colors"
-                      >
-                        View certificate
-                        <ExternalLink className="w-3.5 h-3.5" />
-                      </a>
-                    </div>
-                  </article>
-                </AnimatedSection>
-              ))}
-            </div>
+                  </AnimatedSection>
+
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
+                    {professionalCert && (
+                      <CertificateCard course={professionalCert} index={0} featured />
+                    )}
+                    {otherCerts.map((course, index) => (
+                      <CertificateCard key={course.id} course={course} index={index + 1} />
+                    ))}
+                  </div>
+                </div>
+              );
+            })}
           </div>
 
-          <div id="microsoft-achievements" className="scroll-mt-28">
+          <div id="microsoft-achievements" className="scroll-mt-28 mt-20">
             <AnimatedSection>
               <div className="mb-6 flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4">
                 <div>
