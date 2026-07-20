@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { siteConfig } from "@/lib/seo";
 
 export const metadata: Metadata = {
-  title: "About Muhammad Ali Ghias",
+  title: "About",
   description:
     "About Muhammad Ali Ghias — Ali Ghias / Ghias. Software Engineer, Graphic Designer, and MLSA Lead at CUSIT in Peshawar, Pakistan.",
   keywords: [
@@ -13,7 +13,7 @@ export const metadata: Metadata = {
   ],
   alternates: { canonical: "/about" },
   openGraph: {
-    title: "About Muhammad Ali Ghias",
+    title: `About - ${siteConfig.name}`,
     description:
       "Learn about Ali Ghias — engineer, designer, and Microsoft Learn Student Ambassador.",
     url: `${siteConfig.url}/about`,

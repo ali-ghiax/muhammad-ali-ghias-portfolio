@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { siteConfig } from "@/lib/seo";
 
 export const metadata: Metadata = {
-  title: "Certifications — Muhammad Ali Ghias",
+  title: "Certifications",
   description:
     "Certifications of Muhammad Ali Ghias from Coursera, Udemy, Credly, and Microsoft Learn — including design projects, programming courses, and 189 Microsoft Learn badges.",
   keywords: [
@@ -17,7 +17,7 @@ export const metadata: Metadata = {
   ],
   alternates: { canonical: "/certifications" },
   openGraph: {
-    title: "Certifications — Muhammad Ali Ghias",
+    title: `Certifications - ${siteConfig.name}`,
     description:
       "Coursera, Udemy, and Microsoft Learn certifications earned by Muhammad Ali Ghias.",
     url: `${siteConfig.url}/certifications`,

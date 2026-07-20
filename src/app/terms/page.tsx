@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   description: `Terms of Use for ${siteConfig.name}'s portfolio website at ${siteConfig.url}.`,
   alternates: { canonical: "/terms" },
   openGraph: {
-    title: `Terms of Use | ${siteConfig.name}`,
+    title: `Terms of Use - ${siteConfig.name}`,
     description: `Terms governing use of ${siteConfig.name}'s portfolio at muhammadalighias.me.`,
     url: `${siteConfig.url}/terms`,
   },

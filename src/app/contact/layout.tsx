@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { siteConfig } from "@/lib/seo";
 
 export const metadata: Metadata = {
-  title: "Contact Muhammad Ali Ghias",
+  title: "Contact",
   description:
     "Contact Muhammad Ali Ghias — Ali Ghias / Ghias. Software Engineer & Graphic Designer in Peshawar. Open to full-time and freelance work.",
   keywords: [
@@ -13,7 +13,7 @@ export const metadata: Metadata = {
   ],
   alternates: { canonical: "/contact" },
   openGraph: {
-    title: "Contact Muhammad Ali Ghias",
+    title: `Contact - ${siteConfig.name}`,
     description: "Get in touch with Ali Ghias.",
     url: `${siteConfig.url}/contact`,
   },

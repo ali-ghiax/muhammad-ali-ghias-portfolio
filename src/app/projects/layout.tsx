@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { siteConfig } from "@/lib/seo";
 
 export const metadata: Metadata = {
-  title: "Projects — Muhammad Ali Ghias",
+  title: "Projects",
   description:
     "Projects by Muhammad Ali Ghias (Ali Ghias / Ghias) on GitHub — web apps, desktop tools, ML, and academic work.",
   keywords: [
@@ -14,7 +14,7 @@ export const metadata: Metadata = {
   ],
   alternates: { canonical: "/projects" },
   openGraph: {
-    title: "Projects — Muhammad Ali Ghias",
+    title: `Projects - ${siteConfig.name}`,
     description: "Explore work by Ali Ghias from github.com/ali-ghiax.",
     url: `${siteConfig.url}/projects`,
   },

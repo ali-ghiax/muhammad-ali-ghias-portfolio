@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { siteConfig } from "@/lib/seo";
 
 export const metadata: Metadata = {
-  title: "Skills — Muhammad Ali Ghias",
+  title: "Skills",
   description:
     "Skills of Muhammad Ali Ghias (Ali Ghias / Ghias): React, Node.js, Tailwind CSS, TypeScript, Next.js, Adobe design tools, and Microsoft technologies.",
   keywords: [
@@ -13,7 +13,7 @@ export const metadata: Metadata = {
   ],
   alternates: { canonical: "/skills" },
   openGraph: {
-    title: "Skills — Muhammad Ali Ghias",
+    title: `Skills - ${siteConfig.name}`,
     description: "Technical and creative skills of Ali Ghias.",
     url: `${siteConfig.url}/skills`,
   },

@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   description: `Privacy Policy for ${siteConfig.name}'s portfolio website at ${siteConfig.url}.`,
   alternates: { canonical: "/privacy" },
   openGraph: {
-    title: `Privacy Policy | ${siteConfig.name}`,
+    title: `Privacy Policy - ${siteConfig.name}`,
     description: `How ${siteConfig.name} handles personal information on muhammadalighias.me.`,
     url: `${siteConfig.url}/privacy`,
   },
