@@ -87,6 +87,10 @@ export default function CertificationsPage() {
   const ibmDevOpsCount = getCertificatesByCategory("ibm-devops").length;
   const graphicDesignCount = getCertificatesByCategory("graphic-design").length;
   const courseraCount = getCertificatesByCategory("coursera").length;
+  const totalCredentials =
+    courses.length +
+    microsoftAchievementStats.badges +
+    microsoftAchievementStats.trophies;
 
   const items = useMemo(
     () => (tab === "badges" ? microsoftBadges : microsoftTrophies),
@@ -115,8 +119,10 @@ export default function CertificationsPage() {
                 Certifications & <span className="text-gradient">learning</span>
               </h1>
               <p className="text-lg text-muted-foreground mb-6">
-                Browse verified certificates and learning achievements by category. Each credential
-                includes a shareable verification link.
+                Browse {totalCredentials} verified certificates and learning achievements by category
+                — {courses.length} featured certificates plus {microsoftAchievementStats.badges}{" "}
+                Microsoft Badges and {microsoftAchievementStats.trophies} Microsoft Trophies. Each
+                featured credential includes a shareable verification link.
               </p>
               <div className="flex flex-wrap gap-3 text-sm">
                 <button
