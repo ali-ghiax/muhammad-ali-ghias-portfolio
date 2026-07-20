@@ -8,6 +8,7 @@ import { Button } from "@/components/ui/button";
 import { personalInfo } from "@/data/portfolio";
 import {
   certificateSections,
+  courses,
   getCertificatesByCategory,
   type Certificate,
 } from "@/data/certificates";
