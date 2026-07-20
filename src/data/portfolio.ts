@@ -215,6 +215,86 @@ export const education = [
 export const courses = [
   {
     id: 1,
+    title: "Graphic Design",
+    institution: "University of Colorado Boulder (Coursera)",
+    period: "Dec 2023",
+    description:
+      "Completed the Graphic Design course covering typography, color theory, and visual communication through Coursera.",
+    image: "/certifications/coursera-graphic-design.webp",
+    url: "https://coursera.org/verify/Z3BW7BEF2T7X",
+  },
+  {
+    id: 2,
+    title: "Create a Business Marketing Brand Kit Using Canva",
+    institution: "Coursera Project Network",
+    period: "Mar 2024",
+    description:
+      "Built a marketing-ready brand kit in Canva, including style guide, logo, and branded templates.",
+    image: "/certifications/coursera-brand-kit-canva.webp",
+    url: "https://coursera.org/verify/QMTBEJ2VTPWA",
+  },
+  {
+    id: 3,
+    title: "Create Animated Social Media Posts using Canva",
+    institution: "Coursera Project Network",
+    period: "Mar 2024",
+    description:
+      "Designed animated social media posts in Canva with motion elements for stronger engagement.",
+    image: "/certifications/coursera-animated-social-canva.webp",
+    url: "https://coursera.org/verify/HGQY4M57STJC",
+  },
+  {
+    id: 4,
+    title: "Create a Promotional Video using Canva",
+    institution: "Coursera Project Network",
+    period: "Mar 2024",
+    description:
+      "Created a promotional video in Canva with script, visuals, animations, and a clear call to action.",
+    image: "/certifications/coursera-professional-video-canva.webp",
+    url: "https://coursera.org/verify/6AGUXXFLEETW",
+  },
+  {
+    id: 5,
+    title: "Create and Design Digital Products using Canva",
+    institution: "Coursera Project Network",
+    period: "Mar 2024",
+    description:
+      "Designed digital product assets in Canva for marketing and brand presentation.",
+    image: "/certifications/coursera-digital-product-canva.webp",
+    url: "https://coursera.org/verify/4X4XWBSRJ5XN",
+  },
+  {
+    id: 6,
+    title: "How to create presentations using Canva",
+    institution: "Coursera Project Network",
+    period: "Mar 2024",
+    description:
+      "Built professional presentations in Canva with structured layouts and visual storytelling.",
+    image: "/certifications/coursera-presentation-canva.webp",
+    url: "https://coursera.org/verify/R4VFZZKEHSQX",
+  },
+  {
+    id: 7,
+    title: "Create eye-catching logos using Canva for an ebrand",
+    institution: "Coursera Project Network",
+    period: "Dec 2023",
+    description:
+      "Designed brand logos in Canva focused on clarity, recognition, and visual impact.",
+    image: "/certifications/coursera-eye-catching-logo.webp",
+    url: "https://coursera.org/verify/XXEZGYBJ56SV",
+  },
+  {
+    id: 8,
+    title: "How to create a high-quality flyer in Adobe Photoshop",
+    institution: "Coursera Project Network",
+    period: "Dec 2023",
+    description:
+      "Created print-ready promotional flyers in Adobe Photoshop with professional layout techniques.",
+    image: "/certifications/coursera-flyer-photoshop.webp",
+    url: "https://coursera.org/verify/S6EK4H2WA85E",
+  },
+  {
+    id: 9,
     title: "CSS For Beginners",
     institution: "Udemy",
     period: "Jan 2026",
@@ -223,7 +303,7 @@ export const courses = [
     url: "https://udemy.com/certificate/UC-f979605b-aa3f-45ee-8a72-e7c2e3803855/",
   },
   {
-    id: 2,
+    id: 10,
     title: "HTML For Beginners",
     institution: "Udemy",
     period: "Jan 2026",
@@ -232,7 +312,7 @@ export const courses = [
     url: "https://udemy.com/certificate/UC-33e6797b-aca9-4aca-9aa0-0256b514bbed/",
   },
   {
-    id: 3,
+    id: 11,
     title: "Javascript For Beginners",
     institution: "Udemy",
     period: "Jan 2026",
@@ -241,7 +321,7 @@ export const courses = [
     url: "https://udemy.com/certificate/UC-62b48df3-b9d7-4593-b960-8ca5fd628387/",
   },
   {
-    id: 4,
+    id: 12,
     title: "Master of Essential C++ Programming Beginner to Advanced",
     institution: "Udemy",
     period: "Jan 2026",
@@ -250,7 +330,7 @@ export const courses = [
     url: "https://udemy.com/certificate/UC-1dc7adfa-25f3-43d0-956a-bf4672ff11c3/",
   },
   {
-    id: 5,
+    id: 13,
     title: "Microsoft Learn Student Ambassador (2026)",
     institution: "Microsoft Student Ambassadors",
     period: "Jan 2026",
@@ -260,7 +340,7 @@ export const courses = [
     url: "https://www.credly.com/badges/41025d05-da39-4807-805b-3806fbf4488b",
   },
   {
-    id: 6,
+    id: 14,
     title: "Get started with AI-powered information extraction in Microsoft Foundry",
     institution: "Microsoft Learn",
     period: "Jan 2026",
@@ -269,7 +349,7 @@ export const courses = [
     url: "https://learn.microsoft.com/api/achievements/share/en-us/muhammadalighias/9RMLTM6U?sharingId=studentamb_428629",
   },
   {
-    id: 7,
+    id: 15,
     title: "Get started with computer vision in Microsoft Foundry",
     institution: "Microsoft Learn",
     period: "Jan 2026",
@@ -278,7 +358,7 @@ export const courses = [
     url: "https://learn.microsoft.com/api/achievements/share/en-us/muhammadalighias/NMB3CPXF?sharingId=studentamb_428629",
   },
   {
-    id: 8,
+    id: 16,
     title: "Introduction to AI speech concepts",
     institution: "Microsoft Learn",
     period: "Jan 2026",
@@ -287,7 +367,7 @@ export const courses = [
     url: "https://learn.microsoft.com/api/achievements/share/en-us/muhammadalighias/AK5F8V97?sharingId=studentamb_428629",
   },
   {
-    id: 9,
+    id: 17,
     title: "Introduction to AI-powered information extraction concepts",
     institution: "Microsoft Learn",
     period: "Jan 2026",
@@ -296,7 +376,7 @@ export const courses = [
     url: "https://learn.microsoft.com/api/achievements/share/en-us/muhammadalighias/37E65M5H?sharingId=studentamb_428629",
   },
   {
-    id: 10,
+    id: 18,
     title: "Introduction to computer vision concepts",
     institution: "Microsoft Learn",
     period: "Jan 2026",

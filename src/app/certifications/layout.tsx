@@ -4,10 +4,11 @@ import { siteConfig } from "@/lib/seo";
 export const metadata: Metadata = {
   title: "Certifications — Muhammad Ali Ghias",
   description:
-    "Certifications of Muhammad Ali Ghias — Udemy certificates plus 189 Microsoft Learn badges and 39 trophies from Microsoft Learn.",
+    "Certifications of Muhammad Ali Ghias from Coursera, Udemy, Credly, and Microsoft Learn — including design projects, programming courses, and 189 Microsoft Learn badges.",
   keywords: [
     "Muhammad Ali Ghias certifications",
     "Ali Ghias certificates",
+    "Coursera certificates",
     "Microsoft Learn badges",
     "Microsoft Learn trophies",
     "Udemy certificates",
@@ -18,7 +19,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Certifications — Muhammad Ali Ghias",
     description:
-      "Udemy certificates and 189 Microsoft Learn badges earned by Muhammad Ali Ghias.",
+      "Coursera, Udemy, and Microsoft Learn certifications earned by Muhammad Ali Ghias.",
     url: `${siteConfig.url}/certifications`,
   },
 };

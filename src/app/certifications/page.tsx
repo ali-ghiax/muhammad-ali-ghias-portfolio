@@ -46,7 +46,7 @@ export default function CertificationsPage() {
                 Certifications & <span className="text-gradient">learning</span>
               </h1>
               <p className="text-lg text-muted-foreground mb-6">
-                Featured certificates from LinkedIn and Udemy, plus{" "}
+                Featured certificates from Coursera, LinkedIn, and Udemy, plus{" "}
                 {microsoftAchievementStats.badges} Microsoft Badges and{" "}
                 {microsoftAchievementStats.trophies} Microsoft Trophies from{" "}
                 <a
