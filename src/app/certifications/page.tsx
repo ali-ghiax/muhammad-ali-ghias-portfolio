@@ -85,6 +85,7 @@ export default function CertificationsPage() {
   const [tab, setTab] = useState<Tab>("badges");
 
   const ibmDevOpsCount = getCertificatesByCategory("ibm-devops").length;
+  const graphicDesignCount = getCertificatesByCategory("graphic-design").length;
   const courseraCount = getCertificatesByCategory("coursera").length;
 
   const items = useMemo(
@@ -114,7 +115,7 @@ export default function CertificationsPage() {
                 Certifications & <span className="text-gradient">learning</span>
               </h1>
               <p className="text-lg text-muted-foreground mb-6">
-                IBM DevOps Professional Certificate, Coursera courses, Udemy training, plus{" "}
+                IBM DevOps Professional Certificate, graphic design, Coursera courses, Udemy training, plus{" "}
                 {microsoftAchievementStats.badges} Microsoft Badges and{" "}
                 {microsoftAchievementStats.trophies} Microsoft Trophies from{" "}
                 <a
@@ -135,6 +136,14 @@ export default function CertificationsPage() {
                 >
                   <span className="font-display font-bold text-foreground">{ibmDevOpsCount}</span>
                   IBM DevOps
+                </button>
+                <button
+                  type="button"
+                  onClick={() => goToSection("graphic-design")}
+                  className="inline-flex items-center gap-2 border border-border bg-card/50 px-3 py-1.5 cursor-pointer transition-colors hover:border-primary/40 hover:bg-card"
+                >
+                  <span className="font-display font-bold text-foreground">{graphicDesignCount}</span>
+                  Graphic Design
                 </button>
                 <button
                   type="button"

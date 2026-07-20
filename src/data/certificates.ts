@@ -1,5 +1,6 @@
 export type CertificateCategory =
   | "ibm-devops"
+  | "graphic-design"
   | "coursera"
   | "udemy"
   | "microsoft"
@@ -205,7 +206,7 @@ export const courses: Certificate[] = [
     description: "Core visual design principles, typography, layout, and Canva workflows for digital content.",
     image: "/certifications/coursera-canva-design-fundamentals.jpg",
     url: "https://www.coursera.org/account/accomplishments/verify/IHFO1SWTBS4T",
-    category: "coursera",
+    category: "graphic-design",
     kind: "course",
   },
   {
@@ -239,7 +240,7 @@ export const courses: Certificate[] = [
       "Completed the Graphic Design course covering typography, color theory, and visual communication through Coursera.",
     image: "/certifications/coursera-graphic-design.webp",
     url: "https://coursera.org/verify/Z3BW7BEF2T7X",
-    category: "coursera",
+    category: "graphic-design",
     kind: "course",
   },
   {
@@ -251,7 +252,7 @@ export const courses: Certificate[] = [
       "Built a marketing-ready brand kit in Canva, including style guide, logo, and branded templates.",
     image: "/certifications/coursera-brand-kit-canva.webp",
     url: "https://coursera.org/verify/QMTBEJ2VTPWA",
-    category: "coursera",
+    category: "graphic-design",
     kind: "project",
   },
   {
@@ -263,7 +264,7 @@ export const courses: Certificate[] = [
       "Designed animated social media posts in Canva with motion elements for stronger engagement.",
     image: "/certifications/coursera-animated-social-canva.webp",
     url: "https://coursera.org/verify/HGQY4M57STJC",
-    category: "coursera",
+    category: "graphic-design",
     kind: "project",
   },
   {
@@ -275,7 +276,7 @@ export const courses: Certificate[] = [
       "Created a promotional video in Canva with script, visuals, animations, and a clear call to action.",
     image: "/certifications/coursera-professional-video-canva.webp",
     url: "https://coursera.org/verify/6AGUXXFLEETW",
-    category: "coursera",
+    category: "graphic-design",
     kind: "project",
   },
   {
@@ -287,7 +288,7 @@ export const courses: Certificate[] = [
       "Designed digital product assets in Canva for marketing and brand presentation.",
     image: "/certifications/coursera-digital-product-canva.webp",
     url: "https://coursera.org/verify/4X4XWBSRJ5XN",
-    category: "coursera",
+    category: "graphic-design",
     kind: "project",
   },
   {
@@ -299,7 +300,7 @@ export const courses: Certificate[] = [
       "Built professional presentations in Canva with structured layouts and visual storytelling.",
     image: "/certifications/coursera-presentation-canva.webp",
     url: "https://coursera.org/verify/R4VFZZKEHSQX",
-    category: "coursera",
+    category: "graphic-design",
     kind: "project",
   },
   {
@@ -311,7 +312,7 @@ export const courses: Certificate[] = [
       "Designed brand logos in Canva focused on clarity, recognition, and visual impact.",
     image: "/certifications/coursera-eye-catching-logo.webp",
     url: "https://coursera.org/verify/XXEZGYBJ56SV",
-    category: "coursera",
+    category: "graphic-design",
     kind: "project",
   },
   {
@@ -323,7 +324,7 @@ export const courses: Certificate[] = [
       "Created print-ready promotional flyers in Adobe Photoshop with professional layout techniques.",
     image: "/certifications/coursera-flyer-photoshop.webp",
     url: "https://coursera.org/verify/S6EK4H2WA85E",
-    category: "coursera",
+    category: "graphic-design",
     kind: "project",
   },
   {
@@ -447,9 +448,15 @@ export const certificateSections = [
       "Professional Certificate and individual course credentials from the IBM DevOps program on Coursera.",
   },
   {
+    id: "graphic-design",
+    title: "Graphic Design",
+    subtitle:
+      "Coursera courses and guided projects in graphic design, Canva, Adobe Photoshop, and visual branding.",
+  },
+  {
     id: "coursera",
     title: "Coursera",
-    subtitle: "Design, AI, and additional Coursera course and project certificates.",
+    subtitle: "Additional Coursera course certificates in AI and technical writing.",
   },
   {
     id: "udemy",
