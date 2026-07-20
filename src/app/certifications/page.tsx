@@ -24,6 +24,16 @@ export default function CertificationsPage() {
     [tab]
   );
 
+  const goToSection = (sectionId: string, nextTab?: Tab) => {
+    if (nextTab) setTab(nextTab);
+    requestAnimationFrame(() => {
+      const el = document.getElementById(sectionId);
+      if (!el) return;
+      const top = el.getBoundingClientRect().top + window.scrollY - 96;
+      window.scrollTo({ top, behavior: "smooth" });
+    });
+  };
+
   return (
     <div className="min-h-screen pt-20">
       <section className="py-20 relative">
@@ -50,137 +60,158 @@ export default function CertificationsPage() {
                 .
               </p>
               <div className="flex flex-wrap gap-3 text-sm">
-                <span className="inline-flex items-center gap-2 border border-border bg-card/50 px-3 py-1.5">
+                <button
+                  type="button"
+                  onClick={() => goToSection("microsoft-achievements", "badges")}
+                  className="inline-flex items-center gap-2 border border-border bg-card/50 px-3 py-1.5 cursor-pointer transition-colors hover:border-primary/40 hover:bg-card"
+                >
                   <span className="font-display font-bold text-primary">
                     {microsoftAchievementStats.badges}
                   </span>
                   Badges
-                </span>
-                <span className="inline-flex items-center gap-2 border border-border bg-card/50 px-3 py-1.5">
+                </button>
+                <button
+                  type="button"
+                  onClick={() => goToSection("microsoft-achievements", "trophies")}
+                  className="inline-flex items-center gap-2 border border-border bg-card/50 px-3 py-1.5 cursor-pointer transition-colors hover:border-primary/40 hover:bg-card"
+                >
                   <span className="font-display font-bold text-primary">
                     {microsoftAchievementStats.trophies}
                   </span>
                   Trophies
-                </span>
-                <span className="inline-flex items-center gap-2 border border-border bg-card/50 px-3 py-1.5">
+                </button>
+                <button
+                  type="button"
+                  onClick={() => goToSection("featured-certificates")}
+                  className="inline-flex items-center gap-2 border border-border bg-card/50 px-3 py-1.5 cursor-pointer transition-colors hover:border-primary/40 hover:bg-card"
+                >
                   <span className="font-display font-bold text-primary">
                     {courses.length}
                   </span>
                   Featured certificates
-                </span>
+                </button>
               </div>
             </div>
           </AnimatedSection>
 
-          <AnimatedSection>
-            <div className="mb-8">
-              <h2 className="text-2xl md:text-3xl font-display font-bold mb-2">
-                Featured <span className="text-gradient">certificates</span>
-              </h2>
-              <p className="text-muted-foreground text-sm mb-6">
-                Selected credentials with shareable certificate links.
-              </p>
-            </div>
-          </AnimatedSection>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8 mb-20">
-            {courses.map((course, index) => (
-              <AnimatedSection key={course.id} delay={index * 0.04}>
-                <article className="group h-full overflow-hidden border border-border bg-card/50 hover:border-primary/35 transition-colors flex flex-col">
-                  <div className="relative aspect-[16/10] overflow-hidden bg-muted border-b border-border">
-                    {/* eslint-disable-next-line @next/next/no-img-element */}
-                    <img
-                      src={course.image}
-                      alt={`${course.title} certificate`}
-                      className="h-full w-full object-contain object-center bg-white p-3 transition-transform duration-500 group-hover:scale-[1.02]"
-                    />
-                  </div>
-                  <div className="p-5 sm:p-6 flex flex-col flex-1">
-                    <div className="flex flex-wrap items-center gap-2 mb-2">
-                      <h3 className="text-lg sm:text-xl font-display font-semibold">
-                        {course.title}
-                      </h3>
-                      <Badge variant="outline" className="text-xs">
-                        {course.period}
-                      </Badge>
-                    </div>
-                    <p className="text-sm text-primary mb-2">{course.institution}</p>
-                    <p className="text-sm text-muted-foreground mb-4 flex-1">{course.description}</p>
-                    <a
-                      href={course.url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center gap-1.5 text-sm font-medium text-foreground hover:text-primary transition-colors"
-                    >
-                      View certificate
-                      <ExternalLink className="w-3.5 h-3.5" />
-                    </a>
-                  </div>
-                </article>
-              </AnimatedSection>
-            ))}
-          </div>
-
-          <AnimatedSection>
-            <div className="mb-6 flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4">
-              <div>
+          <div id="featured-certificates" className="scroll-mt-28">
+            <AnimatedSection>
+              <div className="mb-8">
                 <h2 className="text-2xl md:text-3xl font-display font-bold mb-2">
-                  Microsoft Learn <span className="text-gradient">achievements</span>
+                  Featured <span className="text-gradient">certificates</span>
                 </h2>
-                <p className="text-muted-foreground text-sm">
-                  All badges and trophies from your Microsoft Learn profile.
+                <p className="text-muted-foreground text-sm mb-6">
+                  Selected credentials with shareable certificate links.
                 </p>
               </div>
-              <div className="flex gap-2">
-                {(
-                  [
-                    { id: "badges", label: `Badges (${microsoftAchievementStats.badges})` },
-                    { id: "trophies", label: `Trophies (${microsoftAchievementStats.trophies})` },
-                  ] as const
-                ).map((option) => (
-                  <button
-                    key={option.id}
-                    type="button"
-                    onClick={() => setTab(option.id)}
-                    className={cn(
-                      "px-4 py-2 text-sm font-medium border transition-colors cursor-pointer",
-                      tab === option.id
-                        ? "bg-primary text-primary-foreground border-primary"
-                        : "bg-card border-border text-muted-foreground hover:text-foreground hover:border-primary/30"
-                    )}
-                  >
-                    {option.label}
-                  </button>
-                ))}
-              </div>
-            </div>
-          </AnimatedSection>
+            </AnimatedSection>
 
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3 sm:gap-4">
-            {items.map((item, index) => (
-              <AnimatedSection key={item.id} delay={Math.min(index * 0.015, 0.4)}>
-                <a
-                  href={item.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="group block h-full border border-border bg-card/50 p-3 sm:p-4 hover:border-primary/40 transition-colors"
-                >
-                  <div className="aspect-square mb-3 flex items-center justify-center bg-white/80 dark:bg-white/95 rounded-sm overflow-hidden">
-                    {/* eslint-disable-next-line @next/next/no-img-element */}
-                    <img
-                      src={item.image}
-                      alt={item.title}
-                      loading="lazy"
-                      className="h-[72%] w-[72%] object-contain transition-transform duration-300 group-hover:scale-105"
-                    />
-                  </div>
-                  <p className="text-xs sm:text-sm font-medium leading-snug line-clamp-3 group-hover:text-primary transition-colors">
-                    {item.title}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8 mb-20">
+              {courses.map((course, index) => (
+                <AnimatedSection key={course.id} delay={index * 0.04}>
+                  <article className="group h-full overflow-hidden border border-border bg-card/50 hover:border-primary/35 transition-colors flex flex-col">
+                    <div className="relative aspect-[16/10] overflow-hidden bg-muted border-b border-border">
+                      {/* eslint-disable-next-line @next/next/no-img-element */}
+                      <img
+                        src={course.image}
+                        alt={`${course.title} certificate`}
+                        className="h-full w-full object-contain object-center bg-white p-3 transition-transform duration-500 group-hover:scale-[1.02]"
+                      />
+                    </div>
+                    <div className="p-5 sm:p-6 flex flex-col flex-1">
+                      <div className="flex flex-wrap items-center gap-2 mb-2">
+                        <h3 className="text-lg sm:text-xl font-display font-semibold">
+                          {course.title}
+                        </h3>
+                        <Badge variant="outline" className="text-xs">
+                          {course.period}
+                        </Badge>
+                      </div>
+                      <p className="text-sm text-primary mb-2">{course.institution}</p>
+                      <p className="text-sm text-muted-foreground mb-4 flex-1">
+                        {course.description}
+                      </p>
+                      <a
+                        href={course.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-1.5 text-sm font-medium text-foreground hover:text-primary transition-colors"
+                      >
+                        View certificate
+                        <ExternalLink className="w-3.5 h-3.5" />
+                      </a>
+                    </div>
+                  </article>
+                </AnimatedSection>
+              ))}
+            </div>
+          </div>
+
+          <div id="microsoft-achievements" className="scroll-mt-28">
+            <AnimatedSection>
+              <div className="mb-6 flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4">
+                <div>
+                  <h2 className="text-2xl md:text-3xl font-display font-bold mb-2">
+                    Microsoft Learn <span className="text-gradient">achievements</span>
+                  </h2>
+                  <p className="text-muted-foreground text-sm">
+                    All badges and trophies from your Microsoft Learn profile.
                   </p>
-                  <p className="text-[11px] text-muted-foreground mt-1.5">{item.grantedOn}</p>
-                </a>
-              </AnimatedSection>
-            ))}
+                </div>
+                <div className="flex gap-2">
+                  {(
+                    [
+                      { id: "badges", label: `Badges (${microsoftAchievementStats.badges})` },
+                      {
+                        id: "trophies",
+                        label: `Trophies (${microsoftAchievementStats.trophies})`,
+                      },
+                    ] as const
+                  ).map((option) => (
+                    <button
+                      key={option.id}
+                      type="button"
+                      onClick={() => setTab(option.id)}
+                      className={cn(
+                        "px-4 py-2 text-sm font-medium border transition-colors cursor-pointer",
+                        tab === option.id
+                          ? "bg-primary text-primary-foreground border-primary"
+                          : "bg-card border-border text-muted-foreground hover:text-foreground hover:border-primary/30"
+                      )}
+                    >
+                      {option.label}
+                    </button>
+                  ))}
+                </div>
+              </div>
+            </AnimatedSection>
+
+            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3 sm:gap-4">
+              {items.map((item, index) => (
+                <AnimatedSection key={item.id} delay={Math.min(index * 0.015, 0.4)}>
+                  <a
+                    href={item.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="group block h-full border border-border bg-card/50 p-3 sm:p-4 hover:border-primary/40 transition-colors"
+                  >
+                    <div className="aspect-square mb-3 flex items-center justify-center bg-white/80 dark:bg-white/95 rounded-sm overflow-hidden">
+                      {/* eslint-disable-next-line @next/next/no-img-element */}
+                      <img
+                        src={item.image}
+                        alt={item.title}
+                        loading="lazy"
+                        className="h-[72%] w-[72%] object-contain transition-transform duration-300 group-hover:scale-105"
+                      />
+                    </div>
+                    <p className="text-xs sm:text-sm font-medium leading-snug line-clamp-3 group-hover:text-primary transition-colors">
+                      {item.title}
+                    </p>
+                    <p className="text-[11px] text-muted-foreground mt-1.5">{item.grantedOn}</p>
+                  </a>
+                </AnimatedSection>
+              ))}
+            </div>
           </div>
 
           <div className="mt-10">
