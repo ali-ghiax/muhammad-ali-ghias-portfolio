@@ -71,6 +71,33 @@ export const honors: Honor[] = [
     ],
   },
   {
+    id: "cusit-campus-lead-seminar",
+    title: "Campus Lead Seminar – CUSIT (Microsoft Technologies)",
+    issuer: "City University of Science & Information Technology (CUSIT)",
+    date: "Feb 2026",
+    description:
+      "Honored to conduct a Microsoft Technologies seminar as a Microsoft Learn Student Ambassador and Campus Lead of the MLSA CUSIT Chapter. 60+ students participated and received Participation Certificates, and I was humbled to receive a Certificate and Shield of Appreciation from the respected coordinators, Registrar, and Dean.",
+    category: "leadership",
+    images: [
+      {
+        src: "/honors/campus-lead-seminar-1.jpg",
+        alt: "Muhammad Ali Ghias speaking at the Microsoft Technologies seminar at City University (CUSIT)",
+      },
+      {
+        src: "/honors/campus-lead-seminar-2.jpg",
+        alt: "Muhammad Ali Ghias with the Microsoft Technologies seminar certificate moments at CUSIT",
+      },
+      {
+        src: "/honors/campus-lead-seminar-3.jpg",
+        alt: "Muhammad Ali Ghias receiving the Seminar Certificate and appreciation at CUSIT",
+      },
+      {
+        src: "/honors/campus-lead-seminar-4.jpg",
+        alt: "Muhammad Ali Ghias presenting Microsoft Technologies seminar appreciation certificate with coordinators at CUSIT",
+      },
+    ],
+  },
+  {
     id: "mlsa-beta",
     title: "Microsoft Learn Student Ambassador – Beta",
     issuer: "Microsoft",
