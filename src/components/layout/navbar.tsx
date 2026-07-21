@@ -88,7 +88,7 @@ export function Navbar() {
         )}
       >
         <nav
-          className="hidden lg:flex absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 items-center z-[1]"
+          className="hidden lg:flex absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 items-center z-20 pointer-events-auto"
           aria-label="Main navigation"
         >
           {navLinks.map((link) => (
@@ -114,10 +114,10 @@ export function Navbar() {
           ))}
         </nav>
 
-        <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between relative z-10">
+        <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between relative z-10 pointer-events-none">
           <Link
             href="/"
-            className="flex items-center gap-3 group shrink-0"
+            className="flex items-center gap-3 group shrink-0 pointer-events-auto"
             aria-label="MAG — Muhammad Ali Ghias home"
           >
             <ProfileAvatar
@@ -130,7 +130,7 @@ export function Navbar() {
             </span>
           </Link>
 
-          <div className="hidden lg:flex items-center gap-3 shrink-0">
+          <div className="hidden lg:flex items-center gap-3 shrink-0 pointer-events-auto">
             <button
               onClick={() => setDarkMode(!darkMode)}
               className="p-2 text-muted-foreground hover:text-foreground transition-colors"
@@ -175,7 +175,7 @@ export function Navbar() {
 
           <button
             onClick={() => setIsOpen(true)}
-            className="lg:hidden p-2 text-foreground ml-auto"
+            className="lg:hidden p-2 text-foreground ml-auto pointer-events-auto"
           >
             <Menu className="w-6 h-6" />
           </button>
