@@ -11,6 +11,18 @@ export type Honor = {
 
 export const honors: Honor[] = [
   {
+    id: "president-recognition",
+    title: "President Recognition Award",
+    issuer: "Students' Life Center (SLC), CUSIT",
+    date: "Jun 2026",
+    description:
+      "Recognized for serving as President of the MLSA CUSIT society — building the chapter from the ground up into an active student community through leadership, mentorship, and campus tech initiatives.",
+    category: "leadership",
+    image: "/honors/president-recognition.jpg",
+    imageAlt:
+      "President Recognition Award from Students' Life Center presented to Muhammad Ali Ghias",
+  },
+  {
     id: "mlsa-beta",
     title: "Microsoft Learn Student Ambassador – Beta",
     issuer: "Microsoft",
