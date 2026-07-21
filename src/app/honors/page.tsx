@@ -255,7 +255,6 @@ function HonorShowcase({
   const Icon = meta.icon;
   const images = getHonorImages(honor);
   const isReversed = index % 2 === 1;
-  const number = String(index + 1).padStart(2, "0");
 
   return (
     <article id={honor.id} className="scroll-mt-28">
@@ -326,16 +325,6 @@ function HonorShowcase({
               <BentoGallery images={images} onImageClick={onImageClick} />
             </div>
           )}
-        </div>
-
-        <div
-          className={cn(
-            "absolute top-4 sm:top-6 font-display text-5xl sm:text-6xl font-bold leading-none text-foreground/[0.04] select-none pointer-events-none",
-            isReversed ? "left-4 sm:left-6" : "right-4 sm:right-6"
-          )}
-          aria-hidden
-        >
-          {number}
         </div>
       </div>
     </article>
