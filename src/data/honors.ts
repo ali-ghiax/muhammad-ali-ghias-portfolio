@@ -78,8 +78,24 @@ export const honors: Honor[] = [
     description:
       "Secured 1st position in the Logo Designing competition at ANS 24, a province-level event organized by Abasyn University Peshawar, competing with participants from across Khyber Pakhtunkhwa and showcasing excellence in branding and visual identity design.",
     category: "competition",
-    image: "/honors/ans24-logo.jpg",
-    imageAlt: "Muhammad Ali Ghias holding the ANS 24 logo design 1st position trophy and certificate",
+    images: [
+      {
+        src: "/honors/ans24-logo-1.png",
+        alt: "Muhammad Ali Ghias with the ANS 24 Logo Designing 1st position achievement poster",
+      },
+      {
+        src: "/honors/ans24-logo-2.png",
+        alt: "Muhammad Ali Ghias receiving the ANS 24 Logo Designing 1st position award",
+      },
+      {
+        src: "/honors/ans24-logo-3.png",
+        alt: "Muhammad Ali Ghias as the ANS 24 Logo Design Winner 2024",
+      },
+      {
+        src: "/honors/ans24-logo-4.png",
+        alt: "Muhammad Ali Ghias holding the ANS 24 Logo Designing 1st position trophy and certificate",
+      },
+    ],
   },
 ];
 
