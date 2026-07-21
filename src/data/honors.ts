@@ -35,7 +35,7 @@ export const honors: Honor[] = [
       },
       {
         src: "/honors/president-recognition-3.png",
-        alt: "Muhammad Ali Ghias receiving the SLC trophy at the MLSA Creative Awards",
+        alt: "Muhammad Ali Ghias receiving the MLSA CUSIT trophy at the SLC X Creative Awards",
       },
       {
         src: "/honors/president-recognition-4.png",
