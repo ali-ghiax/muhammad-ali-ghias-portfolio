@@ -104,53 +104,32 @@ function BentoGallery({
     );
   }
 
-  const [featured, ...thumbnails] = images;
-
   return (
-    <div className={cn("flex flex-col sm:flex-row sm:items-stretch gap-2 sm:gap-3", className)}>
-      <button
-        type="button"
-        onClick={() => onImageClick(images, 0)}
-        className="group relative overflow-hidden rounded-xl border border-border/80 bg-white cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-primary sm:flex-[1.55] aspect-[4/5] sm:aspect-auto sm:min-h-[280px] lg:min-h-[320px]"
-        aria-label={`Open image: ${featured.alt}`}
-      >
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img
-          src={featured.src}
-          alt={featured.alt}
-          className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.04]"
-        />
-        <GalleryOverlay />
-      </button>
-
-      {thumbnails.length > 0 && (
-        <div
+    <div className={cn("grid grid-cols-2 sm:grid-cols-4 sm:grid-rows-2 gap-2 sm:gap-3", className)}>
+      {images.map((item, index) => (
+        <button
+          key={item.src}
+          type="button"
+          onClick={() => onImageClick(images, index)}
           className={cn(
-            "flex flex-1 gap-2 sm:gap-3 sm:max-w-[38%] sm:shrink-0",
-            thumbnails.length === 1 && "flex-row sm:flex-col",
-            thumbnails.length === 2 && "flex-row sm:flex-col",
-            thumbnails.length >= 3 && "flex-row sm:flex-col"
+            "group relative overflow-hidden rounded-lg sm:rounded-xl border border-border/80 bg-white cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-primary",
+            index === 0 && "sm:col-span-2 sm:row-span-2",
+            index > 0 && "aspect-square sm:aspect-auto sm:h-full"
           )}
+          aria-label={`Open image: ${item.alt}`}
         >
-          {thumbnails.map((item, index) => (
-            <button
-              key={item.src}
-              type="button"
-              onClick={() => onImageClick(images, index + 1)}
-              className="group relative min-h-0 flex-1 overflow-hidden rounded-lg sm:rounded-xl border border-border/80 bg-white cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-primary aspect-square sm:aspect-auto"
-              aria-label={`Open image: ${item.alt}`}
-            >
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
-                src={item.src}
-                alt={item.alt}
-                className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.04]"
-              />
-              <GalleryOverlay compact />
-            </button>
-          ))}
-        </div>
-      )}
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src={item.src}
+            alt={item.alt}
+            className={cn(
+              "h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.04]",
+              index === 0 ? "aspect-[4/5] sm:aspect-auto sm:min-h-[280px]" : "aspect-square"
+            )}
+          />
+          <GalleryOverlay compact={index > 0} />
+        </button>
+      ))}
     </div>
   );
 }
