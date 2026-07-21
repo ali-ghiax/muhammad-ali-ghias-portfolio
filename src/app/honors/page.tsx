@@ -16,6 +16,22 @@ const categoryMeta = {
 } as const;
 
 function HonorMedia({ honor }: { honor: Honor }) {
+  if (honor.images?.length) {
+    return (
+      <div className="grid grid-cols-2 gap-2 p-3 sm:p-4 bg-muted/20">
+        {honor.images.map((item) => (
+          // eslint-disable-next-line @next/next/no-img-element
+          <img
+            key={item.src}
+            src={item.src}
+            alt={item.alt}
+            className="h-full w-full object-cover bg-white aspect-[4/5] sm:aspect-[3/4]"
+          />
+        ))}
+      </div>
+    );
+  }
+
   if (!honor.image) return null;
 
   return (
@@ -64,7 +80,8 @@ export default function HonorsPage() {
             {honors.map((honor, index) => {
               const meta = categoryMeta[honor.category];
               const Icon = meta.icon;
-              const hasMedia = Boolean(honor.image);
+              const hasMedia = Boolean(honor.image || honor.images?.length);
+              const hasGallery = Boolean(honor.images?.length);
 
               return (
                 <AnimatedSection key={honor.id} delay={Math.min(index * 0.08, 0.24)}>
@@ -72,10 +89,10 @@ export default function HonorsPage() {
                     <div
                       className={cn(
                         "flex flex-col",
-                        hasMedia && "md:flex-row md:items-stretch"
+                        hasMedia && !hasGallery && "md:flex-row md:items-stretch"
                       )}
                     >
-                      {hasMedia && (
+                      {hasMedia && !hasGallery && (
                         <div className="md:w-2/5 border-b md:border-b-0 md:border-r border-border bg-muted/20 aspect-[16/10] md:aspect-auto md:min-h-[240px]">
                           <HonorMedia honor={honor} />
                         </div>
@@ -109,6 +126,12 @@ export default function HonorsPage() {
                           </div>
                         </div>
                       </div>
+
+                      {hasGallery && (
+                        <div className="border-t border-border">
+                          <HonorMedia honor={honor} />
+                        </div>
+                      )}
                     </div>
                   </Card>
                 </AnimatedSection>

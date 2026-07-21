@@ -1,3 +1,8 @@
+export type HonorImage = {
+  src: string;
+  alt: string;
+};
+
 export type Honor = {
   id: string;
   title: string;
@@ -7,6 +12,7 @@ export type Honor = {
   category: "leadership" | "competition" | "achievement";
   image?: string;
   imageAlt?: string;
+  images?: HonorImage[];
 };
 
 export const honors: Honor[] = [
@@ -18,9 +24,24 @@ export const honors: Honor[] = [
     description:
       "Recognized for serving as President of the MLSA CUSIT society — building the chapter from the ground up into an active student community through leadership, mentorship, and campus tech initiatives.",
     category: "leadership",
-    image: "/honors/president-recognition.jpg",
-    imageAlt:
-      "President Recognition Award from Students' Life Center presented to Muhammad Ali Ghias",
+    images: [
+      {
+        src: "/honors/president-recognition-1.png",
+        alt: "MLSA SLC X Creative Awards ceremony at City University of Science and Information Technology",
+      },
+      {
+        src: "/honors/president-recognition-2.png",
+        alt: "Muhammad Ali Ghias receiving the MLSA President Recognition Award on stage",
+      },
+      {
+        src: "/honors/president-recognition-3.png",
+        alt: "Muhammad Ali Ghias receiving the SLC trophy at the MLSA Creative Awards",
+      },
+      {
+        src: "/honors/president-recognition-4.png",
+        alt: "Close-up of the Students' Life Center President Recognition Award trophy",
+      },
+    ],
   },
   {
     id: "mlsa-beta",
