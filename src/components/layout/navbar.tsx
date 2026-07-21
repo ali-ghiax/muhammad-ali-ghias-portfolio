@@ -87,10 +87,10 @@ export function Navbar() {
           scrolled ? "glass border-b border-border/50" : "bg-transparent"
         )}
       >
-        <div className="max-w-7xl mx-auto px-6 lg:px-8 h-20 flex items-center justify-between gap-6 lg:gap-10">
+        <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
           <Link
             href="/"
-            className="flex items-center gap-3 group shrink-0"
+            className="flex items-center gap-3 group"
             aria-label="MAG — Muhammad Ali Ghias home"
           >
             <ProfileAvatar
@@ -103,13 +103,13 @@ export function Navbar() {
             </span>
           </Link>
 
-          <nav className="hidden md:flex items-center gap-2 lg:gap-3 xl:gap-4">
+          <nav className="hidden md:flex items-center gap-0">
             {navLinks.map((link) => (
               <Link
                 key={link.href}
                 href={link.href}
                 className={cn(
-                  "relative px-2 lg:px-3 py-2 text-sm font-medium transition-colors whitespace-nowrap",
+                  "relative px-2.5 py-2 text-sm font-medium transition-colors",
                   pathname === link.href
                     ? "text-primary"
                     : "text-muted-foreground hover:text-foreground"
@@ -127,7 +127,7 @@ export function Navbar() {
             ))}
           </nav>
 
-          <div className="hidden md:flex items-center gap-4 lg:gap-5 shrink-0">
+          <div className="hidden md:flex items-center gap-3">
             <button
               onClick={() => setDarkMode(!darkMode)}
               className="p-2 text-muted-foreground hover:text-foreground transition-colors"
