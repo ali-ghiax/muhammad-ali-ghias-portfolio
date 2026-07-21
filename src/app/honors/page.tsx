@@ -16,22 +16,6 @@ const categoryMeta = {
 } as const;
 
 function HonorMedia({ honor }: { honor: Honor }) {
-  if (honor.imageGallery?.length) {
-    return (
-      <div className="grid grid-cols-2 gap-2 p-4 bg-muted/40">
-        {honor.imageGallery.map((src) => (
-          // eslint-disable-next-line @next/next/no-img-element
-          <img
-            key={src}
-            src={src}
-            alt=""
-            className="h-full w-full object-contain p-2 bg-white/90"
-          />
-        ))}
-      </div>
-    );
-  }
-
   if (!honor.image) return null;
 
   return (
@@ -80,7 +64,7 @@ export default function HonorsPage() {
             {honors.map((honor, index) => {
               const meta = categoryMeta[honor.category];
               const Icon = meta.icon;
-              const hasMedia = Boolean(honor.image || honor.imageGallery?.length);
+              const hasMedia = Boolean(honor.image);
 
               return (
                 <AnimatedSection key={honor.id} delay={Math.min(index * 0.08, 0.24)}>

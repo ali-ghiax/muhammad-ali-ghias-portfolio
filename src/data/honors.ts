@@ -7,7 +7,6 @@ export type Honor = {
   category: "leadership" | "competition" | "achievement";
   image?: string;
   imageAlt?: string;
-  imageGallery?: string[];
 };
 
 export const honors: Honor[] = [
@@ -20,7 +19,7 @@ export const honors: Honor[] = [
       "Nominated and recognized by Microsoft as a Beta Student Ambassador for leading the MLSA CUSIT Chapter, mentoring students, and driving community engagement through workshops, events, and learning initiatives.",
     category: "leadership",
     image: "/honors/mlsa-ambassador-certificate.jpg",
-    imageAlt: "2026 Microsoft Student Ambassador certificate issued to Muhammad Ali Ghias",
+    imageAlt: "Microsoft Student Ambassador certificate issued to Muhammad Ali Ghias",
   },
   {
     id: "microsoft-excellence",
@@ -30,13 +29,9 @@ export const honors: Honor[] = [
     description:
       "Recognized by Microsoft Learn for consistent performance, skill mastery, and achievement across learning paths.",
     category: "achievement",
-    imageGallery: [
-      "/honors/trophy-1.svg",
-      "/honors/trophy-2.svg",
-      "/honors/trophy-3.svg",
-      "/honors/trophy-4.svg",
-    ],
-    imageAlt: "Microsoft Learn learning path trophies earned by Muhammad Ali Ghias",
+    image: "/honors/microsoft-excellence.jpg",
+    imageAlt:
+      "Microsoft Learn achievements profile showing learning path trophies earned by Muhammad Ali Ghias",
   },
   {
     id: "ans24-logo",
