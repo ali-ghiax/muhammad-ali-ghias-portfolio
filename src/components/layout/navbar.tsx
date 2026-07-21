@@ -87,10 +87,37 @@ export function Navbar() {
           scrolled ? "glass border-b border-border/50" : "bg-transparent"
         )}
       >
-        <div className="max-w-7xl mx-auto px-6 h-20 flex lg:grid lg:grid-cols-[1fr_auto_1fr] items-center">
+        <nav
+          className="hidden lg:flex absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 items-center z-[1]"
+          aria-label="Main navigation"
+        >
+          {navLinks.map((link) => (
+            <Link
+              key={link.href}
+              href={link.href}
+              className={cn(
+                "relative px-1.5 xl:px-2 py-2 text-sm font-medium transition-colors whitespace-nowrap",
+                pathname === link.href
+                  ? "text-primary"
+                  : "text-muted-foreground hover:text-foreground"
+              )}
+            >
+              {link.label}
+              {pathname === link.href && (
+                <motion.div
+                  layoutId="navbar-indicator"
+                  className="absolute inset-x-0 -bottom-1 h-0.5 bg-primary"
+                  transition={{ type: "spring", stiffness: 500, damping: 30 }}
+                />
+              )}
+            </Link>
+          ))}
+        </nav>
+
+        <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between relative z-10">
           <Link
             href="/"
-            className="flex items-center gap-3 group shrink-0 lg:justify-self-start"
+            className="flex items-center gap-3 group shrink-0"
             aria-label="MAG — Muhammad Ali Ghias home"
           >
             <ProfileAvatar
@@ -103,31 +130,7 @@ export function Navbar() {
             </span>
           </Link>
 
-          <nav className="hidden lg:flex items-center justify-self-center">
-            {navLinks.map((link) => (
-              <Link
-                key={link.href}
-                href={link.href}
-                className={cn(
-                  "relative px-1.5 xl:px-2 py-2 text-sm font-medium transition-colors whitespace-nowrap",
-                  pathname === link.href
-                    ? "text-primary"
-                    : "text-muted-foreground hover:text-foreground"
-                )}
-              >
-                {link.label}
-                {pathname === link.href && (
-                  <motion.div
-                    layoutId="navbar-indicator"
-                    className="absolute inset-x-0 -bottom-1 h-0.5 bg-primary"
-                    transition={{ type: "spring", stiffness: 500, damping: 30 }}
-                  />
-                )}
-              </Link>
-            ))}
-          </nav>
-
-          <div className="hidden lg:flex items-center gap-3 justify-self-end shrink-0">
+          <div className="hidden lg:flex items-center gap-3 shrink-0">
             <button
               onClick={() => setDarkMode(!darkMode)}
               className="p-2 text-muted-foreground hover:text-foreground transition-colors"
