@@ -44,6 +44,33 @@ export const honors: Honor[] = [
     ],
   },
   {
+    id: "northern-university-speaker",
+    title: "Guest Speaker – Northern University (NU)",
+    issuer: "Northern University",
+    date: "Mar 2026",
+    description:
+      "Invited as a guest speaker for an MLSA-led seminar at Northern University, covering how to become a Microsoft Learn Student Ambassador, cloud computing with Microsoft Azure, LinkedIn personal branding, and a hands-on portfolio deployment workshop on Azure Web Apps for students across the campus tech community.",
+    category: "leadership",
+    images: [
+      {
+        src: "/honors/northern-university-1.jpg",
+        alt: "Muhammad Ali Ghias with the MLSA team at Northern University",
+      },
+      {
+        src: "/honors/northern-university-2.jpg",
+        alt: "Muhammad Ali Ghias speaking at the Northern University tech seminar",
+      },
+      {
+        src: "/honors/northern-university-3.jpg",
+        alt: "Muhammad Ali Ghias presenting at Northern University on Microsoft Learn Student Ambassadors and Azure",
+      },
+      {
+        src: "/honors/northern-university-4.jpg",
+        alt: "Muhammad Ali Ghias leading a seminar session at Northern University",
+      },
+    ],
+  },
+  {
     id: "mlsa-beta",
     title: "Microsoft Learn Student Ambassador – Beta",
     issuer: "Microsoft",
