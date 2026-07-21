@@ -107,6 +107,7 @@ export default function RootLayout({
         <link rel="me" href={siteConfig.github} />
         <link rel="me" href={siteConfig.linkedin} />
         <link rel="sitemap" type="application/xml" href="/sitemap.xml" />
+        <link rel="sitemap" type="application/xml" href="/sitemap-images.xml" title="Image Sitemap" />
         <link rel="alternate" type="text/plain" href="/sitemap.txt" title="Sitemap" />
         <link rel="alternate" type="text/plain" href="/index.txt" title="URL Index" />
       </head>
