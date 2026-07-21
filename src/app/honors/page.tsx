@@ -5,7 +5,7 @@ import { Award, Calendar, ExternalLink, Medal, Trophy } from "lucide-react";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { honors, linkedInHonorsUrl } from "@/data/honors";
+import { honors, linkedInHonorsUrl, type Honor } from "@/data/honors";
 import { AnimatedSection } from "@/components/layout/animations";
 import { cn } from "@/lib/utils";
 
@@ -14,6 +14,35 @@ const categoryMeta = {
   competition: { label: "Competition", icon: Trophy },
   achievement: { label: "Achievement", icon: Award },
 } as const;
+
+function HonorMedia({ honor }: { honor: Honor }) {
+  if (honor.imageGallery?.length) {
+    return (
+      <div className="grid grid-cols-2 gap-2 p-4 bg-muted/40">
+        {honor.imageGallery.map((src) => (
+          // eslint-disable-next-line @next/next/no-img-element
+          <img
+            key={src}
+            src={src}
+            alt=""
+            className="h-full w-full object-contain p-2 bg-white/90"
+          />
+        ))}
+      </div>
+    );
+  }
+
+  if (!honor.image) return null;
+
+  return (
+    // eslint-disable-next-line @next/next/no-img-element
+    <img
+      src={honor.image}
+      alt={honor.imageAlt ?? honor.title}
+      className="h-full w-full object-contain bg-white p-3"
+    />
+  );
+}
 
 export default function HonorsPage() {
   return (
@@ -46,40 +75,55 @@ export default function HonorsPage() {
       </section>
 
       <section className="py-20 relative">
-        <div className="max-w-4xl mx-auto px-6">
-          <div className="space-y-6">
+        <div className="max-w-5xl mx-auto px-6">
+          <div className="space-y-8">
             {honors.map((honor, index) => {
               const meta = categoryMeta[honor.category];
               const Icon = meta.icon;
+              const hasMedia = Boolean(honor.image || honor.imageGallery?.length);
 
               return (
                 <AnimatedSection key={honor.id} delay={Math.min(index * 0.08, 0.24)}>
-                  <Card className="p-6 sm:p-8 hover:border-primary/30 transition-colors">
-                    <div className="flex flex-col sm:flex-row sm:items-start gap-4 sm:gap-6">
-                      <div
-                        className={cn(
-                          "flex h-12 w-12 shrink-0 items-center justify-center rounded-lg border border-primary/20 bg-primary/10 text-primary"
-                        )}
-                      >
-                        <Icon className="h-6 w-6" />
-                      </div>
-                      <div className="flex-1 min-w-0">
-                        <div className="flex flex-wrap items-center gap-2 mb-2">
-                          <Badge variant="outline" className="text-xs">
-                            {meta.label}
-                          </Badge>
-                          <span className="flex items-center gap-1.5 text-sm text-muted-foreground">
-                            <Calendar className="h-3.5 w-3.5" />
-                            {honor.date}
-                          </span>
+                  <Card className="overflow-hidden hover:border-primary/30 transition-colors">
+                    <div
+                      className={cn(
+                        "flex flex-col",
+                        hasMedia && "md:flex-row md:items-stretch"
+                      )}
+                    >
+                      {hasMedia && (
+                        <div className="md:w-2/5 border-b md:border-b-0 md:border-r border-border bg-muted/20 aspect-[16/10] md:aspect-auto md:min-h-[240px]">
+                          <HonorMedia honor={honor} />
                         </div>
-                        <h2 className="text-xl sm:text-2xl font-display font-semibold mb-1">
-                          {honor.title}
-                        </h2>
-                        <p className="text-secondary font-medium mb-3">{honor.issuer}</p>
-                        <p className="text-muted-foreground text-sm leading-relaxed">
-                          {honor.description}
-                        </p>
+                      )}
+
+                      <div className="flex-1 p-6 sm:p-8">
+                        <div className="flex items-start gap-4">
+                          {!hasMedia && (
+                            <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-lg border border-primary/20 bg-primary/10 text-primary">
+                              <Icon className="h-6 w-6" />
+                            </div>
+                          )}
+
+                          <div className="flex-1 min-w-0">
+                            <div className="flex flex-wrap items-center gap-2 mb-2">
+                              <Badge variant="outline" className="text-xs">
+                                {meta.label}
+                              </Badge>
+                              <span className="flex items-center gap-1.5 text-sm text-muted-foreground">
+                                <Calendar className="h-3.5 w-3.5" />
+                                {honor.date}
+                              </span>
+                            </div>
+                            <h2 className="text-xl sm:text-2xl font-display font-semibold mb-1">
+                              {honor.title}
+                            </h2>
+                            <p className="text-secondary font-medium mb-3">{honor.issuer}</p>
+                            <p className="text-muted-foreground text-sm leading-relaxed">
+                              {honor.description}
+                            </p>
+                          </div>
+                        </div>
                       </div>
                     </div>
                   </Card>
