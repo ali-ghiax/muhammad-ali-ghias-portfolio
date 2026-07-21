@@ -19,6 +19,7 @@ const footerLinks = [
   { label: "Projects", href: "/projects" },
   { label: "Certifications", href: "/certifications" },
   { label: "Skills", href: "/skills" },
+  { label: "Honors & Awards", href: "/honors" },
   { label: "Blog", href: "/blog" },
   { label: "Contact", href: "/contact" },
 ];
