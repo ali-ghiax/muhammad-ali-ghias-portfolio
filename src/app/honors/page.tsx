@@ -105,16 +105,22 @@ function BentoGallery({
   }
 
   return (
-    <div className={cn("grid grid-cols-2 sm:grid-cols-4 sm:grid-rows-2 gap-2 sm:gap-3", className)}>
+    <div
+      className={cn(
+        "grid grid-cols-2 sm:grid-cols-4 sm:grid-rows-2 gap-2 sm:gap-3",
+        "h-[220px] sm:h-[240px] md:h-[260px]",
+        className
+      )}
+    >
       {images.map((item, index) => (
         <button
           key={item.src}
           type="button"
           onClick={() => onImageClick(images, index)}
           className={cn(
-            "group relative overflow-hidden rounded-lg sm:rounded-xl border border-border/80 bg-white cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-primary",
+            "group relative h-full min-h-0 overflow-hidden rounded-lg sm:rounded-xl border border-border/80 bg-white cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-primary",
             index === 0 && "sm:col-span-2 sm:row-span-2",
-            index > 0 && "aspect-square sm:aspect-auto sm:h-full"
+            index > 0 && "aspect-square sm:aspect-auto"
           )}
           aria-label={`Open image: ${item.alt}`}
         >
@@ -122,10 +128,7 @@ function BentoGallery({
           <img
             src={item.src}
             alt={item.alt}
-            className={cn(
-              "h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.04]",
-              index === 0 ? "aspect-[4/5] sm:aspect-auto sm:min-h-[280px]" : "aspect-square"
-            )}
+            className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.04]"
           />
           <GalleryOverlay compact={index > 0} />
         </button>
