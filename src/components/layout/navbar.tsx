@@ -87,10 +87,10 @@ export function Navbar() {
           scrolled ? "glass border-b border-border/50" : "bg-transparent"
         )}
       >
-        <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+        <div className="max-w-7xl mx-auto px-6 h-20 flex lg:grid lg:grid-cols-[1fr_auto_1fr] items-center">
           <Link
             href="/"
-            className="flex items-center gap-3 group"
+            className="flex items-center gap-3 group shrink-0 lg:justify-self-start"
             aria-label="MAG — Muhammad Ali Ghias home"
           >
             <ProfileAvatar
@@ -103,13 +103,13 @@ export function Navbar() {
             </span>
           </Link>
 
-          <nav className="hidden md:flex items-center gap-0">
+          <nav className="hidden lg:flex items-center justify-self-center">
             {navLinks.map((link) => (
               <Link
                 key={link.href}
                 href={link.href}
                 className={cn(
-                  "relative px-2.5 py-2 text-sm font-medium transition-colors",
+                  "relative px-1.5 xl:px-2 py-2 text-sm font-medium transition-colors whitespace-nowrap",
                   pathname === link.href
                     ? "text-primary"
                     : "text-muted-foreground hover:text-foreground"
@@ -127,7 +127,7 @@ export function Navbar() {
             ))}
           </nav>
 
-          <div className="hidden md:flex items-center gap-3">
+          <div className="hidden lg:flex items-center gap-3 justify-self-end shrink-0">
             <button
               onClick={() => setDarkMode(!darkMode)}
               className="p-2 text-muted-foreground hover:text-foreground transition-colors"
@@ -172,7 +172,7 @@ export function Navbar() {
 
           <button
             onClick={() => setIsOpen(true)}
-            className="md:hidden p-2 text-foreground"
+            className="lg:hidden p-2 text-foreground ml-auto"
           >
             <Menu className="w-6 h-6" />
           </button>
@@ -185,7 +185,7 @@ export function Navbar() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 z-[100] h-dvh w-screen overflow-hidden bg-background/95 backdrop-blur-xl md:hidden"
+            className="fixed inset-0 z-[100] h-dvh w-screen overflow-hidden bg-background/95 backdrop-blur-xl lg:hidden"
             style={{ position: "fixed", top: 0, left: 0, right: 0, bottom: 0 }}
           >
             <div className="flex h-full max-h-dvh flex-col items-center justify-center gap-8 overflow-y-auto overscroll-none px-6 py-20">
