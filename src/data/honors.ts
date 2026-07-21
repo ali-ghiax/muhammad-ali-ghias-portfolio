@@ -27,7 +27,7 @@ export const honors: Honor[] = [
     images: [
       {
         src: "/honors/president-recognition-1.png",
-        alt: "MLSA SLC X Creative Awards ceremony at City University of Science and Information Technology",
+        alt: "Muhammad Ali Ghias at the MLSA President Recognition Award ceremony at SLC X Creative Awards",
       },
       {
         src: "/honors/president-recognition-2.png",
@@ -35,11 +35,11 @@ export const honors: Honor[] = [
       },
       {
         src: "/honors/president-recognition-3.png",
-        alt: "Muhammad Ali Ghias receiving the MLSA CUSIT trophy at the SLC X Creative Awards",
+        alt: "Muhammad Ali Ghias receiving the MLSA President Recognition Award at SLC X Creative Awards",
       },
       {
         src: "/honors/president-recognition-4.png",
-        alt: "Close-up of the Students' Life Center President Recognition Award trophy",
+        alt: "Muhammad Ali Ghias holding the MLSA President Recognition Award trophy",
       },
     ],
   },
