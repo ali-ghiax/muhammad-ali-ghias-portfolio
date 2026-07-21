@@ -71,18 +71,6 @@ export const honors: Honor[] = [
     ],
   },
   {
-    id: "microsoft-excellence",
-    title: "Microsoft Excellence – 38 Trophies",
-    issuer: "Microsoft",
-    date: "Jan 2025",
-    description:
-      "Recognized by Microsoft Learn for consistent performance, skill mastery, and achievement across learning paths.",
-    category: "achievement",
-    image: "/honors/microsoft-excellence.jpg",
-    imageAlt:
-      "Microsoft Learn achievements profile showing learning path trophies earned by Muhammad Ali Ghias",
-  },
-  {
     id: "ans24-logo",
     title: "Winner – Logo Designing | ANS 24 (Across KPK)",
     issuer: "Abasyn University",
