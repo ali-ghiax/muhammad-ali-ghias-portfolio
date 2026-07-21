@@ -49,7 +49,7 @@ export const honors: Honor[] = [
     issuer: "Northern University",
     date: "Mar 2026",
     description:
-      "Invited as a guest speaker for an MLSA-led seminar at Northern University, covering how to become a Microsoft Learn Student Ambassador, cloud computing with Microsoft Azure, LinkedIn personal branding, and a hands-on portfolio deployment workshop on Azure Web Apps for students across the campus tech community.",
+      "Invited as a guest speaker for an MLSA-led seminar at Northern University, covering how to become a Microsoft Learn Student Ambassador.",
     category: "leadership",
     images: [
       {
