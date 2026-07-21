@@ -19,7 +19,6 @@ const navLinks = [
   { href: "/certifications", label: "Certifications" },
   { href: "/skills", label: "Skills" },
   { href: "/honors", label: "Honors & Awards" },
-  { href: "/blog", label: "Blog" },
   { href: "/contact", label: "Contact" },
 ];
 
