@@ -51,8 +51,24 @@ export const honors: Honor[] = [
     description:
       "Nominated and recognized by Microsoft as a Beta Student Ambassador for leading the MLSA CUSIT Chapter, mentoring students, and driving community engagement through workshops, events, and learning initiatives.",
     category: "leadership",
-    image: "/honors/mlsa-ambassador-certificate.jpg",
-    imageAlt: "Microsoft Student Ambassador certificate issued to Muhammad Ali Ghias",
+    images: [
+      {
+        src: "/honors/mlsa-beta-1.png",
+        alt: "Muhammad Ali Ghias with the Microsoft Learn Student Ambassador Beta badge and certificate",
+      },
+      {
+        src: "/honors/mlsa-beta-2.png",
+        alt: "Muhammad Ali Ghias holding the Microsoft Learn Student Ambassador Beta water bottle",
+      },
+      {
+        src: "/honors/mlsa-beta-3.png",
+        alt: "Muhammad Ali Ghias with the Microsoft Learn Student Ambassador Beta welcome kit",
+      },
+      {
+        src: "/honors/mlsa-beta-4.png",
+        alt: "Muhammad Ali Ghias holding the Microsoft Learn Student Ambassador Beta milestone pin",
+      },
+    ],
   },
   {
     id: "microsoft-excellence",
