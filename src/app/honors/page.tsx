@@ -338,11 +338,10 @@ export default function HonorsPage() {
   const [lightbox, setLightbox] = useState<LightboxState | null>(null);
 
   const stats = useMemo(() => {
-    const totalPhotos = honors.reduce((acc, honor) => acc + getHonorImages(honor).length, 0);
     const leadership = honors.filter((h) => h.category === "leadership").length;
     const competition = honors.filter((h) => h.category === "competition").length;
     const achievement = honors.filter((h) => h.category === "achievement").length;
-    return { total: honors.length, totalPhotos, leadership, competition, achievement };
+    return { leadership, competition, achievement };
   }, []);
 
   const openLightbox = (images: HonorImage[], index: number) => {
@@ -431,24 +430,6 @@ export default function HonorsPage() {
                   </a>
                   .
                 </p>
-              </div>
-
-              <div className="grid grid-cols-3 gap-3 sm:gap-4 lg:min-w-[320px]">
-                {[
-                  { value: stats.total, label: "Honors" },
-                  { value: stats.totalPhotos, label: "Photos" },
-                  { value: stats.leadership + stats.competition + stats.achievement, label: "Categories" },
-                ].map((stat) => (
-                  <div
-                    key={stat.label}
-                    className="rounded-xl border border-border/80 bg-card/70 backdrop-blur-sm px-3 py-4 sm:px-4 text-center"
-                  >
-                    <p className="text-2xl sm:text-3xl font-display font-bold text-foreground">{stat.value}</p>
-                    <p className="text-[11px] sm:text-xs uppercase tracking-wider text-muted-foreground mt-1">
-                      {stat.label}
-                    </p>
-                  </div>
-                ))}
               </div>
             </div>
 
