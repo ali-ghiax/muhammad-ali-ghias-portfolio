@@ -87,31 +87,29 @@ export function Navbar() {
           scrolled ? "glass border-b border-border/50" : "bg-transparent"
         )}
       >
-        <div className="max-w-7xl mx-auto px-6 lg:px-10 h-20 flex items-center">
-          <div className="flex flex-1 items-center min-w-0">
-            <Link
-              href="/"
-              className="flex items-center gap-3 group"
-              aria-label="MAG — Muhammad Ali Ghias home"
-            >
-              <ProfileAvatar
-                size={40}
-                priority
-                className="transition-opacity group-hover:opacity-90"
-              />
-              <span className="text-lg font-display font-bold tracking-tight hidden min-[380px]:inline">
-                Muhammad <span className="text-primary">Ali Ghias</span>
-              </span>
-            </Link>
-          </div>
+        <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+          <Link
+            href="/"
+            className="flex items-center gap-3 group"
+            aria-label="MAG — Muhammad Ali Ghias home"
+          >
+            <ProfileAvatar
+              size={40}
+              priority
+              className="transition-opacity group-hover:opacity-90"
+            />
+            <span className="text-lg font-display font-bold tracking-tight hidden min-[380px]:inline">
+              Muhammad <span className="text-primary">Ali Ghias</span>
+            </span>
+          </Link>
 
-          <nav className="hidden lg:flex items-center justify-center gap-0 shrink-0 px-4">
+          <nav className="hidden md:flex items-center gap-0">
             {navLinks.map((link) => (
               <Link
                 key={link.href}
                 href={link.href}
                 className={cn(
-                  "relative px-2.5 py-2 text-sm font-medium transition-colors whitespace-nowrap",
+                  "relative px-2.5 py-2 text-sm font-medium transition-colors",
                   pathname === link.href
                     ? "text-primary"
                     : "text-muted-foreground hover:text-foreground"
@@ -129,7 +127,7 @@ export function Navbar() {
             ))}
           </nav>
 
-          <div className="hidden lg:flex flex-1 items-center justify-end gap-3 min-w-0">
+          <div className="hidden md:flex items-center gap-3">
             <button
               onClick={() => setDarkMode(!darkMode)}
               className="p-2 text-muted-foreground hover:text-foreground transition-colors"
@@ -174,7 +172,7 @@ export function Navbar() {
 
           <button
             onClick={() => setIsOpen(true)}
-            className="lg:hidden p-2 text-foreground ml-auto"
+            className="md:hidden p-2 text-foreground"
           >
             <Menu className="w-6 h-6" />
           </button>
