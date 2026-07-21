@@ -1,9 +1,19 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import Link from "next/link";
-import { Award, Calendar, ChevronLeft, ChevronRight, ExternalLink, Medal, Trophy, X } from "lucide-react";
-import { Card } from "@/components/ui/card";
+import {
+  Award,
+  Calendar,
+  ChevronLeft,
+  ChevronRight,
+  ExternalLink,
+  Medal,
+  Sparkles,
+  Trophy,
+  X,
+  ZoomIn,
+} from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { honors, linkedInHonorsUrl, type Honor, type HonorImage } from "@/data/honors";
@@ -11,9 +21,36 @@ import { AnimatedSection } from "@/components/layout/animations";
 import { cn } from "@/lib/utils";
 
 const categoryMeta = {
-  leadership: { label: "Leadership", icon: Medal },
-  competition: { label: "Competition", icon: Trophy },
-  achievement: { label: "Achievement", icon: Award },
+  leadership: {
+    label: "Leadership",
+    icon: Medal,
+    accent: "text-primary",
+    badge: "border-primary/25 bg-primary/10 text-primary",
+    ring: "ring-primary/20",
+    glow: "from-primary/10 via-transparent to-transparent",
+  },
+  competition: {
+    label: "Competition",
+    icon: Trophy,
+    accent: "text-accent",
+    badge: "border-accent/30 bg-accent/10 text-accent",
+    ring: "ring-accent/20",
+    glow: "from-accent/10 via-transparent to-transparent",
+  },
+  achievement: {
+    label: "Achievement",
+    icon: Award,
+    accent: "text-secondary",
+    badge: "border-secondary/25 bg-secondary/10 text-secondary",
+    ring: "ring-secondary/20",
+    glow: "from-secondary/10 via-transparent to-transparent",
+  },
+} as const;
+
+const honorAnimation = {
+  duration: 0.4,
+  viewportMargin: "-80px",
+  y: 28,
 } as const;
 
 type LightboxState = {
@@ -29,56 +66,87 @@ function getHonorImages(honor: Honor): HonorImage[] {
   return [];
 }
 
-function HonorMedia({
-  honor,
+function staggerDelay(index: number, step = 0.06, max = 0.24) {
+  return Math.min(index * step, max);
+}
+
+function BentoGallery({
+  images,
   onImageClick,
+  className,
 }: {
-  honor: Honor;
+  images: HonorImage[];
   onImageClick: (images: HonorImage[], index: number) => void;
+  className?: string;
 }) {
-  const images = getHonorImages(honor);
   if (!images.length) return null;
 
-  if (images.length > 1) {
+  if (images.length === 1) {
+    const item = images[0];
     return (
-      <div className="grid grid-cols-2 gap-2 p-3 sm:p-4 bg-muted/20">
-        {images.map((item, index) => (
-          <button
-            key={item.src}
-            type="button"
-            onClick={() => onImageClick(images, index)}
-            className="group relative overflow-hidden bg-white cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-primary"
-            aria-label={`Open image: ${item.alt}`}
-          >
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
-              src={item.src}
-              alt={item.alt}
-              className="h-full w-full object-cover aspect-[4/5] sm:aspect-[3/4] transition-transform duration-300 group-hover:scale-[1.02]"
-            />
-            <span className="absolute inset-0 bg-black/0 transition-colors group-hover:bg-black/10" />
-          </button>
-        ))}
-      </div>
+      <button
+        type="button"
+        onClick={() => onImageClick(images, 0)}
+        className={cn(
+          "group relative w-full overflow-hidden rounded-xl border border-border bg-white cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-primary",
+          className
+        )}
+        aria-label={`Open image: ${item.alt}`}
+      >
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
+          src={item.src}
+          alt={item.alt}
+          className="aspect-[4/3] w-full object-contain p-4 transition-transform duration-500 group-hover:scale-[1.02]"
+        />
+        <GalleryOverlay />
+      </button>
     );
   }
 
-  const item = images[0];
   return (
-    <button
-      type="button"
-      onClick={() => onImageClick(images, 0)}
-      className="group relative h-full w-full cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-primary"
-      aria-label={`Open image: ${item.alt}`}
-    >
-      {/* eslint-disable-next-line @next/next/no-img-element */}
-      <img
-        src={item.src}
-        alt={item.alt}
-        className="h-full w-full object-contain bg-white p-3 transition-transform duration-300 group-hover:scale-[1.01]"
-      />
-      <span className="absolute inset-0 bg-black/0 transition-colors group-hover:bg-black/5" />
-    </button>
+    <div className={cn("grid grid-cols-2 sm:grid-cols-4 sm:grid-rows-2 gap-2 sm:gap-3", className)}>
+      {images.map((item, index) => (
+        <button
+          key={item.src}
+          type="button"
+          onClick={() => onImageClick(images, index)}
+          className={cn(
+            "group relative overflow-hidden rounded-lg sm:rounded-xl border border-border/80 bg-white cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-primary",
+            index === 0 && "sm:col-span-2 sm:row-span-2",
+            index > 0 && "aspect-square sm:aspect-auto sm:h-full"
+          )}
+          aria-label={`Open image: ${item.alt}`}
+        >
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src={item.src}
+            alt={item.alt}
+            className={cn(
+              "h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.04]",
+              index === 0 ? "aspect-[4/5] sm:aspect-auto sm:min-h-[280px]" : "aspect-square"
+            )}
+          />
+          <GalleryOverlay compact={index > 0} />
+        </button>
+      ))}
+    </div>
+  );
+}
+
+function GalleryOverlay({ compact = false }: { compact?: boolean }) {
+  return (
+    <>
+      <span className="absolute inset-0 bg-gradient-to-t from-black/50 via-black/0 to-black/0 opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+      <span
+        className={cn(
+          "absolute bottom-2 right-2 flex items-center justify-center rounded-full bg-black/55 text-white opacity-0 backdrop-blur-sm transition-all duration-300 group-hover:opacity-100 group-hover:scale-100 scale-90",
+          compact ? "h-7 w-7" : "h-9 w-9"
+        )}
+      >
+        <ZoomIn className={compact ? "h-3.5 w-3.5" : "h-4 w-4"} />
+      </span>
+    </>
   );
 }
 
@@ -99,7 +167,7 @@ function ImageLightbox({
 
   return (
     <div
-      className="fixed inset-0 z-[200] flex items-center justify-center bg-black/90 p-4 sm:p-8"
+      className="fixed inset-0 z-[200] flex items-center justify-center bg-black/92 backdrop-blur-sm p-4 sm:p-8 animate-fade-in"
       onClick={onClose}
       role="dialog"
       aria-modal="true"
@@ -108,7 +176,7 @@ function ImageLightbox({
       <button
         type="button"
         onClick={onClose}
-        className="absolute top-4 right-4 z-10 rounded-full border border-white/20 bg-black/50 p-2 text-white transition-colors hover:bg-black/70 cursor-pointer"
+        className="absolute top-4 right-4 z-10 rounded-full border border-white/15 bg-white/10 p-2.5 text-white transition-colors hover:bg-white/20 cursor-pointer"
         aria-label="Close image preview"
       >
         <X className="h-5 w-5" />
@@ -122,7 +190,7 @@ function ImageLightbox({
               e.stopPropagation();
               onPrev();
             }}
-            className="absolute left-3 sm:left-6 z-10 rounded-full border border-white/20 bg-black/50 p-2 text-white transition-colors hover:bg-black/70 cursor-pointer"
+            className="absolute left-3 sm:left-8 z-10 rounded-full border border-white/15 bg-white/10 p-2.5 text-white transition-colors hover:bg-white/20 cursor-pointer"
             aria-label="Previous image"
           >
             <ChevronLeft className="h-6 w-6" />
@@ -133,7 +201,7 @@ function ImageLightbox({
               e.stopPropagation();
               onNext();
             }}
-            className="absolute right-3 sm:right-6 z-10 rounded-full border border-white/20 bg-black/50 p-2 text-white transition-colors hover:bg-black/70 cursor-pointer"
+            className="absolute right-3 sm:right-8 z-10 rounded-full border border-white/15 bg-white/10 p-2.5 text-white transition-colors hover:bg-white/20 cursor-pointer"
             aria-label="Next image"
           >
             <ChevronRight className="h-6 w-6" />
@@ -142,28 +210,148 @@ function ImageLightbox({
       )}
 
       <div
-        className="relative max-h-full max-w-5xl w-full flex flex-col items-center gap-3"
+        className="relative max-h-full max-w-6xl w-full flex flex-col items-center gap-4 animate-scale-in"
         onClick={(e) => e.stopPropagation()}
       >
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img
-          src={current.src}
-          alt={current.alt}
-          className="max-h-[80vh] w-auto max-w-full object-contain"
-        />
-        <p className="max-w-2xl text-center text-sm text-white/80 px-4">{current.alt}</p>
+        <div className="overflow-hidden rounded-lg border border-white/10 bg-black/40 shadow-2xl">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src={current.src}
+            alt={current.alt}
+            className="max-h-[78vh] w-auto max-w-full object-contain"
+          />
+        </div>
+        <p className="max-w-2xl text-center text-sm sm:text-base text-white/85 px-4 leading-relaxed">
+          {current.alt}
+        </p>
         {hasMultiple && (
-          <p className="text-xs text-white/60">
-            {index + 1} / {images.length}
-          </p>
+          <div className="flex items-center gap-2">
+            {images.map((_, i) => (
+              <span
+                key={i}
+                className={cn(
+                  "h-1.5 rounded-full transition-all duration-300",
+                  i === index ? "w-6 bg-white" : "w-1.5 bg-white/35"
+                )}
+              />
+            ))}
+          </div>
         )}
       </div>
     </div>
   );
 }
 
+function HonorShowcase({
+  honor,
+  index,
+  onImageClick,
+}: {
+  honor: Honor;
+  index: number;
+  onImageClick: (images: HonorImage[], index: number) => void;
+}) {
+  const meta = categoryMeta[honor.category];
+  const Icon = meta.icon;
+  const images = getHonorImages(honor);
+  const isReversed = index % 2 === 1;
+  const number = String(index + 1).padStart(2, "0");
+
+  return (
+    <article id={honor.id} className="scroll-mt-28">
+      <div
+        className={cn(
+          "relative overflow-hidden rounded-2xl border border-border/80 glass-card shadow-sm transition-shadow duration-300 hover:shadow-[0_20px_60px_-24px_rgba(13,148,136,0.25)]",
+          "before:absolute before:inset-x-0 before:top-0 before:h-px before:bg-gradient-to-r before:from-transparent before:via-primary/40 before:to-transparent"
+        )}
+      >
+        <div
+          className={cn(
+            "pointer-events-none absolute inset-0 bg-gradient-to-br opacity-60",
+            meta.glow
+          )}
+        />
+
+        <div className="relative grid lg:grid-cols-2 gap-0">
+          <div
+            className={cn(
+              "flex flex-col justify-center p-6 sm:p-8 lg:p-10 xl:p-12",
+              isReversed && "lg:order-2"
+            )}
+          >
+            <div className="flex items-start gap-4 mb-6">
+              <div
+                className={cn(
+                  "flex h-12 w-12 shrink-0 items-center justify-center rounded-xl border bg-background/80 shadow-sm",
+                  meta.badge
+                )}
+              >
+                <Icon className="h-5 w-5" />
+              </div>
+              <div className="min-w-0 flex-1">
+                <div className="flex flex-wrap items-center gap-2 mb-3">
+                  <Badge variant="outline" className={cn("text-xs font-medium", meta.badge)}>
+                    {meta.label}
+                  </Badge>
+                  <span className="inline-flex items-center gap-1.5 text-sm text-muted-foreground">
+                    <Calendar className="h-3.5 w-3.5 shrink-0" />
+                    {honor.date}
+                  </span>
+                </div>
+                <h2 className="text-2xl sm:text-3xl font-display font-bold leading-tight mb-2">
+                  {honor.title}
+                </h2>
+                <p className="text-sm sm:text-base font-medium text-secondary">{honor.issuer}</p>
+              </div>
+            </div>
+
+            <p className="text-muted-foreground text-sm sm:text-base leading-relaxed mb-6 max-w-xl">
+              {honor.description}
+            </p>
+
+            {images.length > 0 && (
+              <p className="text-xs uppercase tracking-[0.18em] text-muted-foreground/80">
+                {images.length} photos · click to expand
+              </p>
+            )}
+          </div>
+
+          {images.length > 0 && (
+            <div
+              className={cn(
+                "border-t lg:border-t-0 lg:border-l border-border/60 p-4 sm:p-6 lg:p-8 bg-muted/15",
+                isReversed && "lg:order-1 lg:border-l-0 lg:border-r"
+              )}
+            >
+              <BentoGallery images={images} onImageClick={onImageClick} />
+            </div>
+          )}
+        </div>
+
+        <div
+          className={cn(
+            "absolute top-4 sm:top-6 font-display text-5xl sm:text-6xl font-bold leading-none text-foreground/[0.04] select-none pointer-events-none",
+            isReversed ? "left-4 sm:left-6" : "right-4 sm:right-6"
+          )}
+          aria-hidden
+        >
+          {number}
+        </div>
+      </div>
+    </article>
+  );
+}
+
 export default function HonorsPage() {
   const [lightbox, setLightbox] = useState<LightboxState | null>(null);
+
+  const stats = useMemo(() => {
+    const totalPhotos = honors.reduce((acc, honor) => acc + getHonorImages(honor).length, 0);
+    const leadership = honors.filter((h) => h.category === "leadership").length;
+    const competition = honors.filter((h) => h.category === "competition").length;
+    const achievement = honors.filter((h) => h.category === "achievement").length;
+    return { total: honors.length, totalPhotos, leadership, competition, achievement };
+  }, []);
 
   const openLightbox = (images: HonorImage[], index: number) => {
     setLightbox({ images, index });
@@ -183,6 +371,13 @@ export default function HonorsPage() {
     setLightbox((prev) =>
       prev ? { ...prev, index: (prev.index + 1) % prev.images.length } : null
     );
+  };
+
+  const scrollToHonor = (id: string) => {
+    const el = document.getElementById(id);
+    if (!el) return;
+    const top = el.getBoundingClientRect().top + window.scrollY - 96;
+    window.scrollTo({ top, behavior: "smooth" });
   };
 
   useEffect(() => {
@@ -217,121 +412,147 @@ export default function HonorsPage() {
 
   return (
     <div className="min-h-screen pt-20">
-      <section className="py-20 relative border-b border-border/60">
+      <section className="py-16 sm:py-20 relative overflow-hidden border-b border-border/60">
         <div className="absolute inset-0 bg-grid opacity-20" />
+        <div className="absolute inset-0 hero-mesh opacity-70" />
         <div className="max-w-7xl mx-auto px-6 relative">
-          <AnimatedSection>
-            <div className="mb-6 max-w-2xl">
-              <p className="text-sm uppercase tracking-[0.2em] text-primary mb-3">Recognition</p>
-              <h1 className="text-4xl md:text-6xl font-display font-bold mb-5">
-                Honors & <span className="text-gradient">awards</span>
-              </h1>
-              <p className="text-lg text-muted-foreground">
-                Leadership, design, and learning milestones recognized by Microsoft and university
-                competitions — aligned with my{" "}
-                <a
-                  href={linkedInHonorsUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-primary hover:underline"
-                >
-                  LinkedIn honors
-                </a>
-                .
-              </p>
+          <AnimatedSection duration={honorAnimation.duration} viewportMargin={honorAnimation.viewportMargin} y={honorAnimation.y}>
+            <div className="grid lg:grid-cols-[1fr_auto] gap-10 lg:gap-16 items-end mb-12">
+              <div className="max-w-3xl">
+                <p className="inline-flex items-center gap-2 text-sm uppercase tracking-[0.2em] text-primary mb-4">
+                  <Sparkles className="h-3.5 w-3.5" />
+                  Recognition
+                </p>
+                <h1 className="text-4xl md:text-6xl font-display font-bold mb-5 leading-[1.05]">
+                  Honors & <span className="text-gradient">awards</span>
+                </h1>
+                <p className="text-lg text-muted-foreground leading-relaxed">
+                  Leadership, design, and learning milestones recognized by Microsoft, CUSIT, and
+                  province-level competitions — curated from my{" "}
+                  <a
+                    href={linkedInHonorsUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-primary font-medium hover:underline underline-offset-4"
+                  >
+                    LinkedIn honors
+                  </a>
+                  .
+                </p>
+              </div>
+
+              <div className="grid grid-cols-3 gap-3 sm:gap-4 lg:min-w-[320px]">
+                {[
+                  { value: stats.total, label: "Honors" },
+                  { value: stats.totalPhotos, label: "Photos" },
+                  { value: stats.leadership + stats.competition + stats.achievement, label: "Categories" },
+                ].map((stat) => (
+                  <div
+                    key={stat.label}
+                    className="rounded-xl border border-border/80 bg-card/70 backdrop-blur-sm px-3 py-4 sm:px-4 text-center"
+                  >
+                    <p className="text-2xl sm:text-3xl font-display font-bold text-foreground">{stat.value}</p>
+                    <p className="text-[11px] sm:text-xs uppercase tracking-wider text-muted-foreground mt-1">
+                      {stat.label}
+                    </p>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            <div className="flex flex-wrap gap-2 sm:gap-3">
+              {honors.map((honor) => {
+                const meta = categoryMeta[honor.category];
+                const Icon = meta.icon;
+                return (
+                  <button
+                    key={honor.id}
+                    type="button"
+                    onClick={() => scrollToHonor(honor.id)}
+                    className="inline-flex items-center gap-2 rounded-full border border-border bg-card/60 px-3 py-2 sm:px-4 text-sm cursor-pointer transition-all hover:border-primary/40 hover:bg-card hover:shadow-sm"
+                  >
+                    <Icon className={cn("h-4 w-4 shrink-0", meta.accent)} />
+                    <span className="font-medium truncate max-w-[200px] sm:max-w-none">{honor.title}</span>
+                  </button>
+                );
+              })}
             </div>
           </AnimatedSection>
         </div>
       </section>
 
-      <section className="py-20 relative">
-        <div className="max-w-5xl mx-auto px-6">
-          <div className="space-y-8">
-            {honors.map((honor, index) => {
-              const meta = categoryMeta[honor.category];
-              const Icon = meta.icon;
-              const hasMedia = Boolean(honor.image || honor.images?.length);
-              const hasGallery = Boolean(honor.images?.length);
+      <section className="py-16 sm:py-20 relative">
+        <div className="max-w-6xl mx-auto px-6">
+          <AnimatedSection duration={honorAnimation.duration} viewportMargin={honorAnimation.viewportMargin} y={honorAnimation.y}>
+            <div className="mb-12 flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4">
+              <div>
+                <h2 className="text-2xl md:text-3xl font-display font-bold mb-2">Award showcase</h2>
+                <p className="text-muted-foreground text-sm sm:text-base max-w-xl">
+                  Each honor includes ceremony photos, certificates, and recognition materials.
+                  Select any image for a full-size view.
+                </p>
+              </div>
+              <div className="flex flex-wrap gap-2 text-xs">
+                {stats.leadership > 0 && (
+                  <span className={cn("rounded-full border px-2.5 py-1", categoryMeta.leadership.badge)}>
+                    {stats.leadership} Leadership
+                  </span>
+                )}
+                {stats.competition > 0 && (
+                  <span className={cn("rounded-full border px-2.5 py-1", categoryMeta.competition.badge)}>
+                    {stats.competition} Competition
+                  </span>
+                )}
+                {stats.achievement > 0 && (
+                  <span className={cn("rounded-full border px-2.5 py-1", categoryMeta.achievement.badge)}>
+                    {stats.achievement} Achievement
+                  </span>
+                )}
+              </div>
+            </div>
+          </AnimatedSection>
 
-              return (
-                <AnimatedSection key={honor.id} delay={Math.min(index * 0.08, 0.24)}>
-                  <Card className="overflow-hidden hover:border-primary/30 transition-colors">
-                    <div
-                      className={cn(
-                        "flex flex-col",
-                        hasMedia && !hasGallery && "md:flex-row md:items-stretch"
-                      )}
-                    >
-                      {hasMedia && !hasGallery && (
-                        <div className="md:w-2/5 border-b md:border-b-0 md:border-r border-border bg-muted/20 aspect-[16/10] md:aspect-auto md:min-h-[240px]">
-                          <HonorMedia honor={honor} onImageClick={openLightbox} />
-                        </div>
-                      )}
-
-                      <div className="flex-1 p-6 sm:p-8">
-                        <div className="flex items-start gap-4">
-                          {!hasMedia && (
-                            <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-lg border border-primary/20 bg-primary/10 text-primary">
-                              <Icon className="h-6 w-6" />
-                            </div>
-                          )}
-
-                          <div className="flex-1 min-w-0">
-                            <div className="flex flex-wrap items-center gap-2 mb-2">
-                              <Badge variant="outline" className="text-xs">
-                                {meta.label}
-                              </Badge>
-                              <span className="flex items-center gap-1.5 text-sm text-muted-foreground">
-                                <Calendar className="h-3.5 w-3.5" />
-                                {honor.date}
-                              </span>
-                            </div>
-                            <h2 className="text-xl sm:text-2xl font-display font-semibold mb-1">
-                              {honor.title}
-                            </h2>
-                            <p className="text-secondary font-medium mb-3">{honor.issuer}</p>
-                            <p className="text-muted-foreground text-sm leading-relaxed">
-                              {honor.description}
-                            </p>
-                          </div>
-                        </div>
-                      </div>
-
-                      {hasGallery && (
-                        <div className="border-t border-border">
-                          <HonorMedia honor={honor} onImageClick={openLightbox} />
-                        </div>
-                      )}
-                    </div>
-                  </Card>
-                </AnimatedSection>
-              );
-            })}
+          <div className="space-y-10 sm:space-y-14">
+            {honors.map((honor, index) => (
+              <AnimatedSection
+                key={honor.id}
+                delay={staggerDelay(index)}
+                duration={honorAnimation.duration}
+                viewportMargin={honorAnimation.viewportMargin}
+                y={honorAnimation.y}
+              >
+                <HonorShowcase honor={honor} index={index} onImageClick={openLightbox} />
+              </AnimatedSection>
+            ))}
           </div>
         </div>
       </section>
 
-      <section className="py-20 border-t border-border/60">
-        <div className="max-w-3xl mx-auto px-6 text-center">
-          <AnimatedSection>
-            <h2 className="text-3xl font-display font-bold mb-4">
-              Explore more <span className="text-gradient">credentials</span>
-            </h2>
-            <p className="text-muted-foreground mb-8">
-              See certifications, Microsoft badges, and Credly achievements alongside this recognition.
-            </p>
-            <div className="flex flex-wrap justify-center gap-3">
-              <Link href="/certifications">
-                <Button size="lg" className="glow-primary">
-                  View certifications
-                </Button>
-              </Link>
-              <a href={linkedInHonorsUrl} target="_blank" rel="noopener noreferrer">
-                <Button size="lg" variant="outline" className="gap-2">
-                  LinkedIn honors
-                  <ExternalLink className="h-4 w-4" />
-                </Button>
-              </a>
+      <section className="py-16 sm:py-20 border-t border-border/60 relative">
+        <div className="absolute inset-0 bg-radial opacity-40" />
+        <div className="max-w-3xl mx-auto px-6 text-center relative">
+          <AnimatedSection duration={honorAnimation.duration} viewportMargin={honorAnimation.viewportMargin} y={honorAnimation.y}>
+            <div className="rounded-2xl border border-border/80 glass-card p-8 sm:p-10">
+              <h2 className="text-2xl sm:text-3xl font-display font-bold mb-3">
+                Explore more <span className="text-gradient">credentials</span>
+              </h2>
+              <p className="text-muted-foreground mb-8 max-w-lg mx-auto">
+                Certifications, Microsoft Learn badges, and Credly achievements complement this
+                recognition.
+              </p>
+              <div className="flex flex-wrap justify-center gap-3">
+                <Link href="/certifications">
+                  <Button size="lg" className="glow-primary">
+                    View certifications
+                  </Button>
+                </Link>
+                <a href={linkedInHonorsUrl} target="_blank" rel="noopener noreferrer">
+                  <Button size="lg" variant="outline" className="gap-2">
+                    LinkedIn honors
+                    <ExternalLink className="h-4 w-4" />
+                  </Button>
+                </a>
+              </div>
             </div>
           </AnimatedSection>
         </div>

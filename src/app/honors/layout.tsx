@@ -4,7 +4,7 @@ import { siteConfig } from "@/lib/seo";
 export const metadata: Metadata = {
   title: "Honors & Awards",
   description:
-    "Honors and awards of Muhammad Ali Ghias (Ali Ghias / Ghias): Microsoft Learn Student Ambassador Beta, Microsoft Excellence, and ANS 24 Logo Designing winner.",
+    "Honors and awards of Muhammad Ali Ghias (Ali Ghias / Ghias): President Recognition Award, Microsoft Learn Student Ambassador Beta, and ANS 24 Logo Designing winner.",
   keywords: [
     "Muhammad Ali Ghias honors",
     "Ali Ghias awards",
