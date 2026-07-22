@@ -45,9 +45,9 @@ export default function Home() {
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img
                     src="/hero-photo.jpg"
-                    alt="Muhammad Ali Ghias"
-                    width={300}
-                    height={300}
+                    alt="Muhammad Ali Ghias — Software Engineer and Graphic Designer"
+                    width={600}
+                    height={600}
                     className="h-full w-full object-cover object-[50%_40%]"
                     decoding="async"
                     fetchPriority="high"
@@ -216,13 +216,11 @@ export default function Home() {
                         {personalInfo.venture.platformTagline}
                       </p>
                     </div>
-                    {/* eslint-disable-next-line @next/next/no-img-element */}
-                    <img
-                      src="/cyber-tools-logo.png"
-                      alt="Cyber Tools logo"
-                      width={72}
-                      height={72}
-                      className="h-16 w-16 sm:h-[72px] sm:w-[72px] shrink-0 rounded-xl object-contain"
+                    <span
+                      aria-hidden="true"
+                      role="presentation"
+                      className="h-16 w-16 sm:h-[72px] sm:w-[72px] shrink-0 rounded-xl bg-contain bg-center bg-no-repeat"
+                      style={{ backgroundImage: "url(/cyber-tools-logo.png)" }}
                     />
                   </a>
                 </div>

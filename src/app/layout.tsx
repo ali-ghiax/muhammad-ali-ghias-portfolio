@@ -60,7 +60,7 @@ export const metadata: Metadata = {
         url: siteConfig.ogImage,
         width: 1200,
         height: 1200,
-        alt: "Muhammad Ali Ghias portfolio",
+        alt: "Muhammad Ali Ghias — Software Engineer and Graphic Designer",
       },
     ],
   },

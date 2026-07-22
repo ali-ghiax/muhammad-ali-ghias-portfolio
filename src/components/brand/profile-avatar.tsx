@@ -24,7 +24,7 @@ export function ProfileAvatar({
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img
         src="/about-photo.jpg"
-        alt="Muhammad Ali Ghias"
+        alt="Muhammad Ali Ghias — Software Engineer and Graphic Designer"
         width={size}
         height={size}
         className="h-full w-full object-cover object-[50%_40%]"
