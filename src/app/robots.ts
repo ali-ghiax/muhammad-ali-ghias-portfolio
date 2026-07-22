@@ -7,38 +7,47 @@ export default function robots(): MetadataRoute.Robots {
       {
         userAgent: "*",
         allow: "/",
-        disallow: [],
+        disallow: [
+          "/Muhammad_Ali_Ghias_Resume.pdf",
+          "/*.pdf$",
+          "/GOOGLE_INDEXING.txt",
+          "/api/",
+        ],
       },
       {
         userAgent: "Googlebot",
         allow: "/",
+        disallow: [
+          "/Muhammad_Ali_Ghias_Resume.pdf",
+          "/*.pdf$",
+          "/GOOGLE_INDEXING.txt",
+          "/api/",
+        ],
       },
       {
         userAgent: "Googlebot-Image",
         allow: "/",
-      },
-      {
-        userAgent: "Googlebot-News",
-        allow: "/",
+        disallow: [
+          "/Muhammad_Ali_Ghias_Resume.pdf",
+          "/*.pdf$",
+          "/GOOGLE_INDEXING.txt",
+          "/api/",
+        ],
       },
       {
         userAgent: "Bingbot",
         allow: "/",
-      },
-      {
-        userAgent: "Slurp",
-        allow: "/",
-      },
-      {
-        userAgent: "DuckDuckBot",
-        allow: "/",
+        disallow: [
+          "/Muhammad_Ali_Ghias_Resume.pdf",
+          "/*.pdf$",
+          "/GOOGLE_INDEXING.txt",
+          "/api/",
+        ],
       },
     ],
     sitemap: [
       `${siteConfig.url}/sitemap.xml`,
       `${siteConfig.url}/sitemap-images.xml`,
-      `${siteConfig.url}/sitemap.txt`,
-      `${siteConfig.url}/index.txt`,
     ],
     host: siteConfig.url,
   };

@@ -56,9 +56,6 @@ export const sitePages = [
   { path: "/projects", priority: 0.95, changeFrequency: "weekly" as const },
   { path: "/certifications", priority: 0.85, changeFrequency: "monthly" as const },
   { path: "/skills", priority: 0.8, changeFrequency: "monthly" as const },
-  { path: "/honors", priority: 0.75, changeFrequency: "monthly" as const },
-  { path: "/blog", priority: 0.7, changeFrequency: "weekly" as const },
+  { path: "/honors", priority: 0.85, changeFrequency: "monthly" as const },
   { path: "/contact", priority: 0.85, changeFrequency: "monthly" as const },
-  { path: "/privacy", priority: 0.4, changeFrequency: "yearly" as const },
-  { path: "/terms", priority: 0.4, changeFrequency: "yearly" as const },
-];
+] as const;

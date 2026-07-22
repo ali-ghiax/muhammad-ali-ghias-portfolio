@@ -10,7 +10,7 @@ export const metadata: Metadata = {
     description: `How ${siteConfig.name} handles personal information on muhammadalighias.me.`,
     url: `${siteConfig.url}/privacy`,
   },
-  robots: { index: true, follow: true },
+  robots: { index: false, follow: true },
 };
 
 const lastUpdated = "July 19, 2026";

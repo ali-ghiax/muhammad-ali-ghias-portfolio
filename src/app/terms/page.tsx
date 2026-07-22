@@ -10,7 +10,7 @@ export const metadata: Metadata = {
     description: `Terms governing use of ${siteConfig.name}'s portfolio at muhammadalighias.me.`,
     url: `${siteConfig.url}/terms`,
   },
-  robots: { index: true, follow: true },
+  robots: { index: false, follow: true },
 };
 
 const lastUpdated = "July 19, 2026";

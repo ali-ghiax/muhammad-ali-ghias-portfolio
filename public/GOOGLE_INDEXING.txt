@@ -7,5 +7,7 @@
 #
 # After deploy, submit these in Google Search Console:
 #   https://muhammadalighias.me/sitemap.xml
-#   https://muhammadalighias.me/sitemap.txt
-#   https://muhammadalighias.me/index.txt
+#   https://muhammadalighias.me/sitemap-images.xml
+#
+# Do NOT submit the resume PDF for indexing.
+# sitemap.xml lists primary portfolio pages only.

@@ -21,6 +21,7 @@ export const metadata: Metadata = {
       "Original writing plus daily auto-updated ranked industry reads from DEV.to.",
     url: `${siteConfig.url}/blog`,
   },
+  robots: { index: false, follow: true },
 };
 
 export default function BlogLayout({ children }: { children: React.ReactNode }) {
