@@ -5,9 +5,10 @@
 # Or set the meta tag verification code in .env.local:
 #   NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION=your_verification_code
 #
-# After deploy, submit these in Google Search Console:
-#   https://muhammadalighias.me/sitemap.xml
-#   https://muhammadalighias.me/sitemap-images.xml
+# After deploy, submit these in Google Search Console / Bing Webmaster Tools:
+#   https://www.muhammadalighias.me/sitemap.xml
+#   https://www.muhammadalighias.me/sitemap-images.xml
 #
+# Canonical domain is www (non-www redirects to www).
 # Do NOT submit the resume PDF for indexing.
 # sitemap.xml lists primary portfolio pages only.

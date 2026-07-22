@@ -15,7 +15,7 @@ export const personalInfo = {
     instagram: "https://www.instagram.com/ali_ghiax/",
     tiktok: "https://www.tiktok.com/@ali_ghiax",
     twitter: "",
-    website: "https://muhammadalighias.me",
+    website: "https://www.muhammadalighias.me",
     whatsapp:
       "https://wa.me/923265763041?text=" +
       encodeURIComponent(

@@ -4,11 +4,11 @@ export const siteConfig = {
   title: "Muhammad Ali Ghias | Software Engineer & Graphic Designer",
   description:
     "Official portfolio of Muhammad Ali Ghias — also known as Ali Ghias and Ghias. Software Engineer, Graphic Designer, and Microsoft Learn Student Ambassador based in Peshawar, Pakistan.",
-  url: "https://muhammadalighias.me",
+  url: "https://www.muhammadalighias.me",
   locale: "en_US",
   /** Full portrait used for WhatsApp / OG / Twitter / Google search previews */
-  ogImage: "https://muhammadalighias.me/og-image.png",
-  avatarImage: "https://muhammadalighias.me/og-image.png",
+  ogImage: "https://www.muhammadalighias.me/og-image.png",
+  avatarImage: "https://www.muhammadalighias.me/og-image.png",
   email: "muhammadalighias@gmail.com",
   phone: "+92 326 5763041",
   location: {

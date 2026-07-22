@@ -4,7 +4,7 @@
 
 Junior Software Engineer & Graphic Designer. A refined showcase of web engineering, creative design, professional experience, and selected work from [github.com/ali-ghiax](https://github.com/ali-ghiax).
 
-**Live:** [muhammadalighias.me](https://muhammadalighias.me) · **GitHub:** [ali-ghiax](https://github.com/ali-ghiax) · **LinkedIn:** [muhammad-ali-ghias](https://www.linkedin.com/in/muhammad-ali-ghias/)
+**Live:** [muhammadalighias.me](https://www.muhammadalighias.me) · **GitHub:** [ali-ghiax](https://github.com/ali-ghiax) · **LinkedIn:** [muhammad-ali-ghias](https://www.linkedin.com/in/muhammad-ali-ghias/)
 
 Also searchable as **Ali Ghias**, **MAG**, **Ghias**, and **muhammad-ali-ghias**.
 
@@ -69,7 +69,7 @@ Messages from `/contact` are emailed to **muhammadalighias@gmail.com** via [Form
 
 ## SEO & indexing
 
-- Canonical domain: `https://muhammadalighias.me`
+- Canonical domain: `https://www.muhammadalighias.me`
 - `robots.txt` — allows Googlebot and major crawlers
 - `sitemap.xml` — XML sitemap (all pages, projects, blog)
 - `sitemap.txt` — text sitemap (one URL per line)
@@ -78,15 +78,14 @@ Messages from `/contact` are emailed to **muhammadalighias@gmail.com** via [Form
 - Per-page metadata for About, Experience, Projects, Skills, Blog, Contact
 - Optional Google verification via `NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION` (see `.env.example`)
 
-### After deploy — Google Search Console
+### After deploy — Google Search Console / Bing Webmaster Tools
 
-1. Add property `https://muhammadalighias.me`
-2. Verify domain (DNS TXT) or HTML / meta tag
+1. Add property `https://www.muhammadalighias.me`
+2. Verify ownership
 3. Submit sitemaps:
-   - `https://muhammadalighias.me/sitemap.xml`
-   - `https://muhammadalighias.me/sitemap.txt`
-   - `https://muhammadalighias.me/index.txt`
-4. Request indexing for the homepage
+   - `https://www.muhammadalighias.me/sitemap.xml`
+   - `https://www.muhammadalighias.me/sitemap-images.xml`
+4. Request indexing for the homepage (www URL only — non-www redirects to www)
 
 ---
 
@@ -100,4 +99,4 @@ CV download: `public/Muhammad_Ali_Ghias_Resume.pdf`.
 ## Author
 
 **Muhammad Ali Ghias** · Ali Ghias · Ghias  
-Peshawar, KPK · [muhammadalighias.me](https://muhammadalighias.me) · [ali-ghiax](https://github.com/ali-ghiax)
+Peshawar, KPK · [muhammadalighias.me](https://www.muhammadalighias.me) · [ali-ghiax](https://github.com/ali-ghiax)
