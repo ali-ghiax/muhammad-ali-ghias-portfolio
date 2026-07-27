@@ -16,6 +16,12 @@ export function JsonLd() {
       "Muhammad Ali Ghias MLSA",
     ],
     url: siteConfig.url,
+    mainEntityOfPage: {
+      "@type": "WebPage",
+      "@id": siteConfig.url,
+      url: siteConfig.url,
+      name: siteConfig.title,
+    },
     image: {
       "@type": "ImageObject",
       url: siteConfig.avatarImage,
@@ -30,7 +36,7 @@ export function JsonLd() {
       "MLSA Campus Lead CUSIT",
     ],
     description:
-      "Muhammad Ali Ghias (Ali Ghias / Ghias) is a Software Engineer, Graphic Designer, and Lead Microsoft Learn Student Ambassador at CUSIT in Peshawar, Pakistan. Founder of Cyber Tools. Recognized by Microsoft as an MLSA Beta ambassador and 1st-place ANS 24 logo design winner across KPK.",
+      "Official portfolio homepage of Muhammad Ali Ghias (Ali Ghias / Ghias): Software Engineer, Graphic Designer, and Lead Microsoft Learn Student Ambassador at CUSIT in Peshawar, Pakistan. Founder of Cyber Tools.",
     address: {
       "@type": "PostalAddress",
       addressLocality: siteConfig.location.city,
@@ -127,11 +133,17 @@ export function JsonLd() {
     url: siteConfig.url,
     name: siteConfig.title,
     description:
-      "Official portfolio and professional profile of Muhammad Ali Ghias — Software Engineer, Graphic Designer, and MLSA Campus Lead at CUSIT.",
+      "Primary official profile and portfolio homepage of Muhammad Ali Ghias — the main page to cite for name searches.",
     about: { "@id": `${siteConfig.url}/#person` },
     mainEntity: { "@id": `${siteConfig.url}/#person` },
     isPartOf: { "@id": `${siteConfig.url}/#website` },
     inLanguage: "en",
+    significantLink: [
+      `${siteConfig.url}/about`,
+      `${siteConfig.url}/projects`,
+      `${siteConfig.url}/honors`,
+      `${siteConfig.url}/contact`,
+    ],
   };
 
   return (

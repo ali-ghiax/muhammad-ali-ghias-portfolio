@@ -65,8 +65,11 @@ export default function About() {
                 </div>
 
                 <h1 className="text-2xl md:text-3xl font-display font-bold mb-1">
-                  {personalInfo.name}
+                  About me
                 </h1>
+                <p className="text-lg font-display font-semibold text-foreground mb-1">
+                  {personalInfo.name}
+                </p>
                 <p className="text-muted-foreground mb-2">{personalInfo.role}</p>
                 <p className="text-sm text-primary font-medium mb-4">
                   Lead MLSA CUSIT

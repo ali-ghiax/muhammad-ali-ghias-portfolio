@@ -2,22 +2,20 @@ import type { Metadata } from "next";
 import { siteConfig } from "@/lib/seo";
 
 export const metadata: Metadata = {
-  title: "About",
+  title: "About Me",
   description:
-    "Muhammad Ali Ghias (Ali Ghias / Ghias) is a Software Engineer, Graphic Designer, and Lead Microsoft Learn Student Ambassador at CUSIT in Peshawar. Founder of Cyber Tools; MLSA Beta and ANS 24 logo design winner.",
+    "Background, strengths, and education — more about my journey as a software engineer and graphic designer beyond the main portfolio homepage.",
   keywords: [
-    "About Muhammad Ali Ghias",
-    "Ali Ghias",
-    "Ghias",
-    "MLSA CUSIT",
-    "Cyber Tools founder",
-    "muhammad-ali-ghias",
+    "about me",
+    "software engineer background",
+    "graphic designer journey",
+    "CUSIT",
   ],
   alternates: { canonical: "/about" },
   openGraph: {
-    title: `About - ${siteConfig.name}`,
+    title: `About Me - ${siteConfig.name}`,
     description:
-      "Muhammad Ali Ghias — Software Engineer, Graphic Designer, MLSA Campus Lead at CUSIT, and founder of Cyber Tools.",
+      "Learn more about my background, strengths, and education. Visit the homepage for the main portfolio of Muhammad Ali Ghias.",
     url: `${siteConfig.url}/about`,
   },
 };

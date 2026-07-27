@@ -3,7 +3,7 @@ export const siteConfig = {
   shortName: "MAG",
   title: "Muhammad Ali Ghias | Software Engineer & Graphic Designer",
   description:
-    "Official portfolio of Muhammad Ali Ghias (Ali Ghias / Ghias) — Software Engineer, Graphic Designer, Lead Microsoft Learn Student Ambassador at CUSIT, and founder of Cyber Tools. Based in Peshawar, Pakistan.",
+    "Muhammad Ali Ghias (Ali Ghias / Ghias) — official portfolio homepage. Software Engineer, Graphic Designer, and Lead Microsoft Learn Student Ambassador at CUSIT in Peshawar, Pakistan. Founder of Cyber Tools.",
   url: "https://www.muhammadalighias.me",
   locale: "en_US",
   /** Full portrait used for WhatsApp / OG / Twitter / Google search previews */
@@ -51,7 +51,7 @@ export const siteConfig = {
 
 export const sitePages = [
   { path: "/", priority: 1, changeFrequency: "weekly" as const },
-  { path: "/about", priority: 0.9, changeFrequency: "monthly" as const },
+  { path: "/about", priority: 0.6, changeFrequency: "monthly" as const },
   { path: "/experience", priority: 0.85, changeFrequency: "monthly" as const },
   { path: "/projects", priority: 0.95, changeFrequency: "weekly" as const },
   { path: "/certifications", priority: 0.85, changeFrequency: "monthly" as const },
