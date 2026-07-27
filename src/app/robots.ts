@@ -1,50 +1,38 @@
 import type { MetadataRoute } from "next";
 import { siteConfig } from "@/lib/seo";
 
+const disallowedPaths = [
+  "/Muhammad_Ali_Ghias_Resume.pdf",
+  "/*.pdf$",
+  "/GOOGLE_INDEXING.txt",
+  "/api/",
+];
+
+const searchAndAiBots = [
+  "*",
+  "Googlebot",
+  "Googlebot-Image",
+  "Bingbot",
+  "GPTBot",
+  "ChatGPT-User",
+  "OAI-SearchBot",
+  "ClaudeBot",
+  "anthropic-ai",
+  "PerplexityBot",
+  "Google-Extended",
+  "Applebot-Extended",
+  "CCBot",
+  "Bytespider",
+  "meta-externalagent",
+] as const;
+
 export default function robots(): MetadataRoute.Robots {
   return {
-    rules: [
-      {
-        userAgent: "*",
-        allow: "/",
-        disallow: [
-          "/Muhammad_Ali_Ghias_Resume.pdf",
-          "/*.pdf$",
-          "/GOOGLE_INDEXING.txt",
-          "/api/",
-        ],
-      },
-      {
-        userAgent: "Googlebot",
-        allow: "/",
-        disallow: [
-          "/Muhammad_Ali_Ghias_Resume.pdf",
-          "/*.pdf$",
-          "/GOOGLE_INDEXING.txt",
-          "/api/",
-        ],
-      },
-      {
-        userAgent: "Googlebot-Image",
-        allow: "/",
-        disallow: [
-          "/Muhammad_Ali_Ghias_Resume.pdf",
-          "/*.pdf$",
-          "/GOOGLE_INDEXING.txt",
-          "/api/",
-        ],
-      },
-      {
-        userAgent: "Bingbot",
-        allow: "/",
-        disallow: [
-          "/Muhammad_Ali_Ghias_Resume.pdf",
-          "/*.pdf$",
-          "/GOOGLE_INDEXING.txt",
-          "/api/",
-        ],
-      },
-    ],
+    rules: searchAndAiBots.map((userAgent) => ({
+      userAgent,
+      allow: ["/", "/llms.txt", "/llms-full.txt"],
+      disallow: disallowedPaths,
+    })),
     sitemap: [
       `${siteConfig.url}/sitemap.xml`,
       `${siteConfig.url}/sitemap-images.xml`,

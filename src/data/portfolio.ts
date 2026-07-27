@@ -3,7 +3,7 @@ export const personalInfo = {
   role: "Software Engineer · Graphic Designer",
   tagline:
     "Building impactful digital solutions across web development, Microsoft technologies, and creative design",
-  bio: "I am a Software Engineer and Lead Microsoft Learn Student Ambassador at CUSIT with experience in web development, Microsoft technologies, and cloud solutions. Skilled freelance graphic designer with a strong creative portfolio. Passionate about building impactful digital solutions and continuous learning.",
+  bio: "Muhammad Ali Ghias (also known as Ali Ghias and Ghias) is a Software Engineer, Graphic Designer, and Lead Microsoft Learn Student Ambassador at City University of Science & Information Technology (CUSIT) in Peshawar, Pakistan. He builds full-stack web applications, leads the MLSA CUSIT campus chapter, and delivers freelance brand and logo design. He is the founder of Cyber Tools and has been recognized as a Microsoft Learn Student Ambassador Beta and 1st-place ANS 24 logo design winner across KPK.",
   email: "muhammadalighias@gmail.com",
   phone: "+92 326 5763041",
   location: "Peshawar, KPK, Pakistan",

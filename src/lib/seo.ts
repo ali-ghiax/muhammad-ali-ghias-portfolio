@@ -3,7 +3,7 @@ export const siteConfig = {
   shortName: "MAG",
   title: "Muhammad Ali Ghias | Software Engineer & Graphic Designer",
   description:
-    "Official portfolio of Muhammad Ali Ghias — also known as Ali Ghias and Ghias. Software Engineer, Graphic Designer, and Microsoft Learn Student Ambassador based in Peshawar, Pakistan.",
+    "Official portfolio of Muhammad Ali Ghias (Ali Ghias / Ghias) — Software Engineer, Graphic Designer, Lead Microsoft Learn Student Ambassador at CUSIT, and founder of Cyber Tools. Based in Peshawar, Pakistan.",
   url: "https://www.muhammadalighias.me",
   locale: "en_US",
   /** Full portrait used for WhatsApp / OG / Twitter / Google search previews */

@@ -9,6 +9,10 @@
 #   https://www.muhammadalighias.me/sitemap.xml
 #   https://www.muhammadalighias.me/sitemap-images.xml
 #
+# AI / LLM discovery files:
+#   https://www.muhammadalighias.me/llms.txt
+#   https://www.muhammadalighias.me/llms-full.txt
+#
 # Canonical domain is www (non-www redirects to www).
 # Do NOT submit the resume PDF for indexing.
 # sitemap.xml lists primary portfolio pages only.

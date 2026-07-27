@@ -55,7 +55,7 @@ export default function About() {
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img
                     src="/about-photo.jpg"
-                    alt="Muhammad Ali Ghias"
+                    alt="Muhammad Ali Ghias — Software Engineer, Graphic Designer, and MLSA Campus Lead at CUSIT"
                     width={240}
                     height={240}
                     className="h-full w-full object-cover object-[50%_40%]"
@@ -109,6 +109,28 @@ export default function About() {
               <p className="text-lg text-muted-foreground leading-relaxed">
                 {personalInfo.bio}
               </p>
+              <div className="rounded-xl border border-border/80 bg-muted/20 p-4 sm:p-5 space-y-2 text-sm text-muted-foreground leading-relaxed">
+                <p className="text-xs uppercase tracking-[0.18em] text-primary font-medium">
+                  Quick facts
+                </p>
+                <ul className="space-y-1.5 list-disc pl-5">
+                  <li>
+                    Lead Microsoft Learn Student Ambassador (MLSA) and Campus Lead at CUSIT,
+                    Peshawar
+                  </li>
+                  <li>
+                    Microsoft Learn Student Ambassador – Beta (Microsoft, Feb 2025)
+                  </li>
+                  <li>
+                    1st position in Logo Designing at ANS 24 across KPK (Abasyn University, Dec
+                    2024)
+                  </li>
+                  <li>
+                    President Recognition Award for MLSA CUSIT leadership (SLC, CUSIT, Jun 2026)
+                  </li>
+                  <li>Founder of Cyber Tools — free online utilities for students and professionals</li>
+                </ul>
+              </div>
               <p className="text-muted-foreground leading-relaxed">
                 Currently leading MLSA efforts at CUSIT while shipping full-stack web work and
                 freelance graphic design. Experienced across client brands, campus societies, and

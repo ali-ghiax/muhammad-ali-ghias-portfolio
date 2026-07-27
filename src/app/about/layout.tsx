@@ -4,18 +4,20 @@ import { siteConfig } from "@/lib/seo";
 export const metadata: Metadata = {
   title: "About",
   description:
-    "About Muhammad Ali Ghias — Ali Ghias / Ghias. Software Engineer, Graphic Designer, and MLSA Lead at CUSIT in Peshawar, Pakistan.",
+    "Muhammad Ali Ghias (Ali Ghias / Ghias) is a Software Engineer, Graphic Designer, and Lead Microsoft Learn Student Ambassador at CUSIT in Peshawar. Founder of Cyber Tools; MLSA Beta and ANS 24 logo design winner.",
   keywords: [
     "About Muhammad Ali Ghias",
     "Ali Ghias",
     "Ghias",
+    "MLSA CUSIT",
+    "Cyber Tools founder",
     "muhammad-ali-ghias",
   ],
   alternates: { canonical: "/about" },
   openGraph: {
     title: `About - ${siteConfig.name}`,
     description:
-      "Learn about Ali Ghias — engineer, designer, and Microsoft Learn Student Ambassador.",
+      "Muhammad Ali Ghias — Software Engineer, Graphic Designer, MLSA Campus Lead at CUSIT, and founder of Cyber Tools.",
     url: `${siteConfig.url}/about`,
   },
 };
