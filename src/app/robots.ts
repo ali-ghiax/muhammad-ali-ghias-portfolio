@@ -5,6 +5,7 @@ const disallowedPaths = [
   "/Muhammad_Ali_Ghias_Resume.pdf",
   "/*.pdf$",
   "/GOOGLE_INDEXING.txt",
+  "/sitemap-images.xml",
   "/api/",
 ];
 
@@ -33,10 +34,7 @@ export default function robots(): MetadataRoute.Robots {
       allow: ["/", "/llms.txt", "/llms-full.txt"],
       disallow: disallowedPaths,
     })),
-    sitemap: [
-      `${siteConfig.url}/sitemap.xml`,
-      `${siteConfig.url}/sitemap-images.xml`,
-    ],
+    sitemap: [`${siteConfig.url}/sitemap.xml`],
     host: siteConfig.url,
   };
 }

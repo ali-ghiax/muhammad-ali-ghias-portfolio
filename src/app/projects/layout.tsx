@@ -4,18 +4,12 @@ import { siteConfig } from "@/lib/seo";
 export const metadata: Metadata = {
   title: "Projects",
   description:
-    "Projects by Muhammad Ali Ghias (Ali Ghias / Ghias) on GitHub — web apps, desktop tools, ML, and academic work.",
-  keywords: [
-    "Muhammad Ali Ghias projects",
-    "Ali Ghias projects",
-    "Ghias GitHub",
-    "ali-ghiax",
-    "muhammad-ali-ghias",
-  ],
+    "Selected web, desktop, and academic projects from my GitHub portfolio.",
   alternates: { canonical: "/projects" },
+  robots: { index: false, follow: true },
   openGraph: {
     title: `Projects - ${siteConfig.name}`,
-    description: "Explore work by Ali Ghias from github.com/ali-ghiax.",
+    description: "Explore selected work from github.com/ali-ghiax.",
     url: `${siteConfig.url}/projects`,
   },
 };

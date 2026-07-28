@@ -1,7 +1,7 @@
 import type { MetadataRoute } from "next";
 import { siteConfig, sitePages } from "@/lib/seo";
 
-/** Sitemap lists only primary portfolio pages — no PDFs, blog posts, or detail URLs. */
+/** Sitemap lists only the homepage — other sections are noindex. */
 export default function sitemap(): MetadataRoute.Sitemap {
   const lastModified = new Date();
 

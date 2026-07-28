@@ -51,11 +51,18 @@ export const siteConfig = {
 
 export const sitePages = [
   { path: "/", priority: 1, changeFrequency: "weekly" as const },
-  { path: "/about", priority: 0.6, changeFrequency: "monthly" as const },
-  { path: "/experience", priority: 0.85, changeFrequency: "monthly" as const },
-  { path: "/projects", priority: 0.95, changeFrequency: "weekly" as const },
-  { path: "/certifications", priority: 0.85, changeFrequency: "monthly" as const },
-  { path: "/skills", priority: 0.8, changeFrequency: "monthly" as const },
-  { path: "/honors", priority: 0.85, changeFrequency: "monthly" as const },
-  { path: "/contact", priority: 0.85, changeFrequency: "monthly" as const },
+] as const;
+
+/** Site sections remain public to visitors but are not submitted for Google indexing. */
+export const noIndexSitePaths = [
+  "/about",
+  "/experience",
+  "/projects",
+  "/certifications",
+  "/skills",
+  "/honors",
+  "/contact",
+  "/blog",
+  "/privacy",
+  "/terms",
 ] as const;

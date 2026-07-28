@@ -4,17 +4,12 @@ import { siteConfig } from "@/lib/seo";
 export const metadata: Metadata = {
   title: "Skills",
   description:
-    "Skills of Muhammad Ali Ghias (Ali Ghias / Ghias): React, Node.js, Tailwind CSS, TypeScript, Next.js, Adobe design tools, and Microsoft technologies.",
-  keywords: [
-    "Muhammad Ali Ghias skills",
-    "Ali Ghias skills",
-    "Ghias React Node.js",
-    "muhammad-ali-ghias",
-  ],
+    "Web, development, design, Microsoft, and soft skills from my portfolio.",
   alternates: { canonical: "/skills" },
+  robots: { index: false, follow: true },
   openGraph: {
     title: `Skills - ${siteConfig.name}`,
-    description: "Technical and creative skills of Ali Ghias.",
+    description: "Technical and creative skills overview.",
     url: `${siteConfig.url}/skills`,
   },
 };

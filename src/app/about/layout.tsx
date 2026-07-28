@@ -12,6 +12,7 @@ export const metadata: Metadata = {
     "CUSIT",
   ],
   alternates: { canonical: "/about" },
+  robots: { index: false, follow: true },
   openGraph: {
     title: `About Me - ${siteConfig.name}`,
     description:
