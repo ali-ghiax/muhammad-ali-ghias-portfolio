@@ -1,15 +1,21 @@
 import type { Metadata } from "next";
 import { siteConfig } from "@/lib/seo";
+import { microsoftAchievementStats } from "@/data/microsoft-achievements";
 
 export const metadata: Metadata = {
   title: "Certifications",
   description:
-    "Coursera, Udemy, Credly, and Microsoft Learn certifications and badges.",
+    `Coursera, Udemy, Credly, IBM DevOps, and ${microsoftAchievementStats.badges} Microsoft Learn badges. Part of the Muhammad Ali Ghias portfolio.`,
+  keywords: [
+    "IBM DevOps Professional Certificate",
+    "Microsoft Learn badges",
+    "Coursera certificates",
+    "Udemy certificates",
+  ],
   alternates: { canonical: "/certifications" },
-  robots: { index: false, follow: true },
   openGraph: {
     title: `Certifications - ${siteConfig.name}`,
-    description: "Certifications and Microsoft Learn achievements.",
+    description: "Coursera, Udemy, and Microsoft Learn certifications.",
     url: `${siteConfig.url}/certifications`,
   },
 };

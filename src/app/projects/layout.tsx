@@ -4,9 +4,14 @@ import { siteConfig } from "@/lib/seo";
 export const metadata: Metadata = {
   title: "Projects",
   description:
-    "Selected web, desktop, and academic projects from my GitHub portfolio.",
+    "Selected web, desktop, and academic projects from GitHub. Part of the Muhammad Ali Ghias portfolio.",
+  keywords: [
+    "web development projects",
+    "GitHub portfolio",
+    "React Next.js projects",
+    "ali-ghiax",
+  ],
   alternates: { canonical: "/projects" },
-  robots: { index: false, follow: true },
   openGraph: {
     title: `Projects - ${siteConfig.name}`,
     description: "Explore selected work from github.com/ali-ghiax.",

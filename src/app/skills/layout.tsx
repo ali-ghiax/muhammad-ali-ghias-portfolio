@@ -4,9 +4,14 @@ import { siteConfig } from "@/lib/seo";
 export const metadata: Metadata = {
   title: "Skills",
   description:
-    "Web, development, design, Microsoft, and soft skills from my portfolio.",
+    "Web, development, design, Microsoft, and soft skills. Part of the Muhammad Ali Ghias portfolio.",
+  keywords: [
+    "React Node.js TypeScript",
+    "Next.js Tailwind CSS",
+    "Adobe Photoshop Illustrator",
+    "Microsoft technologies",
+  ],
   alternates: { canonical: "/skills" },
-  robots: { index: false, follow: true },
   openGraph: {
     title: `Skills - ${siteConfig.name}`,
     description: "Technical and creative skills overview.",

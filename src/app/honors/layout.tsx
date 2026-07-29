@@ -8,9 +8,14 @@ const honorImages = getHonorImageSeoEntries();
 export const metadata: Metadata = {
   title: "Honors & Awards",
   description:
-    "Leadership and competition recognition including MLSA awards and ANS 24 logo design winner.",
+    "Leadership and competition recognition including MLSA awards and ANS 24 logo design winner. Part of the Muhammad Ali Ghias portfolio.",
+  keywords: [
+    "MLSA Beta recognition",
+    "ANS 24 logo design winner",
+    "CUSIT awards",
+    "Microsoft Learn Student Ambassador",
+  ],
   alternates: { canonical: "/honors" },
-  robots: { index: false, follow: true },
   openGraph: {
     title: `Honors & Awards - ${siteConfig.name}`,
     description: "Recognition for leadership, design excellence, and Microsoft Learn achievements.",

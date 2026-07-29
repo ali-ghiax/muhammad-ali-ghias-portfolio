@@ -109,6 +109,7 @@ export default function RootLayout({
         <link rel="alternate" type="text/plain" href="/llms.txt" title="LLMs.txt" />
         <link rel="alternate" type="text/plain" href="/llms-full.txt" title="LLMs full profile" />
         <link rel="sitemap" type="application/xml" href="/sitemap.xml" />
+        <link rel="sitemap" type="application/xml" href="/sitemap-images.xml" title="Image Sitemap" />
         <link rel="alternate" type="text/plain" href="/sitemap.txt" title="Sitemap" />
         <link rel="alternate" type="text/plain" href="/index.txt" title="URL Index" />
       </head>
