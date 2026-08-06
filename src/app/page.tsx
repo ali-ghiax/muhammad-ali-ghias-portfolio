@@ -58,7 +58,7 @@ export default function Home() {
 
             {/* Copy */}
             <div className="order-2 lg:order-1 lg:col-span-7 text-center lg:text-left">
-              <motion.p
+              <motion.h1
                 initial={{ opacity: 0, y: 12 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5 }}
@@ -67,7 +67,7 @@ export default function Home() {
                 <span className="text-gradient">Muhammad</span>
                 <br />
                 <span className="text-foreground">Ali Ghias</span>
-              </motion.p>
+              </motion.h1>
 
               <motion.div
                 initial={{ scaleX: 0 }}
@@ -76,14 +76,14 @@ export default function Home() {
                 className="h-1 w-20 sm:w-24 md:w-32 bg-primary mb-3 md:mb-4 origin-center lg:origin-left mx-auto lg:mx-0"
               />
 
-              <motion.h1
+              <motion.p
                 initial={{ opacity: 0, y: 16 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.3 }}
                 className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-display font-semibold text-foreground/90 mb-4 max-w-2xl mx-auto lg:mx-0"
               >
                 {personalInfo.role}
-              </motion.h1>
+              </motion.p>
 
               <motion.p
                 initial={{ opacity: 0, y: 16 }}
@@ -91,8 +91,9 @@ export default function Home() {
                 transition={{ duration: 0.5, delay: 0.4 }}
                 className="text-sm sm:text-base md:text-lg text-muted-foreground mb-8 max-w-xl mx-auto lg:mx-0"
               >
-                {personalInfo.tagline}. Web development, Microsoft technologies, and creative
-                design.
+                Official portfolio of Muhammad Ali Ghias — Software Engineer, Graphic Designer,
+                and Lead Microsoft Learn Student Ambassador at CUSIT, Peshawar.{" "}
+                {personalInfo.tagline}.
               </motion.p>
 
               <motion.div

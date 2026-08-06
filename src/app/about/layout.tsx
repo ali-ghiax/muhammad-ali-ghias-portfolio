@@ -2,20 +2,21 @@ import type { Metadata } from "next";
 import { siteConfig } from "@/lib/seo";
 
 export const metadata: Metadata = {
-  title: "About Me",
+  title: {
+    absolute: "Background & education | Portfolio",
+  },
   description:
-    "Background, strengths, and education — more about my journey as a software engineer and graphic designer beyond the main portfolio homepage.",
+    "Extra background, strengths, and education details. The main Muhammad Ali Ghias portfolio is on the homepage.",
   keywords: [
-    "about me",
-    "software engineer background",
-    "graphic designer journey",
-    "CUSIT",
+    "portfolio background",
+    "education CUSIT",
+    "software engineer strengths",
   ],
   alternates: { canonical: "/about" },
   openGraph: {
-    title: `About Me - ${siteConfig.name}`,
+    title: "Background & education | Portfolio",
     description:
-      "Learn more about my background, strengths, and education. Visit the homepage for the main portfolio of Muhammad Ali Ghias.",
+      "Secondary about page. Visit the homepage for the official Muhammad Ali Ghias portfolio.",
     url: `${siteConfig.url}/about`,
   },
 };

@@ -3,7 +3,7 @@ export const personalInfo = {
   role: "Software Engineer · Graphic Designer",
   tagline:
     "Building impactful digital solutions across web development, Microsoft technologies, and creative design",
-  bio: "I am a Software Engineer, Graphic Designer, and Lead Microsoft Learn Student Ambassador at City University of Science & Information Technology (CUSIT) in Peshawar, Pakistan. I build full-stack web applications, lead the MLSA CUSIT campus chapter, and deliver freelance brand and logo design. I am the founder of Cyber Tools and have been recognized as a Microsoft Learn Student Ambassador Beta and 1st-place ANS 24 logo design winner across KPK.",
+  bio: "This page shares more of my background beyond the main portfolio homepage. I build full-stack web applications, lead the MLSA CUSIT campus chapter, and deliver freelance brand and logo design. I founded Cyber Tools and have been recognized as a Microsoft Learn Student Ambassador Beta and 1st-place ANS 24 logo design winner across KPK.",
   email: "muhammadalighias@gmail.com",
   phone: "+92 326 5763041",
   location: "Peshawar, KPK, Pakistan",

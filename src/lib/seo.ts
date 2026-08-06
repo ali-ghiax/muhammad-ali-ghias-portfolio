@@ -3,7 +3,7 @@ export const siteConfig = {
   shortName: "MAG",
   title: "Muhammad Ali Ghias | Software Engineer & Graphic Designer",
   description:
-    "Muhammad Ali Ghias (Ali Ghias / Ghias) — official portfolio homepage. Software Engineer, Graphic Designer, and Lead Microsoft Learn Student Ambassador at CUSIT in Peshawar, Pakistan. Founder of Cyber Tools.",
+    "Muhammad Ali Ghias (Ali Ghias / Ghias) — official portfolio. Software Engineer, Graphic Designer, and Lead Microsoft Learn Student Ambassador at CUSIT in Peshawar, Pakistan. Founder of Cyber Tools. Explore projects, experience, certifications, and contact.",
   url: "https://www.muhammadalighias.me",
   locale: "en_US",
   /** Full portrait used for WhatsApp / OG / Twitter / Google search previews */
@@ -52,7 +52,7 @@ export const siteConfig = {
 /** Homepage stays priority 1 so name searches prefer it; other pages are indexed below that. */
 export const sitePages = [
   { path: "/", priority: 1, changeFrequency: "weekly" as const },
-  { path: "/about", priority: 0.7, changeFrequency: "monthly" as const },
+  { path: "/about", priority: 0.3, changeFrequency: "monthly" as const },
   { path: "/experience", priority: 0.75, changeFrequency: "monthly" as const },
   { path: "/projects", priority: 0.8, changeFrequency: "weekly" as const },
   { path: "/certifications", priority: 0.7, changeFrequency: "monthly" as const },

@@ -65,7 +65,7 @@ export default function About() {
                 </div>
 
                 <h1 className="text-2xl md:text-3xl font-display font-bold mb-1">
-                  About me
+                  Background
                 </h1>
                 <p className="text-lg font-display font-semibold text-foreground mb-1">
                   {personalInfo.name}
@@ -140,8 +140,13 @@ export default function About() {
                 5-star rated creative projects on Fiverr and Upwork.
               </p>
               <div className="flex flex-wrap gap-3 pt-2">
+                <Link href="/">
+                  <Button className="glow-primary">Main portfolio</Button>
+                </Link>
                 <a href="/Muhammad_Ali_Ghias_Resume.pdf" download>
-                  <Button className="glow-primary">Download CV</Button>
+                  <Button variant="outline" className="border-foreground/20">
+                    Download CV
+                  </Button>
                 </a>
                 <Link href="/experience">
                   <Button variant="outline" className="border-foreground/20">
@@ -151,11 +156,6 @@ export default function About() {
                 <Link href="/contact">
                   <Button variant="outline" className="border-foreground/20">
                     Get in touch
-                  </Button>
-                </Link>
-                <Link href="/projects">
-                  <Button variant="outline" className="border-foreground/20">
-                    See projects
                   </Button>
                 </Link>
               </div>
